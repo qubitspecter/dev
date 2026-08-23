@@ -1,0 +1,56 @@
+---
+import { Image } from 'astro:assets';
+import logoImage from '../assets/d_logo.png';
+
+const pathname = Astro.url.pathname;
+---
+<nav class="navbar navbar-expand-lg navbar-cream sticky-top py-3">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2 fw-bold fs-4" href="/">
+            <Image src={logoImage} alt="Decoheron Logo" class="img-fluid hero-logo" loading="eager" />
+            <span>Decoheron</span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+                <li class="nav-item">
+                    <a class:list={['nav-link', { active: pathname === '/' }]} aria-current={pathname === '/' ? 'page' : undefined} href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class:list={['nav-link', { active: pathname.startsWith('/liabilities') }]} aria-current={pathname.startsWith('/liabilities') ? 'page' : undefined} href="/liabilities">Liabilities</a>
+                </li>
+                <li class="nav-item">
+                    <a class:list={['nav-link', { active: pathname.startsWith('/solution') }]} aria-current={pathname.startsWith('/solution') ? 'page' : undefined} href="/solution">Solution</a>
+                </li>
+                <li class="nav-item">
+                    <a class:list={['nav-link', { active: pathname.startsWith('/about') }]} aria-current={pathname.startsWith('/about') ? 'page' : undefined} href="/about">About</a>
+                </li>
+                <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                    <a class="btn btn-primary px-4" href="#briefing">Book a Briefing</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<style>
+.navbar-cream {
+    background-color: var(--bs-light) !important;
+    border-bottom: 2px solid var(--bs-secondary) !important;
+}
+
+.navbar-cream .navbar-brand {
+    color: var(--bs-secondary) !important;
+}
+
+.navbar-cream .nav-link {
+    color: var(--bs-body-color) !important;
+    font-weight: 500;
+}
+
+.navbar-cream .nav-link:hover, .navbar-cream .nav-link.active {
+    color: var(--bs-secondary) !important;
+}
+</style>

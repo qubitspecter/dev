@@ -1,0 +1,222 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BriefingForm from '../../components/BriefingForm.astro';
+import CallToAction from '../../components/CallToAction.astro';
+---
+
+<BaseLayout title="Director Liability & Governance Risk - Decoheron">
+
+    <div class="container py-4">
+
+      <!-- Hero Section -->
+      <div class="row mb-5">
+        <div class="col-lg-9">
+          <span class="badge bg-primary mb-3 px-3 py-2 text-uppercase fs-6">
+            Board Governance & Fiduciary Risk
+          </span>
+          <h1 class="display-4 fw-bold text-primary mb-3">
+            Cyber Risk is Personal Liability
+          </h1>
+          <p class="lead text-subtle fs-5">
+            Cybersecurity is a non-delegable board duty. Incomplete controls expose directors to personal regulatory penalties, shareholder lawsuits, and voided insurance coverage.
+          </p>
+        </div>
+      </div>
+
+      <!-- Statutory & Regulatory Frameworks -->
+      <div class="mb-5">
+        <div class="mb-4">
+          <h2 class="h3 fw-bold text-primary">Regulatory Standards Driving Board Liability</h2>
+          <p class="text-secondary fw-medium">Direct statutory duties that penalize governance failure and technical recklessness</p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Corporations Act s180/181 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card bg-light h-100 p-4 rounded-3 border border-2 border-secondary shadow-lg">
+              <span class="text-secondary fw-bold text-uppercase fs-6 mb-2">Corporations Act 2001</span>
+              <h3 class="h5 fw-bold text-primary mb-3">Sections 180 & 181</h3>
+              <p class="mb-0 text-body fs-6">
+                Mandates directors exercise care, diligence, and good faith. Failing to oversee cyber controls or blindly trusting management reports without independent technical verification constitutes a breach of director duty.
+              </p>
+            </div>
+          </div>
+
+          <!-- APRA CPS 234 & CPS 230 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card bg-light h-100 p-4 rounded-3 border border-2 border-secondary shadow-lg">
+              <span class="text-secondary fw-bold text-uppercase fs-6 mb-2">APRA Standards</span>
+              <h3 class="h5 fw-bold text-primary mb-3">CPS 234 & CPS 230</h3>
+              <p class="mb-0 text-body fs-6">
+                Requires APRA-regulated entities to maintain information security commensurate with threats. Boards are held directly accountable for operational resilience, third-party vendor risk, and incident containment.
+              </p>
+            </div>
+          </div>
+
+          <!-- Privacy Act Amendments -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card bg-light h-100 p-4 rounded-3 border border-2 border-secondary shadow-lg">
+              <span class="text-secondary fw-bold text-uppercase fs-6 mb-2">Privacy Act 1988</span>
+              <h3 class="h5 fw-bold text-primary mb-3">Privacy & NDB Scheme</h3>
+              <p class="mb-0 text-body fs-6">
+                Exposes organizations to civil penalties exceeding $50M for serious or repeated privacy breaches. Failure to enforce reasonable security controls over PII constitutes systemic negligence.
+              </p>
+            </div>
+          </div>
+
+          <!-- SOCI Act -->
+          <div class="col-md-6 col-lg-6">
+            <div class="card bg-light h-100 p-4 rounded-3 border border-2 border-secondary shadow-lg">
+              <span class="text-secondary fw-bold text-uppercase fs-6 mb-2">SOCI Act</span>
+              <h3 class="h5 fw-bold text-primary mb-3">Security of Critical Infrastructure</h3>
+              <p class="mb-0 text-body fs-6">
+                Mandates mandatory hazard reporting and risk management programs for critical infrastructure assets. Non-compliance invites direct government intervention, operational directions, and substantial regulatory fines.
+              </p>
+            </div>
+          </div>
+
+          <!-- AML / CTF -->
+          <div class="col-md-12 col-lg-6">
+            <div class="card bg-light h-100 p-4 rounded-3 border border-2 border-secondary shadow-lg">
+              <span class="text-secondary fw-bold text-uppercase fs-6 mb-2">AML / CTF Act</span>
+              <h3 class="h5 fw-bold text-primary mb-3">Identity & Financial Integrity</h3>
+              <p class="mb-0 text-body fs-6">
+                Failure to protect identity systems and customer onboarding processes against compromise exposes the board to systemic anti-money laundering non-compliance and reputational destruction.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Critical Governance Failure Points -->
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-10">
+          <div class="p-4 border-0">
+            <h2 class="h3 fw-bold text-primary mb-4 text-center">
+              Structural Exposure in Traditional Defense
+            </h2>
+
+            <div class="row g-4">
+              <!-- Item 1 -->
+              <div class="col-md-6">
+                <div class="d-flex align-items-start gap-3">
+                  <span class="square-bullet mt-1">■</span>
+                  <div>
+                    <h3 class="h5 fw-bold text-primary">Insurance Policy Voidance</h3>
+                    <p class="text-body mb-0">
+                      Control attestations, like claiming complete MFA utilisation without deterministic enforcement and continuous verification, create material misrepresentation. In the event of a breach, insurers routinely deny coverage for unverified gaps.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="col-md-6">
+                <div class="d-flex align-items-start gap-3">
+                  <span class="square-bullet mt-1">■</span>
+                  <div>
+                    <h3 class="h5 fw-bold text-primary">Legacy SOC & Alert Noise</h3>
+                    <p class="text-body mb-0">
+                      Traditional Security Operations Centers (SOCs) generate high alert volume but provide low structural defense. Reactive monitoring creates an illusion of security, leaving boards legally exposed when alerts are missed or ignored.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="col-md-6">
+                <div class="d-flex align-items-start gap-3">
+                  <span class="square-bullet mt-1">■</span>
+                  <div>
+                    <h3 class="h5 fw-bold text-primary">AI Threat Velocity</h3>
+                    <p class="text-body mb-0">
+                      AI-driven social engineering, automated credential harvesting, and deepfake authorized push payments bypass legacy perimeter defenses in seconds. Manual review processes can no longer meet the legally required standard of care.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 4 -->
+              <div class="col-md-6">
+                <div class="d-flex align-items-start gap-3">
+                  <span class="square-bullet mt-1">■</span>
+                  <div>
+                    <h3 class="h5 fw-bold text-primary">Personal & Derivative Liability</h3>
+                    <p class="text-body mb-0">
+                      D&O insurance policies increasingly exclude losses resulting from gross cyber negligence. Directors risk personal assets, disqualification, and shareholder derivative suits when security postures fail to meet statutory standards.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+<!-- Technical Implications for the Board -->
+      <div class="row g-4 mb-5">
+        <div class="col-12">
+          <h2 class="h3 fw-bold text-primary mb-1">
+            Technical Implications for the Board
+          </h2>
+          <p class="text-secondary fw-medium mb-0">Bridging statutory expectations with underlying technical realities</p>
+        </div>
+
+        <!-- Essential Eight Level 0 -->
+        <div class="col-md-4">
+          <div class="card bg-light h-100 border border-2 border-secondary shadow-lg p-4 rounded-3">
+            <div class="mb-3">
+              <h3 class="h4 fw-bold text-primary mb-1">Essential Eight ML0</h3>
+              <p class="text-secondary mb-0 fw-medium">Statutory Negligence & Un-audited Blind Spots</p>
+            </div>
+            <p class="text-body mb-3">
+              Operating at E8 Maturity Level 0 means baseline mitigations like patching and identity controls are absent or ineffective.
+            </p>
+            <p class="text-body mb-3">
+              A common board misconception is assuming that without a formal audit, E8 ML0 does not apply. Legally and forensically, <strong>E8 ML0 is the default state</strong> until continuous controls are verified.
+            </p>
+            <p class="text-body mb-0">
+              Under Section 180 of the Corporations Act, maintaining E8 ML0 strips directors of the Business Judgment Rule defense.
+            </p>
+          </div>
+        </div>
+
+        <!-- Fallacy of Self-Assessed Compliance -->
+        <div class="col-md-4">
+          <div class="card bg-light h-100 border border-2 border-secondary shadow-lg p-4 rounded-3">
+            <div class="mb-3">
+              <h3 class="h4 fw-bold text-primary mb-1">Self-Assessment Fallacy</h3>
+              <p class="text-secondary mb-0 fw-medium">Paper Compliance vs. Forensic Reality</p>
+            </div>
+            <p class="text-body mb-3">
+              Standards like CPS 234 and SOCI require technical controls to actively function in practice, not just exist on paper.
+            </p>
+            <p class="text-body mb-0">
+              Static audit reports and self-assessments fail under regulatory examination when post-incident forensic evidence reveals unmitigated vulnerabilities.
+            </p>
+          </div>
+        </div>
+
+        <!-- Non-Delegable Vendor Risk -->
+        <div class="col-md-4">
+          <div class="card h-100 bg-light border border-2 border-secondary shadow-lg p-4 rounded-3">
+            <div class="mb-3">
+              <h3 class="h4 fw-bold text-primary mb-1">Non-Delegable Vendor Risk</h3>
+              <p class="text-secondary mb-0 fw-medium">Outsourced IT & MSP Accountability</p>
+            </div>
+            <p class="text-body mb-3">
+              Regulators reject the defense that cybersecurity is entirely delegated to Managed Service Providers (MSPs).
+            </p>
+            <p class="text-body mb-0">
+              When a vendor compromise breaches your perimeter, the board remains legally accountable for failing to enforce deterministic controls over external access.
+            </p>
+          </div>
+        </div>
+      </div>
+
+<CallToAction />
+    </div>
+
+  <BriefingForm hidden={true} />
+</BaseLayout>

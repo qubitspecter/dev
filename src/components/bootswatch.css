@@ -1,0 +1,367 @@
+/*!
+ * Decoheron Bootswatch Theme v1.0.0
+ * Custom Bootstrap 5 Theme for MSSPs targeting Legal, Accounting & Wealth Management Firms
+ * Palette based on Decoheron Signature Cobalt (#0047AB) & Legal Chambers Aesthetics
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* Core Color Palette */
+  --bs-blue: #0047ab;
+  --bs-indigo: #3b82f6;
+  --bs-purple: #6d28d9;
+  --bs-pink: #db2777;
+  --bs-red: #dc2626;
+  --bs-orange: #ea580c;
+  --bs-yellow: #d97706;
+  --bs-green: #059669;
+  --bs-teal: #0d9488;
+  --bs-cyan: #0284c7;
+
+  /* Theme Semantic Variables */
+  --bs-primary: #0047ab;
+  --bs-primary-rgb: 0, 71, 171;
+  --bs-primary-hover: #003380;
+  --bs-primary-active: #002255;
+
+  --bs-secondary: #4a5568;
+  --bs-secondary-rgb: 74, 85, 104;
+
+  --bs-success: #059669;
+  --bs-success-rgb: 5, 150, 105;
+
+  --bs-info: #0284c7;
+  --bs-info-rgb: 2, 132, 199;
+
+  --bs-warning: #d97706;
+  --bs-warning-rgb: 217, 119, 6;
+
+  --bs-danger: #dc2626;
+  --bs-danger-rgb: 220, 38, 38;
+
+  --bs-light: #f8fafc;
+  --bs-light-rgb: 248, 250, 252;
+
+  --bs-dark: #0f172a;
+  --bs-dark-rgb: 15, 23, 42;
+
+  /* Legal Chambers & Wealth Custom Accents */
+  --bs-gold: #c5a059;
+  --bs-gold-rgb: 197, 160, 89;
+  --bs-navy-deep: #080c16;
+  --bs-slate-light: #e2e8f0;
+
+  /* Typography */
+  --bs-body-font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --bs-body-font-size: 1rem;
+  --bs-body-font-weight: 400;
+  --bs-body-line-height: 1.6;
+  --bs-body-color: #1e293b;
+  --bs-body-bg: #ffffff;
+
+  /* Headings Typography */
+  --bs-headings-font-family: 'Cinzel', Georgia, serif;
+  --bs-headings-font-weight: 600;
+  --bs-headings-color: #0f172a;
+
+  /* Layout & Controls */
+  --bs-border-width: 1px;
+  --bs-border-style: solid;
+  --bs-border-color: #cbd5e1;
+  --bs-border-radius: 4px;
+  --bs-border-radius-sm: 2px;
+  --bs-border-radius-lg: 6px;
+  --bs-box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.08);
+  --bs-box-shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+}
+
+/* ==========================================
+   Base Typography & Layout
+   ========================================== */
+body {
+  font-family: var(--bs-body-font-family);
+  color: var(--bs-body-color);
+  background-color: var(--bs-body-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--bs-headings-font-family);
+  font-weight: var(--bs-headings-font-weight);
+  color: var(--bs-headings-color);
+  letter-spacing: -0.01em;
+}
+
+/* ==========================================
+   Navigation Bar
+   ========================================== */
+.navbar {
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.navbar-dark.bg-primary {
+  background-color: #0047ab !important;
+  border-bottom: 2px solid var(--bs-gold);
+}
+
+.navbar-brand {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-size: 1.3rem;
+  color: #ffffff !important;
+}
+
+.nav-link {
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  transition: color 0.15s ease-in-out;
+}
+
+/* ==========================================
+   Buttons
+   ========================================== */
+.btn {
+  font-weight: 500;
+  padding: 0.625rem 1.35rem;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+  letter-spacing: 0.01em;
+}
+
+.btn-primary {
+  background-color: #0047ab;
+  border-color: #0047ab;
+  color: #ffffff;
+}
+
+.btn-primary:hover, 
+.btn-primary:focus {
+  background-color: #003380;
+  border-color: #003380;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 71, 171, 0.3);
+}
+
+.btn-outline-primary {
+  color: #0047ab;
+  border-color: #0047ab;
+}
+
+.btn-outline-primary:hover {
+  background-color: #0047ab;
+  border-color: #0047ab;
+  color: #ffffff;
+}
+
+.btn-gold {
+  background-color: var(--bs-gold);
+  border-color: var(--bs-gold);
+  color: #ffffff;
+}
+
+.btn-gold:hover {
+  background-color: #b08d46;
+  border-color: #b08d46;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(197, 160, 89, 0.35);
+}
+
+/* ==========================================
+   Cards & Executive Containers
+   ========================================== */
+.card {
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  box-shadow: var(--bs-box-shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: #ffffff;
+}
+
+.card:hover {
+  box-shadow: var(--bs-box-shadow);
+}
+
+.card-header {
+  background-color: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  font-family: var(--bs-headings-font-family);
+  font-weight: 600;
+  padding: 1rem 1.25rem;
+}
+
+.card-header-primary {
+  background-color: #0047ab;
+  color: #ffffff;
+  border-bottom: 2px solid var(--bs-gold);
+}
+
+/* Double-ruled Audit Frame for High-Consequence Briefings */
+.card-audit {
+  border: 1px solid #cbd5e1;
+  position: relative;
+  background: #ffffff;
+  padding: 1rem;
+}
+
+.card-audit::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 1px solid #e2e8f0;
+  pointer-events: none;
+}
+
+/* ==========================================
+   Tables
+   ========================================== */
+.table {
+  border-color: #e2e8f0;
+}
+
+.table thead th {
+  font-family: var(--bs-headings-font-family);
+  font-size: 0.825rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: #f1f5f9;
+  color: #334155;
+  border-bottom: 2px solid #cbd5e1;
+  padding: 0.85rem 1rem;
+}
+
+.table tbody td {
+  padding: 0.85rem 1rem;
+  vertical-align: middle;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 71, 171, 0.025);
+}
+
+/* ==========================================
+   Forms & Controls
+   ========================================== */
+.form-control, .form-select {
+  border-radius: 4px;
+  border: 1px solid #cbd5e1;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.95rem;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: #0047ab;
+  box-shadow: 0 0 0 0.25rem rgba(0, 71, 171, 0.18);
+}
+
+.form-label {
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #334155;
+  margin-bottom: 0.4rem;
+}
+
+/* ==========================================
+   Alerts & Callouts
+   ========================================== */
+.alert {
+  border-radius: 4px;
+  border-left-width: 4px;
+  font-size: 0.95rem;
+}
+
+.alert-primary {
+  background-color: #eff6ff;
+  border-color: #0047ab;
+  color: #1e3a8a;
+}
+
+.alert-warning {
+  background-color: #fffbeb;
+  border-color: #d97706;
+  color: #78350f;
+}
+
+.alert-danger {
+  background-color: #fef2f2;
+  border-color: #dc2626;
+  color: #7f1d1d;
+}
+
+.alert-success {
+  background-color: #ecfdf5;
+  border-color: #059669;
+  color: #064e3b;
+}
+
+/* ==========================================
+   Badges & Indicators
+   ========================================== */
+.badge {
+  padding: 0.45em 0.75em;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.badge-audit {
+  background-color: #0047ab;
+  color: #ffffff;
+  border: 1px solid var(--bs-gold);
+}
+
+/* ==========================================
+   Legal & Financial Custom Utilities
+   ========================================== */
+.bg-navy {
+  background-color: #080c16 !important;
+  color: #f8fafc;
+}
+
+.bg-cobalt {
+  background-color: #0047ab !important;
+  color: #ffffff;
+}
+
+.text-gold {
+  color: #c5a059 !important;
+}
+
+.text-cobalt {
+  color: #0047ab !important;
+}
+
+.border-gold {
+  border-color: #c5a059 !important;
+}
+
+.border-cobalt {
+  border-color: #0047ab !important;
+}
+
+.font-serif {
+  font-family: 'Cinzel', Georgia, serif !important;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* Executive Briefing Banner */
+.hero-briefing {
+  background: linear-gradient(135deg, #080c16 0%, #0a1833 100%);
+  color: #ffffff;
+  padding: 4rem 2rem;
+  border-bottom: 3px solid #c5a059;
+}
