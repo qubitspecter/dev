@@ -7,7 +7,7 @@ import CallToAction from '../../components/CallToAction.astro';
 const ismMappings = [
   {
     id: "govern",
-    domain: "Govern",
+    domain: "<strong>Govern</strong><br><em>Leadership | Policy | Oversight</em>",
     e8: null,
     smb: [
       "Engage a technical support specialist",
@@ -30,7 +30,7 @@ const ismMappings = [
   },
   {
     id: "identify",
-    domain: "Identify",
+    domain: "<strong>Identify</strong><br><em>Risk | Exposure | Inventory</em>",
     e8: [
       "Application Control",
       "Patch Applications",
@@ -55,7 +55,7 @@ const ismMappings = [
   },
   {
     id: "protect",
-    domain: "Protect",
+    domain: "<strong>Protect</strong><br><em>Safeguards | Controls | Prevention</em>",
     e8: [
       "Application Control",
       "Patch Applications",
@@ -98,7 +98,7 @@ const ismMappings = [
   },
   {
     id: "detect",
-    domain: "Detect",
+    domain: "<strong>Detect</strong><br><em>Visibility | Alerts | Early-Warning</em>",
     e8: null,
     smb: [
       "Implement Endpoint Detection and Response (EDR)",
@@ -111,7 +111,7 @@ const ismMappings = [
   },
   {
     id: "respond",
-    domain: "Respond",
+    domain: "<strong>Respond</strong><br><em>Containment | Mitigation | Reporting</em>",
     e8: null,
     smb: [
       "Implement a policy with procedures to manage Invoice Fraud",
@@ -124,7 +124,7 @@ const ismMappings = [
   },
   {
     id: "recover",
-    domain: "Recover",
+    domain: "<strong>Recover</strong><br><em>Continuity | Restoration | Resilience</em>",
     e8: [
       "Regular Backups"
     ],
@@ -167,18 +167,18 @@ const ismMappings = [
             <!-- DESKTOP VIEW: Standard Table -->
             <div class="d-none d-lg-block shadow-sm rounded-3 overflow-hidden border border-2 border-secondary-subtle">
                 <table class="table table-hover align-middle mb-0">
-                    <thead class="table-dark text-uppercase fs-7">
+                    <thead class="table-dark text-uppercase text-center fs-7">
                         <tr>
                             <th scope="col" style="width: 22%;">ISM Function</th>
                             <th scope="col" style="width: 26%;">E8 ML1</th>
                             <th scope="col" style="width: 26%;">SMB1001-L3</th>
-                            <th scope="col" class="bg-primary text-white" style="width: 26%;">Our Controls</th>
+                            <th scope="col" class="bg-primary text-white border-0 border-end border-primary" style="border-right-width:3px !important;width: 26%;">Our Controls</th>
                         </tr>
                     </thead>
                     <tbody>
                         {ismMappings.map((row) => (
                         <tr>
-                            <td class="fw-bold text-primary text-center bg-light" set:html={row.domain} />
+                            <td class="text-primary text-center bg-light" set:html={row.domain} />
 
                             <td class="text-body-secondary small">
                                 {Array.isArray(row.e8) ? (
