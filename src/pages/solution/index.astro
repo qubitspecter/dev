@@ -105,7 +105,8 @@ const ismMappings = [
       "Email Authentication and Anti-Spoofing"
     ],
     controls: [
-      "End-to-end quantum-resistant encryption, active DLP controls, automated data classification, and sanitization protocols."
+      "Implement Endpoint Detection and Response (EDR)",
+      "Email Authentication and Anti-Spoofing"
     ]
   },
   {
@@ -117,7 +118,8 @@ const ismMappings = [
       "Implement a response plan for cyber related incidents"
     ],
     controls: [
-      "Automated patch deployment pipelines, immutable infrastructure builds, zero-trust endpoint control, and daily vulnerability scanning."
+      "Implement a policy with procedures to manage Invoice Fraud",
+      "Implement a response plan for cyber related incidents"
     ]
   },
   {
@@ -131,7 +133,8 @@ const ismMappings = [
       "Purchase and maintain business or cyber insurance"
     ],
     controls: [
-      "24/7 SOC integration, automated playbook orchestration, continuous telemetry logging, and proactive threat hunting."
+      "Implement a backup and recovery strategy for important digital assets",
+      "Liaise with cyber insurer"
     ]
   }
 ];
@@ -175,7 +178,7 @@ const ismMappings = [
                     <tbody>
                         {ismMappings.map((row) => (
                         <tr>
-                            <td class="fw-bold text-primary bg-light" set:html={row.domain} />
+                            <td class="fw-bold text-primary text-center bg-light" set:html={row.domain} />
 
                             <td class="text-body-secondary small">
                                 {Array.isArray(row.e8) ? (
