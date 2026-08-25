@@ -35,7 +35,7 @@ const { hidden = false } = Astro.props;
                         <textarea name="message" class="form-control" id="notes" rows="3" placeholder="e.g., Cyber insurance requirements, Essential 8 maturity..."></textarea>
                     </div>
                     <div class="col-12 text-center mt-4">
-                        <button type="submit" id="submit-btn" class="btn btn-primary btn-lg px-5">Book Your Briefing</button>
+                        <button type="submit" id="submit-btn" class="btn btn-primary btn-lg px-5">Book a Discussion</button>
                     </div>
                 </form>
             </div>
@@ -86,7 +86,7 @@ const { hidden = false } = Astro.props;
             .finally(() => {
                 result!.classList.remove('d-none');
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = 'Book Your Briefing';
+                submitBtn.innerHTML = 'Book a Discussion';
             });
         });
     }
