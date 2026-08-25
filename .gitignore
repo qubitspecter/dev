@@ -1,0 +1,34 @@
+# Build outputs & hosting provider artifacts
+dist/
+.output/
+.vercel/
+.netlify/
+.wrangler/
+
+# Astro generated types & internal dev cache
+.astro/
+
+# Dependencies
+node_modules/
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+
+# Package manager logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS clutter
+.DS_Store
+Thumbs.db
+
+# Editor configurations
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
