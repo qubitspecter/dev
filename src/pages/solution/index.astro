@@ -8,6 +8,7 @@ const ismMappings = [
   {
     id: "govern",
     domain: "<strong>Govern</strong><br><em>Leadership | Policy | Oversight</em>",
+    domain2: "Govern",
     e8: null,
     smb: [
       "Engage a technical support specialist",
@@ -31,6 +32,7 @@ const ismMappings = [
   {
     id: "identify",
     domain: "<strong>Identify</strong><br><em>Risk | Exposure | Inventory</em>",
+    domain2: "Identify",
     e8: [
       "Application Control",
       "Patch Applications",
@@ -56,6 +58,7 @@ const ismMappings = [
   {
     id: "protect",
     domain: "<strong>Protect</strong><br><em>Safeguards | Controls | Prevention</em>",
+    domain2: "Protect",
     e8: [
       "Application Control",
       "Patch Applications",
@@ -99,6 +102,7 @@ const ismMappings = [
   {
     id: "detect",
     domain: "<strong>Detect</strong><br><em>Visibility | Alerts | Early-Warning</em>",
+    domain2: "Detect",
     e8: null,
     smb: [
       "Implement Endpoint Detection and Response (EDR)",
@@ -112,6 +116,7 @@ const ismMappings = [
   {
     id: "respond",
     domain: "<strong>Respond</strong><br><em>Containment | Mitigation | Reporting</em>",
+    domain2: "Respond",
     e8: null,
     smb: [
       "Implement a policy with procedures to manage Invoice Fraud",
@@ -125,6 +130,7 @@ const ismMappings = [
   {
     id: "recover",
     domain: "<strong>Recover</strong><br><em>Continuity | Restoration | Resilience</em>",
+    domain2: "Recover",
     e8: [
       "Regular Backups"
     ],
@@ -184,7 +190,7 @@ const ismMappings = [
                                 {Array.isArray(row.e8) ? (
                                 <ul class="mb-0 ps-3">
                                     {row.e8.map((item) => (
-                                    <li set:html={item} />
+                                    <li>{item}</li>
                                     ))}
                                 </ul>
                                 ) : (
@@ -196,7 +202,7 @@ const ismMappings = [
                                 {Array.isArray(row.smb) ? (
                                 <ul class="mb-0 ps-3">
                                     {row.smb.map((item) => (
-                                    <li set:html={item} />
+                                    <li>{item}</li>
                                     ))}
                                 </ul>
                                 ) : (
@@ -208,7 +214,7 @@ const ismMappings = [
                                 {Array.isArray(row.controls) ? (
                                 <ul class="mb-0 ps-3">
                                     {row.controls.map((item) => (
-                                    <li set:html={item} />
+                                    <li>{item}</li>
                                     ))}
                                 </ul>
                                 ) : (
@@ -232,9 +238,8 @@ const ismMappings = [
                             data-bs-toggle="collapse"
                             data-bs-target={`#collapse-${row.id}`}
                             aria-expanded={index === 0 ? "true" : "false"}
-                            aria-controls={`#collapse-${row.id}`}
-                            >
-                            {row.domain}
+                            aria-controls={`#collapse-${row.id}`}>
+                            {row.domain2}
                         </button>
                     </h2>
                     <div
