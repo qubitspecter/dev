@@ -12,6 +12,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@oslojs/encoding": "^1.1.0",
     "astro": "^7.2.4",
     "bootstrap": "^5.3.8"
   },
