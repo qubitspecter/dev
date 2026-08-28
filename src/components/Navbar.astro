@@ -21,9 +21,9 @@ const pathname = Astro.url.pathname;
                 <li class="nav-item">
                     <a class:list={['nav-link', { active: pathname.startsWith('/liabilities') }]} aria-current={pathname.startsWith('/liabilities') ? 'page' : undefined} href="/liabilities">Liabilities</a>
                 </li>
-                <li class="nav-item">
+               <!-- <li class="nav-item">
                     <a class:list={['nav-link', { active: pathname.startsWith('/liabilities') }]} aria-current={pathname.startsWith('/liabilities') ? 'page' : undefined} href="/industries">Industries</a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a class:list={['nav-link', { active: pathname.startsWith('/solution') }]} aria-current={pathname.startsWith('/solution') ? 'page' : undefined} href="/solution">Solution</a>
                 </li>
@@ -40,7 +40,8 @@ const pathname = Astro.url.pathname;
 
 <style>
 .navbar-cream {
-    background-color: var(--bs-light) !important;
+  // background-color: var(--bs-light) !important; 
+  background-color: #EEF2F7 !important;
     border-bottom: 2px solid var(--bs-secondary) !important;
 }
 
