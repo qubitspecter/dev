@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BriefingForm from '../../components/BriefingForm.astro';
+import CallToAction from '../../components/CallToAction.astro';
+import { ACTION_QUERY_PARAMS } from 'astro:actions';
+---
+
+<BaseLayout title="Privacy Policy">
+    <div class="container py-4">
+        <!-- Hero Section -->
+        <div class="row mb-5">
+            <div class="col-lg-9">
+                <h1 class="display-4 fw-bold text-primary mb-3">
+                    Privacy Policy
+                </h1>
+                <p class="text-subtle fw-medium">
+                    Decoheron (ABN 60 376 107 864) is committed to providing quality services to you and this policy outlines our ongoing obligations to you in respect of how we manage your Personal Information.
+<br>
+We have adopted the Australian Privacy Principles (APPs) contained in the Privacy Act 1988 (Cth) (the Privacy Act). The APPs govern the way in which we collect, use, disclose, store, secure and dispose of your Personal Information.
+<br>
+A copy of the Australian Privacy Principles may be obtained from the website of the Office of the Australian Information Commissioner at https://www.oaic.gov.au
+<br>
+                </p>
+            </div>
+        </div>
+
+        <!-- Statutory & Regulatory Frameworks -->
+        <div class="mb-5">
+            <div class="mb-4">
+                <h2 class="h3 fw-bold text-primary">What is Personal Information and why do we collect it?</h2>
+                <p class="text-subtle fw-medium">Personal Information is information or an opinion that identifies an individual. Examples of Personal Information we collect include names, addresses, email addresses, and phone numbers.
+</p>
+<p>
+This Personal Information is obtained in many ways including correspondence, by telephone, by email, via our website https://decoheron.com, from your website, from media and publications, from other publicly available sources, as well as from cookies and from third parties. We don't guarantee website links or the policies of authorised third parties.
+</p>
+<p>
+We collect your Personal Information for the primary purpose of providing our services to you, providing information to our clients, and marketing. We may also use your Personal Information for secondary purposes closely related to the primary purpose, in circumstances where you would reasonably expect such use or disclosure. You may unsubscribe from our mailing or marketing lists at any time by contacting us in writing.
+</p>
+<p>
+When we collect Personal Information we will, where appropriate and where possible, explain to you why we are collecting the information and how we plan to use it.</p>
+            </div>
+        </div>
+        <div class="mb-5">
+            <div class="mb-4">
+                <h2 class="h3 fw-bold text-primary">Sensitive Information</h2>
+                <p class="text-subtle fw-medium">Sensitive information is defined in the Privacy Act to include information or an opinion about such things as an individual's racial or ethnic origin, political opinions, membership of a political association, religious or philosophical beliefs, membership of a trade union or other professional body, criminal record, or health information.
+</p>
+<p>
+Sensitive information will be used by us only:
+<ul class="list-unstyled hero-value-list">
+<li class="d-flex mb-3 align-items-start">
+                                <span class="square-bullet me-3">■</span>
+                            <div>For the primary purpose for which it was obtained.</div></li>
+<li class="d-flex mb-3 align-items-start"><span class="square-bullet me-3">■</span>
+                            <div>For a secondary purpose that is directly related to the primary purpose.</div></li>
+<li class="d-flex mb-3 align-items-start"><span class="square-bullet me-3">■</span>
+                            <div>With your consent, or where required or authorised by law.</div></li>
+</ul>
+</p>
+            </div>
+        </div>
+
+        <div class="mb-5">
+            <div class="mb-4">
+                <h2 class="h3 fw-bold text-primary">Third Parties</h2>
+                <p class="text-subtle fw-medium">Where reasonable and practicable to do so, we will collect your Personal Information only from you. However, in some circumstances we may be provided with information by third parties. In such a case we will take reasonable steps to ensure that you are made aware of the information provided to us by the third party.</p>
+            </div>
+        </div>
+
+
+        <div class="mb-5">
+            <div class="mb-4">
+                <h2 class="h3 fw-bold text-primary">Disclosure of Personal Information</h2>
+                <p class="text-subtle fw-medium">Your Personal Information may be disclosed in a number of circumstances, including the following:
+                    <ul class="list-unstyled hero-value-list">
+                    <li class="d-flex mb-3 align-items-start">
+                                <span class="square-bullet me-3">■</span>
+                            <div>Our service providers, including website hosting, form handling, email, document storage, and IT providers, where necessary to operate our business.</div></li>
+                    <li class="d-flex mb-3 align-items-start">
+                                <span class="square-bullet me-3">■</span>
+                            <div>Third parties where you consent to the use or disclosure.</div></li>
+                    <li class="d-flex mb-3 align-items-start">
+                                <span class="square-bullet me-3">■</span>
+                            <div>Where required or authorised by law.</div></li>
+                    </ul>
+                
+                </p>
+            </div>
+        </div>
+
+
+        <div class="mb-5">
+            <div class="mb-4">
+                <h2 class="h3 fw-bold text-primary">Security of Personal Information</h2>
+                <p class="text-subtle fw-medium">Your Personal Information is stored in a manner that reasonably protects it from misuse and loss and from unauthorised access, modification or disclosure.
+</p>
+<p>
+When your Personal Information is no longer needed for the purpose for which it was obtained, we will take reasonable steps to destroy or permanently de-identify it.</p>
+            </div>
+        </div>
+
+
+                <div class="mb-5">
+            <div class="mb-4">
+                <h2 class="h3 fw-bold text-primary">Access to your Personal Information</h2>
+                <p class="text-subtle fw-medium">You may access the Personal Information we hold about you and update or correct it, subject to certain exceptions. If you wish to access your Personal Information, please contact us in writing.
+</p>
+<p>
+Decoheron will not charge any fee for your access request, but may charge an administrative fee for providing a copy of your Personal Information.
+</p>
+<p>
+In order to protect your Personal Information we may require identification from you before releasing the requested information.</p>
+            </div>
+        </div>
+
+    <div class="mb-5">
+            <div class="mb-4">
+                <h2 class="h3 fw-bold text-primary">Policy Updates</h2>
+                <p class="text-subtle fw-medium">This policy may change from time to time and is available on our website.</p>
+            </div>
+        </div>
+
+
+            <div class="mb-5">
+            <div class="mb-4">
+                <h2 class="h3 fw-bold text-primary">Privacy Policy Complaints and Enquiries</h2>
+                <p class="text-subtle fw-medium">If you have any queries or complaints about our Privacy Policy, please contact us at&nbsp; 
+                <a href="#" onclick="this.href='mailto:' + ['legal', 'decoheron.com'].join('@')">Decoheron Privacy</a></p>
+            </div>
+        </div>
+
+
+    </div>
+</BaseLayout>
