@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BriefingForm from '../../components/BriefingForm.astro';
 import CallToAction from '../../components/CallToAction.astro';
+import { ACTION_QUERY_PARAMS } from 'astro:actions';
 
 
 
@@ -39,7 +40,8 @@ import CallToAction from '../../components/CallToAction.astro';
                         <span class="text-secondary fw-bold text-uppercase fs-6 mb-2">Corporations Act 2001</span>
                         <h3 class="h5 fw-bold text-primary mb-3">Sections 180 & 181</h3>
                         <p class="mb-0 text-body fs-6">
-                            Directors must exercise care, diligence, and good faith. Accepting management assurances about cyber posture without independent technical verification is not diligence. Where controls are neither evidenced nor tested, a board has no factual basis for the assurances it has been giving itself.
+                            Directors must exercise care, diligence, and good faith. Relying on management assurances without independent verification is difficult to characterise as reasonable reliance once a control has failed.                     </p>
+                    <p class="text-body mb-0">Where controls are neither evidenced nor tested, a board has no factual basis for the assurances it has been giving itself.
                         </p>
                     </div>
                 </div>
@@ -50,7 +52,8 @@ import CallToAction from '../../components/CallToAction.astro';
                         <span class="text-secondary fw-bold text-uppercase fs-6 mb-2">Privacy Act 1988</span>
                         <h3 class="h5 fw-bold text-primary mb-3">Privacy & NDB Scheme</h3>
                         <p class="mb-0 text-body fs-6">
-                           Civil penalties exceeding $50 million apply for serious or repeated interference with privacy. Businesses over $3 million turnover are covered, and health service providers are covered regardless of turnover. Failing to take reasonable steps to secure personal information is itself the breach, separate from whatever the attacker does with it.
+                           Civil penalties exceeding $50 million apply for serious or repeated interference with privacy. Businesses over $3 million turnover are covered, and health service providers are covered regardless of turnover. </p>
+                        <p class="mb-0 text-body fs-6">Failing to take reasonable steps to secure personal information is itself the breach, separate from whatever the attacker does with it.
                         </p>
                     </div>
                 </div>
@@ -76,6 +79,8 @@ import CallToAction from '../../components/CallToAction.astro';
                         <h3 class="h5 fw-bold text-primary mb-3">Customers, Insurers, and Acquirers</h3>
                         <p class="mb-0 text-body fs-6">
                            The fastest-growing source of security obligation is not a regulator. It is your largest client's supplier security schedule, your insurer's renewal questionnaire, and the diligence checklist in your next transaction.
+                        </p>
+                        <p class="mb-0 text-body fs-6">
                            These are contractual commitments. Signing one you cannot evidence is a misrepresentation with commercial consequences, whether or not any regulator ever looks at it.
                         </p>
                     </div>
@@ -86,7 +91,7 @@ import CallToAction from '../../components/CallToAction.astro';
         <div class="mb-5">
             <div class="mb-4">
                 <h2 class="h3 fw-bold text-primary">Obligations That Depend on Your Sector</h2>
-                <p class="text-secondary fw-medium">Select the regime your business operates under..</p>
+                <p class="text-secondary fw-medium">Select the regime your business operates under.</p>
             </div>   
             <div class="row g-4"> 
 
@@ -96,7 +101,8 @@ import CallToAction from '../../components/CallToAction.astro';
                         <span class="text-secondary fw-bold text-uppercase fs-6 mb-2">Financial Services</span>
                         <h3 class="h5 fw-bold text-primary mb-3">AFS Licensees & APRA-Regulated Entities</h3>
                         <p class="mb-0 text-body fs-6">
-                            AFS licensees must maintain adequate risk management systems and adequate technological and human resources under section 912A of the Corporations Act. APRA-regulated banks, insurers, and superannuation funds carry additional obligations under CPS 234 and CPS 230, with boards held directly accountable for operational resilience and third-party risk.
+                            AFS licensees must maintain adequate risk management systems and adequate technological and human resources under section 912A of the Corporations Act.                     </p>
+                    <p class="mb-0 text-body fs-6">APRA-regulated banks, insurers, and superannuation funds carry additional obligations under CPS 234 and CPS 230, with boards held directly accountable for operational resilience and third-party risk.
                         </p>
                     </div>
                 </div>
@@ -108,7 +114,8 @@ import CallToAction from '../../components/CallToAction.astro';
                         <h3 class="h5 fw-bold text-primary mb-3">AML/CTF Tranche 2</h3>
                         <p class="mb-0 text-body fs-6">
                             Since 1 July 2026, AUSTRAC obligations extend to lawyers, conveyancers, accountants, real estate professionals, trust and company service providers, and dealers in precious metals and stones. Roughly 80,000 to 100,000 businesses were captured for the first time.
-                            These firms must now collect and retain customer identification, beneficial ownership, and source of funds records for seven years. Passports. Driver's licences. Bank details. Most have added the obligation without adding a single control to protect it. Penalties reach $33 million for a body corporate.
+                                                </p>
+                    <p class="mb-0 text-body fs-6">These firms must now collect and retain customer identification, beneficial ownership, and source of funds records for seven years. Passports. Driver's licences. Bank details. Most have added the obligation without adding a single control to protect it. Penalties reach $33 million for a body corporate.
                         </p>
                     </div>
                 </div>
@@ -119,7 +126,8 @@ import CallToAction from '../../components/CallToAction.astro';
                         <span class="text-secondary fw-bold text-uppercase fs-6 mb-2">Healthcare & Aged Care</span>
                         <h3 class="h5 fw-bold text-primary mb-3">Privacy Act & My Health Records</h3>
                         <p class="mb-0 text-body fs-6">
-                            Health service providers are covered by the Privacy Act regardless of turnover, so the small business exemption does not apply. My Health Records adds a further layer of obligation and its own penalty regime. Health has been consistently among the most-notified sectors under the notifiable data breach scheme since it commenced.
+                            Health service providers are covered by the Privacy Act regardless of turnover, so the small business exemption does not apply.                     </p>
+                    <p class="mb-0 text-body fs-6">My Health Records adds a further layer of obligation and its own penalty regime. Health has been consistently among the most-notified sectors under the notifiable data breach scheme since it commenced.
                         </p>
                     </div>
                 </div>
@@ -139,7 +147,7 @@ import CallToAction from '../../components/CallToAction.astro';
                         <!-- Item 1 -->
                         <div class="col-md-6">
                             <div class="d-flex align-items-start gap-3">
-                                <span class="square-bullet mt-1">■</span>
+                                <span class="square-bullet mt-1">●</span>
                                 <div>
                                     <h3 class="h5 fw-bold text-primary">Insurance Policy Voidance</h3>
                                     <p class="text-body mb-0">
@@ -152,7 +160,7 @@ import CallToAction from '../../components/CallToAction.astro';
                         <!-- Item 2 -->
                         <div class="col-md-6">
                             <div class="d-flex align-items-start gap-3">
-                                <span class="square-bullet mt-1">■</span>
+                                <span class="square-bullet mt-1">●</span>
                                 <div>
                                     <h3 class="h5 fw-bold text-primary">Legacy SOC & Alert Noise</h3>
                                     <p class="text-body mb-0">
@@ -165,11 +173,11 @@ import CallToAction from '../../components/CallToAction.astro';
                         <!-- Item 3 -->
                         <div class="col-md-6">
                             <div class="d-flex align-items-start gap-3">
-                                <span class="square-bullet mt-1">■</span>
+                                <span class="square-bullet mt-1">●</span>
                                 <div>
                                     <h3 class="h5 fw-bold text-primary">AI Threat Velocity</h3>
                                     <p class="text-body mb-0">
-                                        AI-driven social engineering, automated credential harvesting, and deepfake authorised push payments bypass legacy perimeter defenses in seconds. Manual review processes can no longer meet the legally required standard of care.
+                                        AI-driven social engineering, automated credential harvesting, and deepfake authorised push payments bypass legacy perimeter defenses in seconds. Manual review processes are increasingly difficult to reconcile with the standard of care a court would expect a diligent board to have tested for.
                                     </p>
                                 </div>
                             </div>
@@ -178,13 +186,13 @@ import CallToAction from '../../components/CallToAction.astro';
                         <!-- Item 4 -->
                         <div class="col-md-6">
                             <div class="d-flex align-items-start gap-3">
-                                <span class="square-bullet mt-1">■</span>
+                                <span class="square-bullet mt-1">●</span>
                                 <div>
                                     <h3 class="h5 fw-bold text-primary">Personal & Derivative Liability</h3>
                                     <p class="text-body mb-0">
-                                        D&O insurance policies increasingly exclude losses resulting from gross cyber negligence. Directors risk personal assets, disqualification, and shareholder derivative suits when security postures fail to meet statutory standards.
-                                    </p>
-                                </div>
+                                        D&O insurance policies increasingly exclude losses resulting from gross cyber negligence. Directors risk personal assets, disqualification, and shareholder derivative suits when security postures fail to meet statutory standards. </p>
+                                <p class="text-body mb-0">In February 2026, the Federal Court ordered FIIG Securities Limited to pay a $2.5 million penalty plus $500,000 in costs for cyber security failures in breach of its AFSL obligations, the first civil penalty of its kind under section 912A of the Corporations Act.</p>
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -210,7 +218,8 @@ import CallToAction from '../../components/CallToAction.astro';
                         <p class="text-secondary mb-0 fw-medium">Statutory Negligence & Un-audited Blind Spots</p>
                     </div>
                     <p class="text-body mb-3">
-                        Under Section 180 of the Corporations Act, a director relying on the business judgment rule needs to show they informed themselves about the subject matter to the extent they reasonably believed appropriate. Sitting at Essential Eight ML0, undocumented and unverified, is difficult to reconcile with that standard.
+                        Under Section 180 of the Corporations Act, a director relying on the business judgment rule needs to show they informed themselves about the subject matter to the extent they reasonably believed appropriate. </p>
+                         <p class="text-body mb-3">Sitting at Essential Eight ML0, undocumented and unverified, is difficult to reconcile with that standard.
                     </p>
                 </div>
             </div>
@@ -226,7 +235,7 @@ import CallToAction from '../../components/CallToAction.astro';
                         Standards like CPS 234 and SOCI require technical controls to actively function in practice, not just exist on paper.
                     </p>
                     <p class="text-body mb-0">
-                        Static audit reports and self-assessments fail under regulatory examination when post-incident forensic evidence reveals unmitigated vulnerabilities.
+                        Static audit reports and self-assessments have repeatedly failed to hold up under regulatory examination once post-incident forensic evidence reveals unmitigated vulnerabilities.
                     </p>
                 </div>
             </div>
@@ -239,7 +248,7 @@ import CallToAction from '../../components/CallToAction.astro';
                         <p class="text-secondary mb-0 fw-medium">Outsourced IT & MSP Accountability</p>
                     </div>
                     <p class="text-body mb-3">
-                        Regulators reject the defence that cyber security has been fully delegated to a managed service provider (MSP).
+                        Regulators have consistently rejected the defence that cyber security was fully delegated to a managed service provider (MSP). 
                     </p>
                     <p class="text-body mb-0">
                         When a vendor compromise reaches your environment, the board remains accountable for failing to enforce controls over external access that were verified to work, not merely assumed to.
