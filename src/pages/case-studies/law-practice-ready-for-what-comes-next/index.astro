@@ -1,0 +1,64 @@
+---
+import CaseStudy from '../../../components/CaseStudy.astro';
+
+const study = {
+    sector: 'Law practice',
+    title: 'Ready for What Comes Next',
+    summary:
+        "A Victorian law practice wanted to go beyond its regulator's minimum. About four months after the first call, one set of controls aligned with the VLSB+C expectations, the ASD Essential Eight, SMB1001 and the NIST Cybersecurity Framework was attested daily, and a satellite office had opened without issue.",
+    glance: [
+        ['Client', 'Victorian law practice'],
+        ['Scale', 'Under 30 staff on Microsoft 365'],
+        ['Starting point', 'Endpoint protection in place and basic security overall, broadly in line with the VLSB+C expectations'],
+        ['Why', 'Go beyond the VLSB+C minimums with Essential Eight, SMB1001 and NIST CSF alignment, and open new offices securely and quickly'],
+        ['Timeline', 'About four months from first call to full implementation'],
+        ['Result', [
+            'One set of controls aligned with the VLSB+C expectations, Essential Eight, SMB1001 and NIST CSF',
+            'Controls adopted at appropriate levels, not to reach a single rating',
+            'A security strategy with goals; a satellite office opened without issue',
+            'Attestation of controls available to clients within one day',
+        ]],
+    ],
+    background: [
+        "As a Victorian law practice, the firm is expected to meet the Victorian Legal Services Board and Commissioner's (VLSB+C) minimum cybersecurity expectations. It did not want to stop at the minimum. Client and market expectations for security are rising, and the firm wanted to be ready for emerging risks rather than react to them. The firm was also planning to grow, but had no clear view of its security posture and was concerned it would not hold up through that change.",
+        'The firm asked Decoheron for a best-of-breed approach aligned with three frameworks: the ASD Essential Eight, SMB1001 (a tiered cyber security standard for small business) and the NIST Cybersecurity Framework (CSF). It also wanted to be able to open new offices or remote work centres quickly and securely.',
+    ],
+    findingsIntro:
+        'Decoheron assessed the practice against the VLSB+C expectations and all three frameworks. The main findings were these.',
+    findings: [
+        'Security was basic and broadly in line with the VLSB+C expectations, a minimum that does not show alignment with any of the three frameworks.',
+        'Many controls were implemented but not enforced, or were left in audit mode (a control that records what it would block, without blocking it). This included multi-factor authentication, application control and conditional access.',
+        "There was no security strategy and no clear view of the firm's security posture, so growth was held back by concern that security would not survive change.",
+    ],
+    method: {
+        title: 'Approach',
+        columns: ['Framework', 'Target', 'Role in the programme'],
+        rows: [
+            ['VLSB+C expectations', 'Meet in full', 'The regulatory floor: system and behavioural controls expected of every Victorian law practice'],
+            ['Essential Eight', 'Level chosen per control', 'Technical baseline: application control, patching, administrative privileges, multi-factor authentication and backups'],
+            ['SMB1001', 'Level chosen per control', 'Tiered standard for small business, giving the firm a recognised benchmark to show clients and insurers'],
+            ['NIST CSF', 'Programme structure', 'Governance and risk structure across six functions: Govern, Identify, Protect, Detect, Respond and Recover'],
+            ['Control set', 'One, mapped to all four', 'Governance, identity, privilege, applications, procedures and hardening'],
+        ],
+    },
+    stats: [
+        { from: 'Ad hoc', figure: 'Strategic', label: 'Security programme', note: 'A repeatable security programme with defined goals and enforced controls.' },
+        { figure: '1 set', label: 'Of controls, attested daily', note: 'Covers VLSB+C, Essential Eight, SMB1001 and NIST CSF.' },
+    ],
+    outcomes: [
+        {
+            title: 'Operations',
+            text: 'Controls that were in audit or report-only mode are now enforced, so protection no longer depends on someone acting on a report. Devices deploy zero-touch (ready to use on first sign-in, with no manual setup), and personal mobiles are supported securely with access limited to email and Teams, so a new office or remote work centre can be set up quickly and securely. The firm has since opened a satellite office without issue. It also has a security strategy with defined goals for continual improvement.',
+        },
+        {
+            title: 'Clients',
+            text: "The firm is positioned to respond immediately as client requirements change, because its controls are already mapped to the Essential Eight, SMB1001 and NIST CSF. VeriState, the Decoheron attestation platform, let the firm review its security posture and provide evidence to third parties, such as clients and insurers, within 24 hours.",
+        },
+        {
+            title: 'Business',
+            text: 'One set of controls covers governance, identity, privilege, applications, procedures and hardening across all four standards, so the firm maintains one programme rather than four. As the firm expands into new jurisdictions, some of which already recommend SMB1001 Gold, it is positioned to respond to those expectations quickly.',
+        },
+    ],
+};
+---
+<CaseStudy study={study} />

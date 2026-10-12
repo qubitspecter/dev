@@ -1,7 +1,30 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BriefingForm from '../../components/BriefingForm.astro';
-import { caseStudies } from '../../data/caseStudies';
+
+const caseStudies = [
+    {
+        slug: 'wealth-management-essential-eight',
+        sector: 'Wealth management',
+        title: 'Essential Eight Uplift',
+        headline: { figure: '42% to 98%', caption: 'Microsoft Secure Score in six weeks' },
+        teaser: 'After a ransomware attack, a practice of under 25 staff moved its Microsoft Secure Score from 42% to 98% in six weeks, and its cyber insurance cover increased at a lower rate.',
+    },
+    {
+        slug: 'law-practice-ready-for-what-comes-next',
+        sector: 'Law practice',
+        title: 'Ready for What Comes Next',
+        headline: { figure: '1 set', caption: 'of controls across four frameworks, attested daily' },
+        teaser: "A Victorian law practice went beyond its regulator's minimum with one set of controls aligned to four frameworks, attested daily, and opened a satellite office without issue.",
+    },
+    {
+        slug: 'msp-zero-trust-client-administration',
+        sector: 'Managed service provider',
+        title: 'Zero-Trust Client Administration',
+        headline: { figure: '100%', caption: 'of client tenancy access approved by the client' },
+        teaser: 'An MSP replaced standing admin rights with client-approved access from a known device, added nothing for its clients, and obtained cyber insurance for the first time.',
+    },
+];
 ---
 <BaseLayout title="Case Studies - Decoheron">
     <section class="cs-hero">

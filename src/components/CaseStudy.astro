@@ -1,11 +1,6 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import BriefingForm from '../../components/BriefingForm.astro';
-import { caseStudies } from '../../data/caseStudies';
-
-export function getStaticPaths() {
-    return caseStudies.map((study) => ({ params: { slug: study.slug }, props: { study } }));
-}
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BriefingForm from './BriefingForm.astro';
 
 const { study } = Astro.props;
 ---
