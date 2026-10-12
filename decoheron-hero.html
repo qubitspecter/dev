@@ -1,0 +1,278 @@
+<!--
+  Decoheron home page: hero, evidence panel and stat strip.
+  Self-contained block. Paste where the current hero and pillars sit.
+
+  Preparer notes (not shown on the page):
+  - The three stat captions are legal statements framed as fact. Confirm each against primary
+    sources and have counsel review before publishing. The "directors and other officers"
+    wording on ss180 and 181 should be checked in particular.
+  - Gold (--dh-gold) is a proposed accent. The brand system mentions gold but no hex is confirmed.
+    Change the one variable below if you have a canonical value.
+  - The evidence panel is an illustrative sample, labelled as such. Do not present it as a
+    real client record.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+
+<style>
+  .dh-hero, .dh-facts {
+    --dh-navy: #0A1B6B;
+    --dh-ink: #050D2E;
+    --dh-indigo: #0310A4;
+    --dh-paper: #F5F6FA;
+    --dh-gold: #D8AE4E;
+    --dh-serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+    --dh-sans: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-family: var(--dh-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  .dh-hero *, .dh-facts * { box-sizing: border-box; }
+
+  /* Hero */
+  .dh-hero {
+    background: var(--dh-navy);
+    color: #fff;
+    padding: clamp(3rem, 7vw, 6.5rem) 1.5rem;
+  }
+  .dh-hero__inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    gap: clamp(2.5rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+  @media (min-width: 960px) {
+    .dh-hero__inner { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); }
+  }
+
+  .dh-hero__title {
+    margin: 0;
+    font-family: var(--dh-serif);
+    font-weight: 400;
+    font-size: clamp(2.25rem, 4.6vw, 3.75rem);
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+  .dh-hero__title span { display: block; }
+  .dh-hero__title span + span { color: rgba(255, 255, 255, 0.6); margin-top: 0.15em; }
+
+  .dh-hero__lede {
+    margin: 1.75rem 0 0;
+    max-width: 34rem;
+    font-size: 1.125rem;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.84);
+  }
+
+  .dh-hero__actions {
+    margin-top: 2.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.875rem;
+  }
+  .dh-btn {
+    display: inline-block;
+    padding: 0.9rem 1.5rem;
+    border-radius: 4px;
+    font: 600 1rem/1.2 var(--dh-sans);
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+  }
+  .dh-btn--primary { background: var(--dh-gold); color: var(--dh-ink); }
+  .dh-btn--primary:hover { background: #E4BD62; }
+  .dh-btn--secondary { color: #fff; border-color: rgba(255, 255, 255, 0.45); }
+  .dh-btn--secondary:hover { border-color: #fff; background: rgba(255, 255, 255, 0.06); }
+  @media (max-width: 520px) { .dh-btn { width: 100%; text-align: center; } }
+  .dh-btn:focus-visible { outline: 3px solid var(--dh-gold); outline-offset: 3px; }
+
+  /* Evidence panel */
+  .dh-panel {
+    margin: 0;
+    background: var(--dh-ink);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 6px;
+    padding: 1.25rem clamp(1rem, 3vw, 1.5rem) 1.5rem;
+    box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.55);
+  }
+  .dh-panel__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  }
+  .dh-panel__title { margin: 0; font-size: 1rem; font-weight: 600; }
+  .dh-panel__sample { font-size: 0.8125rem; color: rgba(255, 255, 255, 0.6); }
+
+  .dh-rows { list-style: none; margin: 0; padding: 0; }
+  .dh-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 5rem;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  }
+  .dh-row__name { font-size: 1rem; font-weight: 500; line-height: 1.3; }
+  .dh-row__src { display: block; margin-top: 0.2rem; font-size: 0.8125rem; color: rgba(255, 255, 255, 0.55); }
+
+  .dh-state {
+    position: relative;
+    height: 1.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+  .dh-state > span {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    white-space: nowrap;
+  }
+  .dh-state__wait { color: rgba(255, 255, 255, 0.55); font-weight: 500; }
+  .dh-state__wait::before {
+    content: "";
+    width: 0.5rem; height: 0.5rem;
+    border-radius: 50%;
+    border: 1.5px dashed rgba(255, 255, 255, 0.55);
+  }
+  .dh-state__pass { color: #fff; opacity: 0; }
+  .dh-state__pass::before {
+    content: "";
+    width: 1.125rem; height: 1.125rem;
+    border-radius: 50%;
+    background: var(--dh-gold)
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.4l2.6 2.6L12 5.6' fill='none' stroke='%23050D2E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+      center / 100% no-repeat;
+  }
+
+  .dh-sign {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    margin-top: 1.25rem;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.78);
+    opacity: 0;
+  }
+  .dh-sign::before {
+    content: "";
+    flex: none;
+    width: 0.625rem; height: 0.625rem;
+    background: var(--dh-gold);
+    transform: rotate(45deg);
+  }
+
+  /* The one orchestrated moment: each control resolves in turn, then the record signs. */
+  .dh-row { --d: calc(0.9s + var(--i) * 0.55s); }
+  .dh-state__wait { animation: dh-out 0.2s ease forwards; animation-delay: var(--d); }
+  .dh-state__pass { animation: dh-in 0.35s ease forwards; animation-delay: var(--d); }
+  .dh-sign { animation: dh-in 0.5s ease forwards; animation-delay: 4.5s; }
+
+  @keyframes dh-out { to { opacity: 0; } }
+  @keyframes dh-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dh-state__wait { display: none; }
+    .dh-state__pass, .dh-sign { animation: none; opacity: 1; }
+  }
+
+  /* Fact strip */
+  .dh-facts {
+    background: var(--dh-paper);
+    color: var(--dh-ink);
+    padding: clamp(2.5rem, 5vw, 4rem) 1.5rem;
+  }
+  .dh-facts__inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    gap: 2.25rem;
+  }
+  @media (min-width: 800px) {
+    .dh-facts__inner { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
+  }
+  .dh-fact { border-top: 2px solid var(--dh-navy); padding-top: 1.1rem; }
+  .dh-fact__figure {
+    margin: 0;
+    font-family: var(--dh-serif);
+    font-weight: 400;
+    font-size: clamp(2.25rem, 4vw, 3.25rem);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--dh-navy);
+  }
+  .dh-fact__text { margin: 0.7rem 0 0; max-width: 30rem; font-size: 1rem; line-height: 1.55; color: #2A3358; }
+</style>
+
+<section class="dh-hero" aria-labelledby="dh-hero-title">
+  <div class="dh-hero__inner">
+    <div>
+      <h1 class="dh-hero__title" id="dh-hero-title">
+        <span>Controls you can prove,</span>
+        <span>not opinions you have to defend.</span>
+      </h1>
+      <p class="dh-hero__lede">
+        We turn the Microsoft security you already own into evidenced, audit-ready controls.
+        When the board, your insurer or a regulator asks, you have the answer.
+      </p>
+      <div class="dh-hero__actions">
+        <a class="dh-btn dh-btn--primary" href="/liabilities">See your exposure</a>
+        <a class="dh-btn dh-btn--secondary" href="/solution">See how the controls work</a>
+      </div>
+    </div>
+
+    <figure class="dh-panel" aria-label="Illustrative control evidence record">
+      <div class="dh-panel__head">
+        <h2 class="dh-panel__title">Control evidence record</h2>
+        <span class="dh-panel__sample">Illustrative sample</span>
+      </div>
+      <ul class="dh-rows">
+        <li class="dh-row" style="--i:0">
+          <div class="dh-row__name">Passwordless sign-in<span class="dh-row__src">Entra ID</span></div>
+          <div class="dh-state"><span class="dh-state__wait" aria-hidden="true">Checking</span><span class="dh-state__pass">Pass</span></div>
+        </li>
+        <li class="dh-row" style="--i:1">
+          <div class="dh-row__name">No standing admin access<span class="dh-row__src">Entra ID</span></div>
+          <div class="dh-state"><span class="dh-state__wait" aria-hidden="true">Checking</span><span class="dh-state__pass">Pass</span></div>
+        </li>
+        <li class="dh-row" style="--i:2">
+          <div class="dh-row__name">Conditional Access, deny by default<span class="dh-row__src">Entra ID</span></div>
+          <div class="dh-state"><span class="dh-state__wait" aria-hidden="true">Checking</span><span class="dh-state__pass">Pass</span></div>
+        </li>
+        <li class="dh-row" style="--i:3">
+          <div class="dh-row__name">Application allow-listing<span class="dh-row__src">Intune and Defender</span></div>
+          <div class="dh-state"><span class="dh-state__wait" aria-hidden="true">Checking</span><span class="dh-state__pass">Pass</span></div>
+        </li>
+        <li class="dh-row" style="--i:4">
+          <div class="dh-row__name">Immutable, segmented backups<span class="dh-row__src">Restore tested</span></div>
+          <div class="dh-state"><span class="dh-state__wait" aria-hidden="true">Checking</span><span class="dh-state__pass">Pass</span></div>
+        </li>
+      </ul>
+      <div class="dh-sign">Record signed and timestamped, 12 Oct 2026, 08:14 AEDT</div>
+    </figure>
+  </div>
+</section>
+
+<section class="dh-facts" aria-label="Why this matters">
+  <div class="dh-facts__inner">
+    <div class="dh-fact">
+      <p class="dh-fact__figure">72 hours</p>
+      <p class="dh-fact__text">The window to report a ransomware payment under the Cyber Security Act 2024, for businesses with turnover above $3 million.</p>
+    </div>
+    <div class="dh-fact">
+      <p class="dh-fact__figure">Duty of care</p>
+      <p class="dh-fact__text">Sections 180 and 181 of the Corporations Act 2001 set the duty of care and diligence for directors and other officers.</p>
+    </div>
+    <div class="dh-fact">
+      <p class="dh-fact__figure">8 of 8</p>
+      <p class="dh-fact__text">ASD Essential Eight strategies tested and evidenced. A control either works or it doesn't.</p>
+    </div>
+  </div>
+</section>

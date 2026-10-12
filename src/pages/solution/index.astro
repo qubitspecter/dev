@@ -5,22 +5,20 @@ import CallToAction from '../../components/CallToAction.astro';
 import 'katex/dist/katex.min.css';
 ---
 <BaseLayout title="Solutions - Deterministic Security & Verifiable Compliance - Decoheron">
-    <div class="container py-4">
-        <!-- Hero Section -->
-        <div class="row mb-5">
-            <div class="col-lg-9">
-                <span class="badge bg-primary mb-3 px-3 py-2 text-uppercase fs-6">
-                    Managed Security & Compliance
-                </span>
-                <h1 class="display-4 fw-bold text-primary mb-3">
-                    Deterministic Controls.<br>Verifiable Proof.
-                </h1>
-                <p class="lead text-subtle fs-5">
-                    Every control we deploy is built to satisfy three separate audiences at once: your insurer, your regulator, and a court asking whether the board exercised reasonable care, if it ever comes to that. We don't attest to security. We prove it, continuously, with a signed record.
-                </p>
-            </div>
-        </div>
 
+    <div class="dh-page">
+        <section class="pg-hero">
+            <div class="pg-wrap">
+                <p class="pg-hero__label">Managed Security & Compliance</p>
+                <h1 class="pg-hero__title">
+                    <span>Deterministic Controls.</span>
+                    <span>Verifiable Proof.</span>
+                </h1>
+                <p class="pg-hero__lede">Every control we deploy is built to satisfy three separate audiences at once: your insurer, your regulator, and a court asking whether the board exercised reasonable care, if it ever comes to that. We don't attest to security. We prove it, continuously, with a signed record.</p>
+            </div>
+        </section>
+        <section class="pg-band pg-band--paper">
+            <div class="pg-wrap">
         <!-- Four Outcomes -->
         <div class="mb-5">
             <div class="mb-4">
@@ -71,9 +69,12 @@ import 'katex/dist/katex.min.css';
                 </div>
             </div>
         </div>
-
+            </div>
+        </section>
+        <section class="pg-band pg-band--white">
+            <div class="pg-wrap">
         <!-- What This Looks Like In Practice -->
-        <div class="row justify-content-center mb-5">
+        <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="p-4 border-0">
                     <h2 class="h3 fw-bold text-primary mb-4 text-center">
@@ -156,9 +157,12 @@ import 'katex/dist/katex.min.css';
                 </div>
             </div>
         </div>
-
+            </div>
+        </section>
+        <section class="pg-band pg-band--paper">
+            <div class="pg-wrap">
         <!-- Framework Alignment -->
-        <div class="row g-4 mb-5">
+        <div class="row g-4">
             <div class="col-12">
                 <h2 class="h3 fw-bold text-primary mb-1">
                     Framework Alignment
@@ -211,7 +215,8 @@ import 'katex/dist/katex.min.css';
                 </div>
             </div>
         </div>
-
+            </div>
+        </section>
         <CallToAction />
     </div>
     <BriefingForm hidden={true} />

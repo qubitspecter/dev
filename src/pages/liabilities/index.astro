@@ -6,26 +6,22 @@ import { ACTION_QUERY_PARAMS } from 'astro:actions';
 
 
 
-
 ---
 
 <BaseLayout title="Director Liability & Governance Risk - Decoheron">
-    <div class="container py-4">
-        <!-- Hero Section -->
-        <div class="row mb-5">
-            <div class="col-lg-9">
-                <span class="badge bg-primary mb-3 px-3 py-2 text-uppercase fs-6">
-                    Board Governance & Fiduciary Risk
-                </span>
-                <h1 class="display-4 fw-bold text-primary mb-3">
-                    Cyber Risk is Personal Liability
-                </h1>
-                <p class="lead text-subtle fs-5">
-                    Cybersecurity is a non-delegable board duty. Incomplete controls expose directors to personal regulatory penalties, shareholder lawsuits, and voided insurance coverage.
-                </p>
-            </div>
-        </div>
 
+    <div class="dh-page">
+        <section class="pg-hero">
+            <div class="pg-wrap">
+                <p class="pg-hero__label">Board Governance & Fiduciary Risk</p>
+                <h1 class="pg-hero__title">
+                    <span>Cyber Risk is Personal Liability</span>
+                </h1>
+                <p class="pg-hero__lede">Cybersecurity is a non-delegable board duty. Incomplete controls expose directors to personal regulatory penalties, shareholder lawsuits, and voided insurance coverage.</p>
+            </div>
+        </section>
+        <section class="pg-band pg-band--paper">
+            <div class="pg-wrap">
         <!-- Statutory & Regulatory Frameworks -->
         <div class="mb-5">
             <div class="mb-4">
@@ -86,7 +82,12 @@ import { ACTION_QUERY_PARAMS } from 'astro:actions';
                     </div>
                 </div> 
             </div>   
-        </div>    
+        </div>
+            </div>
+        </section>
+        <section class="pg-band pg-band--white">
+            <div class="pg-wrap">
+    
 
         <div class="mb-5">
             <div class="mb-4">
@@ -135,8 +136,12 @@ import { ACTION_QUERY_PARAMS } from 'astro:actions';
  
             </div>    
         </div>
+            </div>
+        </section>
+        <section class="pg-band pg-band--paper">
+            <div class="pg-wrap">
         <!-- Critical Governance Failure Points -->
-        <div class="row justify-content-center mb-5">
+        <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="p-4 border-0">
                     <h2 class="h3 fw-bold text-primary mb-4 text-center">
@@ -199,10 +204,12 @@ import { ACTION_QUERY_PARAMS } from 'astro:actions';
                 </div>
             </div>
         </div>
-
-
+            </div>
+        </section>
+        <section class="pg-band pg-band--white">
+            <div class="pg-wrap">
         <!-- Technical Implications for the Board -->
-        <div class="row g-4 mb-5">
+        <div class="row g-4">
             <div class="col-12">
                 <h2 class="h3 fw-bold text-primary mb-1">
                     Technical Implications for the Board
@@ -256,6 +263,8 @@ import { ACTION_QUERY_PARAMS } from 'astro:actions';
                 </div>
             </div>
         </div>
+            </div>
+        </section>
         <CallToAction />
     </div>
     <BriefingForm hidden={true} />

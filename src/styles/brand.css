@@ -1,0 +1,113 @@
+/* Home page palette and type, shared with the pages that borrow its look. */
+:root {
+    --dh-navy: #0A1B6B;
+    --dh-ink: #050D2E;
+    --dh-indigo: #0310A4;
+    --dh-paper: #F5F6FA;
+    --dh-gold: #D8AE4E;
+    --dh-serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+    --dh-sans: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* Content pages (Liabilities, Solution, About): navy hero, then alternating paper and white bands. */
+.dh-page {
+    font-family: var(--dh-sans);
+    -webkit-font-smoothing: antialiased;
+    color: var(--dh-ink);
+}
+.pg-wrap { max-width: 1180px; margin: 0 auto; }
+
+.pg-hero {
+    background: var(--dh-navy);
+    color: #fff;
+    padding: clamp(3rem, 7vw, 5.5rem) 1.5rem;
+}
+.pg-hero__label {
+    margin: 0 0 1.25rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--dh-gold);
+}
+.pg-hero__title {
+    margin: 0;
+    font-family: var(--dh-serif);
+    font-weight: 400;
+    font-size: clamp(2.25rem, 4.6vw, 3.75rem);
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+    color: #fff;
+}
+.pg-hero__title span { display: block; }
+.pg-hero__title span + span { color: rgba(255, 255, 255, 0.6); margin-top: 0.15em; }
+.pg-hero__lede {
+    margin: 1.75rem 0 0;
+    max-width: 42rem;
+    font-size: 1.125rem;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.84);
+}
+
+.pg-band { padding: clamp(2.5rem, 5vw, 4.5rem) 1.5rem; }
+.pg-band--paper { background: var(--dh-paper); }
+.pg-band--white { background: #fff; }
+
+/* The pages' existing Bootstrap markup, restyled to match the home page */
+.dh-page .pg-band h2 {
+    font-family: var(--dh-serif);
+    font-weight: 400 !important;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--dh-navy) !important;
+}
+.dh-page .pg-band h3 {
+    font-family: var(--dh-serif);
+    font-weight: 500 !important;
+    font-size: 1.375rem;
+    line-height: 1.2;
+}
+.dh-page .pg-band p { line-height: 1.6; }
+
+.dh-page .card {
+    background: #fff !important;
+    border: 0 !important;
+    border-top: 2px solid var(--dh-navy) !important;
+    border-radius: 0 !important;
+    box-shadow: 0 1px 2px rgba(5, 13, 46, 0.08) !important;
+}
+.dh-page .pg-band--white .card {
+    background: var(--dh-paper) !important;
+    box-shadow: none !important;
+}
+.dh-page .card .text-uppercase { letter-spacing: 0.06em; font-size: 0.8125rem !important; }
+.dh-page .card h3.text-secondary, .dh-page .card p.text-secondary { color: #4B5563 !important; }
+
+.dh-page .square-bullet {
+    flex: none;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin-top: 0.7rem !important;
+    background: var(--dh-navy);
+    transform: rotate(45deg);
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+}
+
+/* The first block in a band carries its own bottom margin from the old layout */
+.pg-band > .pg-wrap > .mb-5 { margin-bottom: 0 !important; }
+
+/* Card titles that are spans or h2s in the old markup get the same serif treatment as h3 titles */
+.dh-page .card span.h4,
+.dh-page .card h2.h4 {
+    display: block;
+    font-family: var(--dh-serif);
+    font-weight: 500 !important;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    letter-spacing: 0;
+    color: var(--dh-navy);
+}

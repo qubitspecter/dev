@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BriefingForm from '../../components/BriefingForm.astro';
+import { caseStudies } from '../../data/caseStudies';
+---
+<BaseLayout title="Case Studies - Decoheron">
+    <section class="cs-hero">
+        <div class="cs-wrap">
+            <h1 class="cs-hero__title">
+                <span>Controls proved in practice.</span>
+                <span>Not promised.</span>
+            </h1>
+            <p class="cs-hero__lede">
+                How Australian businesses went from exposed to evidenced, using the Microsoft security they already own.
+            </p>
+        </div>
+    </section>
+
+    <section class="cs-band" aria-label="Case studies">
+        <div class="cs-wrap cs-cards">
+            {caseStudies.map((study) => (
+                <a class="cs-card" href={`/case-studies/${study.slug}`}>
+                    <p class="cs-card__sector">{study.sector}</p>
+                    <p class="cs-card__figure">{study.headline.figure}</p>
+                    <p class="cs-card__caption">{study.headline.caption}</p>
+                    <h2 class="cs-card__title">{study.title}</h2>
+                    <p class="cs-card__teaser">{study.teaser}</p>
+                    <span class="cs-card__link">Read the case study <span aria-hidden="true">&rarr;</span></span>
+                </a>
+            ))}
+        </div>
+    </section>
+
+    <BriefingForm />
+</BaseLayout>
+
+<style>
+    .cs-hero, .cs-band { font-family: var(--dh-sans); -webkit-font-smoothing: antialiased; }
+    .cs-wrap { max-width: 1180px; margin: 0 auto; }
+
+    .cs-hero {
+        background: var(--dh-navy);
+        color: #fff;
+        padding: clamp(3rem, 7vw, 5.5rem) 1.5rem;
+    }
+    .cs-hero__title {
+        margin: 0;
+        font-family: var(--dh-serif);
+        font-weight: 400;
+        font-size: clamp(2.25rem, 4.6vw, 3.75rem);
+        line-height: 1.05;
+        letter-spacing: -0.015em;
+        text-wrap: balance;
+        color: #fff;
+    }
+    .cs-hero__title span { display: block; }
+    .cs-hero__title span + span { color: rgba(255, 255, 255, 0.6); margin-top: 0.15em; }
+    .cs-hero__lede {
+        margin: 1.5rem 0 0;
+        max-width: 36rem;
+        font-size: 1.125rem;
+        line-height: 1.55;
+        color: rgba(255, 255, 255, 0.84);
+    }
+
+    .cs-band { background: var(--dh-paper); color: var(--dh-ink); padding: clamp(2.5rem, 5vw, 4rem) 1.5rem; }
+    .cs-cards { display: grid; gap: 2.25rem; }
+    @media (min-width: 800px) {
+        .cs-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
+    }
+
+    .cs-card {
+        display: flex;
+        flex-direction: column;
+        color: inherit;
+        text-decoration: none;
+        background: #fff;
+        border-top: 2px solid var(--dh-navy);
+        padding: 1.5rem 1.5rem 1.6rem;
+        box-shadow: 0 1px 2px rgba(5, 13, 46, 0.06);
+        transition: box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+    .cs-card:hover { border-color: var(--dh-gold); box-shadow: 0 14px 28px -18px rgba(5, 13, 46, 0.4); }
+    .cs-card:focus-visible { outline: 3px solid var(--dh-indigo); outline-offset: 3px; }
+
+    .cs-card__sector {
+        margin: 0;
+        font-size: 0.8125rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #4B5563;
+    }
+    .cs-card__figure {
+        margin: 1rem 0 0;
+        font-family: var(--dh-serif);
+        font-size: clamp(2.25rem, 3.4vw, 3rem);
+        line-height: 1.05;
+        letter-spacing: -0.01em;
+        color: var(--dh-navy);
+    }
+    .cs-card__caption { margin: 0.5rem 0 0; font-size: 0.9375rem; line-height: 1.4; color: #2A3358; }
+    .cs-card__title {
+        margin: 1.5rem 0 0;
+        font-family: var(--dh-serif);
+        font-weight: 500;
+        font-size: 1.5rem;
+        line-height: 1.2;
+        color: var(--dh-ink);
+    }
+    .cs-card__teaser { margin: 0.6rem 0 0; font-size: 1rem; line-height: 1.55; color: #2A3358; }
+    .cs-card__link { margin-top: auto; padding-top: 1.25rem; font-weight: 700; color: var(--dh-navy); }
+    .cs-card:hover .cs-card__link { text-decoration: underline; text-underline-offset: 3px; }
+</style>

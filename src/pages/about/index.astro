@@ -9,22 +9,20 @@ import logoImage from '../../assets/meaning.png';
 ---
 
 <BaseLayout title="About - Decoheron">
-    <div class="container py-4">
-        <!-- Page Header -->
-        <div class="row mb-5">
-            <div class="col-lg-9">
-                <span class="badge bg-primary mb-3 px-3 py-2 text-uppercase fs-6">
-                    Our Leadership & Heritage
-                </span>
-                <h1 class="display-4 fw-bold text-primary mb-3">
-                    Built by Operators,<br>Grounded in Governance
-                </h1>
-                <p class="lead text-subtle fs-5">
-                    Founded by veteran cyber operators and risk advisors, we help executive leadership navigate governance standards, legal risk, and fiduciary duties.
-                </p>
-            </div>
-        </div>
 
+    <div class="dh-page">
+        <section class="pg-hero">
+            <div class="pg-wrap">
+                <p class="pg-hero__label">Our Leadership & Heritage</p>
+                <h1 class="pg-hero__title">
+                    <span>Built by Operators,</span>
+                    <span>Grounded in Governance</span>
+                </h1>
+                <p class="pg-hero__lede">Founded by veteran cyber operators and risk advisors, we help executive leadership navigate governance standards, legal risk, and fiduciary duties.</p>
+            </div>
+        </section>
+        <section class="pg-band pg-band--paper">
+            <div class="pg-wrap">
         <!-- Leadership / Team Bios (Side-by-Side) -->
         <div class="mb-5">
             <div class="mb-4">
@@ -59,8 +57,12 @@ import logoImage from '../../assets/meaning.png';
 
             </div>
         </div>
+            </div>
+        </section>
+        <section class="pg-band pg-band--white">
+            <div class="pg-wrap">
         <!-- About the Name & Logo Section (Single Column: Image Top, Text Below) -->
-        <div class="row justify-content-center my-5">
+        <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="p-4 p-md-2 rounded-3">
 
@@ -79,6 +81,8 @@ import logoImage from '../../assets/meaning.png';
                 </div>
             </div>
         </div>
+            </div>
+        </section>
         <CallToAction />
     </div>
     <BriefingForm hidden={true} />

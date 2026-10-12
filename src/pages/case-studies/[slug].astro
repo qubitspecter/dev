@@ -1,0 +1,281 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BriefingForm from '../../components/BriefingForm.astro';
+import { caseStudies } from '../../data/caseStudies';
+
+export function getStaticPaths() {
+    return caseStudies.map((study) => ({ params: { slug: study.slug }, props: { study } }));
+}
+
+const { study } = Astro.props;
+---
+<BaseLayout title={`Case Study: ${study.sector}, ${study.title} - Decoheron`}>
+    <!-- Hero -->
+    <section class="cs cs-hero">
+        <div class="cs-wrap">
+            <a href="/case-studies" class="cs-back">&larr; Case studies</a>
+            <h1 class="cs-hero__title">
+                <span>{study.sector}:</span>
+                <span>{study.title}</span>
+            </h1>
+            <p class="cs-hero__lede">{study.summary}</p>
+        </div>
+    </section>
+
+    <!-- Result figures -->
+    <section class="cs cs-band" aria-label="Results at a glance">
+        <div class="cs-wrap cs-stats">
+            {study.stats.map((s) => (
+                <div class="cs-stat">
+                    <p class="cs-stat__figure">
+                        {s.from && (<><span class="cs-stat__from">{s.from}</span> <span aria-label="to">&rarr;</span> </>)}{s.figure}
+                    </p>
+                    <p class="cs-stat__label">{s.label}</p>
+                    {s.note && <p class="cs-stat__note">{s.note}</p>}
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- At a glance, background, findings -->
+    <section class="cs cs-body">
+        <div class="cs-wrap cs-narrow">
+            <section aria-labelledby="cs-glance">
+                <h2 class="cs-h2" id="cs-glance">At a Glance</h2>
+                <dl class="cs-glance">
+                    {study.glance.map(([term, value]) => (
+                        <div class="cs-glance__row">
+                            <dt>{term}</dt>
+                            <dd>
+                                {Array.isArray(value) ? (
+                                    <ul class="cs-list">
+                                        {value.map((v) => <li>{v}</li>)}
+                                    </ul>
+                                ) : value}
+                            </dd>
+                        </div>
+                    ))}
+                </dl>
+            </section>
+
+            <section aria-labelledby="cs-background">
+                <h2 class="cs-h2" id="cs-background">1. Background</h2>
+                {study.background.map((p) => <p class="cs-p">{p}</p>)}
+            </section>
+
+            <section aria-labelledby="cs-findings">
+                <h2 class="cs-h2" id="cs-findings">2. Findings</h2>
+                <p class="cs-p">{study.findingsIntro}</p>
+                <ul class="cs-findings">
+                    {study.findings.map((f) => <li>{f}</li>)}
+                </ul>
+            </section>
+        </div>
+    </section>
+
+    <!-- Method -->
+    <section class="cs cs-band" aria-labelledby="cs-method">
+        <div class="cs-wrap">
+            <h2 class="cs-h2" id="cs-method">3. {study.method.title}</h2>
+            <div class="cs-table" role="table">
+                <div class="cs-table__head" role="row">
+                    {study.method.columns.map((c) => <div role="columnheader">{c}</div>)}
+                </div>
+                {study.method.rows.map((row) => (
+                    <div class="cs-table__row" role="row">
+                        {row.map((cell, i) => (
+                            <div class:list={['cs-cell', { 'cs-cell--lead': i === 0 }]} role="cell">
+                                <span class="cs-cell__label" aria-hidden="true">{study.method.columns[i]}</span>
+                                {Array.isArray(cell) ? (
+                                    <ul class="cs-list">
+                                        {cell.map((d) => <li>{d}</li>)}
+                                    </ul>
+                                ) : cell}
+                            </div>
+                        ))}
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Outcomes -->
+    <section class="cs cs-body" aria-labelledby="cs-result">
+        <div class="cs-wrap">
+            <h2 class="cs-h2" id="cs-result">4. Result</h2>
+            <div class="cs-outcomes">
+                {study.outcomes.map((o) => (
+                    <div class="cs-outcome">
+                        <h3 class="cs-outcome__title">{o.title}</h3>
+                        <p class="cs-p">{o.text}</p>
+                    </div>
+                ))}
+            </div>
+            <p class="cs-disclaimer">
+                Client details withheld. Results are specific to this engagement and are not a guarantee of outcome.
+            </p>
+        </div>
+    </section>
+
+    <BriefingForm />
+</BaseLayout>
+
+<style>
+    .cs { font-family: var(--dh-sans); -webkit-font-smoothing: antialiased; }
+    .cs-wrap { max-width: 1180px; margin: 0 auto; }
+    .cs-narrow { max-width: 860px; margin-left: auto; margin-right: auto; display: grid; gap: clamp(2rem, 4vw, 3rem); }
+
+    /* Hero, same treatment as the home page */
+    .cs-hero {
+        background: var(--dh-navy);
+        color: #fff;
+        padding: clamp(2.5rem, 6vw, 5rem) 1.5rem;
+    }
+    .cs-back {
+        display: inline-block;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.78);
+        text-decoration: none;
+    }
+    .cs-back:hover { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+    .cs-back:focus-visible { outline: 3px solid var(--dh-gold); outline-offset: 3px; }
+    .cs-hero__title {
+        margin: 0;
+        font-family: var(--dh-serif);
+        font-weight: 400;
+        font-size: clamp(2.25rem, 4.6vw, 3.75rem);
+        line-height: 1.05;
+        letter-spacing: -0.015em;
+        text-wrap: balance;
+        color: #fff;
+    }
+    .cs-hero__title span { display: block; }
+    .cs-hero__title span + span { color: rgba(255, 255, 255, 0.6); margin-top: 0.15em; }
+    .cs-hero__lede {
+        margin: 1.5rem 0 0;
+        max-width: 42rem;
+        font-size: 1.125rem;
+        line-height: 1.55;
+        color: rgba(255, 255, 255, 0.84);
+    }
+
+    /* Paper bands and white body sections */
+    .cs-band { background: var(--dh-paper); color: var(--dh-ink); padding: clamp(2.5rem, 5vw, 4rem) 1.5rem; }
+    .cs-body { background: #fff; color: var(--dh-ink); padding: clamp(2.5rem, 5vw, 4rem) 1.5rem; }
+
+    .cs-stats { display: grid; gap: 2.25rem; }
+    @media (min-width: 800px) {
+        .cs-stats { grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); gap: 2.5rem; }
+    }
+    .cs-stat { border-top: 2px solid var(--dh-navy); padding-top: 1.1rem; }
+    .cs-stat__figure {
+        margin: 0;
+        font-family: var(--dh-serif);
+        font-size: clamp(2.25rem, 4vw, 3.25rem);
+        line-height: 1.05;
+        letter-spacing: -0.01em;
+        color: var(--dh-navy);
+    }
+    .cs-stat__from { opacity: 0.5; }
+    .cs-stat__label { margin: 0.7rem 0 0; font-weight: 700; color: var(--dh-ink); }
+    .cs-stat__note { margin: 0.35rem 0 0; max-width: 30rem; font-size: 1rem; line-height: 1.55; color: #2A3358; }
+
+    .cs-h2 {
+        margin: 0 0 1rem;
+        font-family: var(--dh-serif);
+        font-weight: 400;
+        font-size: clamp(1.75rem, 3vw, 2.25rem);
+        line-height: 1.15;
+        letter-spacing: -0.01em;
+        color: var(--dh-navy);
+    }
+    .cs-p { margin: 0 0 1rem; font-size: 1.0625rem; line-height: 1.6; color: #1F2747; }
+    .cs-p:last-child { margin-bottom: 0; }
+
+    .cs-list { margin: 0; padding-left: 1.1rem; }
+    .cs-list li { margin: 0.2rem 0; }
+
+    .cs-glance { margin: 0; border-top: 2px solid var(--dh-navy); }
+    .cs-glance__row {
+        display: grid;
+        gap: 0.25rem 1.5rem;
+        padding: 0.95rem 0;
+        border-bottom: 1px solid rgba(10, 27, 107, 0.15);
+    }
+    .cs-glance dt { font-weight: 700; color: var(--dh-navy); }
+    .cs-glance dd { margin: 0; line-height: 1.55; color: #1F2747; }
+    @media (min-width: 768px) {
+        .cs-glance__row { grid-template-columns: 11rem minmax(0, 1fr); }
+    }
+
+    .cs-findings { list-style: none; margin: 0; padding: 0; }
+    .cs-findings li {
+        position: relative;
+        padding: 0 0 0 1.75rem;
+        margin: 0 0 0.9rem;
+        font-size: 1.0625rem;
+        line-height: 1.55;
+        color: #1F2747;
+    }
+    .cs-findings li::before {
+        content: "";
+        position: absolute;
+        left: 0.15rem;
+        top: 0.55em;
+        width: 0.5rem;
+        height: 0.5rem;
+        background: var(--dh-navy);
+        transform: rotate(45deg);
+    }
+
+    /* Method table: stacked on phones (each cell carries its own label), a grid from 768px */
+    .cs-table__head { display: none; }
+    .cs-table__row {
+        display: grid;
+        gap: 0.5rem 1.5rem;
+        padding: 1.1rem 0;
+        border-top: 1px solid rgba(10, 27, 107, 0.18);
+        line-height: 1.55;
+        color: #1F2747;
+    }
+    .cs-table__row:last-child { border-bottom: 1px solid rgba(10, 27, 107, 0.18); }
+    .cs-cell__label {
+        display: block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #4B5563;
+    }
+    .cs-cell--lead { font-family: var(--dh-serif); font-size: 1.375rem; line-height: 1.2; color: var(--dh-navy); }
+    @media (min-width: 768px) {
+        .cs-table__head,
+        .cs-table__row { display: grid; grid-template-columns: 12rem 11rem minmax(0, 1fr); }
+        .cs-table__head {
+            gap: 0 1.5rem;
+            padding-bottom: 0.7rem;
+            border-bottom: 2px solid var(--dh-navy);
+            font-size: 0.8125rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--dh-navy);
+        }
+        .cs-cell__label { display: none; }
+    }
+
+    .cs-outcomes { display: grid; gap: 2.25rem; margin-top: 1.5rem; }
+    @media (min-width: 900px) {
+        .cs-outcomes { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
+    }
+    .cs-outcome { border-top: 2px solid var(--dh-navy); padding-top: 1.1rem; }
+    .cs-outcome__title {
+        margin: 0 0 0.6rem;
+        font-family: var(--dh-serif);
+        font-weight: 500;
+        font-size: 1.5rem;
+        color: var(--dh-ink);
+    }
+    .cs-disclaimer { margin: 2.5rem 0 0; font-size: 0.875rem; color: #4B5563; }
+</style>

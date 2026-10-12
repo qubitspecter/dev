@@ -28,6 +28,9 @@ const pathname = Astro.url.pathname;
                     <a class:list={['nav-link', { active: pathname.startsWith('/solution') }]} aria-current={pathname.startsWith('/solution') ? 'page' : undefined} href="/solution">Solution</a>
                 </li>
                 <li class="nav-item">
+                    <a class:list={['nav-link', { active: pathname.startsWith('/case-studies') }]} aria-current={pathname.startsWith('/case-studies') ? 'page' : undefined} href="/case-studies">Case Studies</a>
+                </li>
+                <li class="nav-item">
                     <a class:list={['nav-link', { active: pathname.startsWith('/about') }]} aria-current={pathname.startsWith('/about') ? 'page' : undefined} href="/about">About</a>
                 </li>
                 <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
