@@ -64,14 +64,14 @@ const pillars = [
 const controls = [
     {
         icon: 'key',
-        name: 'Passwordless Authentication',
+        name: 'Phishing resistant Authentication',
         line: 'No passwords left to steal.',
         text: 'Staff sign in with passkeys tied to their device, so there is no password to phish, reuse or leak.',
         outcome: 'Removes one of the most common causes of account compromise.',
     },
     {
         icon: 'admin',
-        name: 'Zero Admin',
+        name: 'Protected Administration',
         line: 'No permanent administrator access.',
         text: 'Admin rights are granted for an approved task and removed automatically when the task is done.',
         outcome: 'Limits the damage any single compromised account can do.',
@@ -85,15 +85,15 @@ const controls = [
     },
     {
         icon: 'terminal',
-        name: 'App Control',
+        name: 'Execution Control',
         line: 'Only approved software runs.',
         text: 'Applications are explicitly allowed. Anything not on the list is blocked before it runs, including the unapproved programs ransomware commonly relies on.',
         outcome: 'Closes off one of the most common ways ransomware takes hold.',
     },
     {
         icon: 'database',
-        name: 'Immutable Backups',
-        line: "Backups attackers can't touch.",
+        name: 'Immutable Recovery',
+        line: "Backups cannot be modified, deleted or encrypted by attackers",
         text: "Backups are stored so they can't be altered or deleted during their retention period, and recovery is tested against agreed recovery objectives.",
         outcome: 'A known, tested path back after an incident.',
     },
@@ -130,8 +130,9 @@ const comparison = [
 ];
 
 const steps = [
-    { name: 'Assess', text: 'A fixed-fee review of your Microsoft environment against the ASD Essential Eight, with a costed roadmap.' },
-    { name: 'Remediate', text: 'A fixed-price program of work that takes your environment to an evidenced, audit-ready state.' },
+    { name: 'Assess', text: 'A review of your Microsoft environment against the ASD Essentials, SMB1001, with a roadmap to compliance.' },
+    { name: 'Remediate', text: 'A programme of work that takes your environment to an evidenced, audit-ready state.' },
+     { name: 'Consolidate', text: 'A programme of work to maximise the value of your security investments.' },   
     { name: 'Maintain', text: 'An ongoing retainer that keeps controls working, with regular Veristate™ reporting.' },
 ];
 
@@ -161,19 +162,21 @@ const industries = [
 ];
 ---
 
-<BaseLayout title="Decoheron - Solutions-Focused Cyber Security & Director Liability Reduction">
+<BaseLayout title="Decoheron - Outcome Focused Cyber Security">
 
 <!-- 1. Hero -->
 <section class="dh-hero" aria-labelledby="dh-hero-title">
   <div class="dh-hero__inner">
     <div>
-      <p class="dh-eyebrow">Cyber security for legal, accounting and wealth management firms</p>
+      <p class="dh-eyebrow">Cyber security for small to medium business</p>
+      
+        <!-- Specialising in legal, accounting, and wealth management firms.-->
       <h1 class="dh-hero__title" id="dh-hero-title">
-        <span>Controls you can prove,</span>
-        <span>not opinions you have to defend.</span>
+        <span>Security you can prove,</span>
+        <span>not opinions you can't prove.</span>
       </h1>
       <p class="dh-hero__lede">
-        Decoheron turns the Microsoft security your firm already owns into ASD-aligned controls that are enforced, tested and evidenced. Our controls are deterministic, meaning each one either works or it doesn't, and we give you signed evidence showing which.
+        Decoheron turns the Microsoft security your firm already owns into ASD Essentials aligned controls that are enforced, tested and evidenced. Our controls are deterministic, meaning each one either works or it doesn't, and we give you signed evidence showing which.
       </p>
       <p class="dh-hero__lede">
         No subjective maturity opinions. No best-effort recommendations. Controls that work, and the evidence to show it.
@@ -234,7 +237,7 @@ const industries = [
 </section>
 
 <!-- 2. Trust bar -->
-{/* PREPARER NOTE: update "SMB1001 Silver" to "SMB1001 Gold" once the independent audit is complete. Add "ASD Cyber Security Partnership Program Network Partner" only once membership is confirmed. Add certification badge images if the certifying bodies permit their use. */}
+{/* PREPARER NOTE: update "SMB1001 Silver" to "SMB1001 Gold" once the independent audit is complete. Add "ASD Cyber Security Partnership Programme Network Partner" only once membership is confirmed. Add certification badge images if the certifying bodies permit their use. */}
 <section class="dh-section dh-section--tight dh-section--paper" aria-label="Credentials">
   <ul class="dh-wrap dh-trust">
     {trust.map((t) => (
@@ -379,8 +382,8 @@ const industries = [
 <!-- 8. How it works -->
 <section class="dh-section" aria-labelledby="dh-how-title">
   <div class="dh-wrap">
-    <h2 class="dh-h2" id="dh-how-title">Assess. Remediate. Maintain.</h2>
-    <ol class="dh-steps">
+    <h2 class="dh-h2" id="dh-how-title">How it works</h2>
+    <ol class="dh-steps" style={`--dh-step-count: ${steps.length}`}>
       {steps.map((s, i) => (
         <li class="dh-step">
           <span class="dh-step__num" aria-hidden="true">{i + 1}</span>
@@ -396,7 +399,7 @@ const industries = [
 <section class="dh-section dh-section--navy" aria-labelledby="dh-msp-title">
   <div class="dh-wrap dh-split">
     <div>
-      <h2 class="dh-h2" id="dh-msp-title">We work alongside your MSP, not against them.</h2>
+      <h2 class="dh-h2" id="dh-msp-title">We work with your MSP, not against them.</h2>
       <p class="dh-body">
         Many security providers compete with your managed service provider. We don't. Your MSP keeps running your environment day to day. We design, implement and verify the security controls, and give both of you clear evidence of what's working.
       </p>
@@ -434,16 +437,16 @@ const industries = [
   <div class="dh-wrap dh-narrow dh-centre">
     <h2 class="dh-h2" id="dh-cta-title">Know where you stand. Then prove it.</h2>
     <p class="dh-body dh-body--large">
-      Start with a fixed-fee assessment of your Microsoft security against the ASD Essential Eight. You'll get a clear picture of where you stand today, and a costed roadmap to an evidenced, audit-ready environment.
+      Start with an assessment of your Microsoft security against the ASD Essentials. You'll get a clear picture of where you stand today, and a costed roadmap to an evidenced, audit-ready environment.
     </p>
     <div class="dh-hero__actions dh-hero__actions--centre">
       <a class="dh-btn dh-btn--primary" href="#briefing">Book a Security Assessment</a>
-      <a class="dh-btn dh-btn--secondary" href="#briefing">Speak with a Specialist</a>
     </div>
   </div>
 </section>
 
-    <BriefingForm />
+  
+      <BriefingForm hidden={true} />
 </BaseLayout>
 
 <style>
@@ -735,7 +738,8 @@ const industries = [
 
   /* Steps */
   .dh-steps { list-style: none; margin: 2.25rem 0 0; padding: 0; display: grid; gap: 2rem 2.5rem; counter-reset: none; }
-  @media (min-width: 800px) { .dh-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (min-width: 640px) { .dh-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 1000px) { .dh-steps { grid-template-columns: repeat(var(--dh-step-count, 3), minmax(0, 1fr)); } }
   .dh-step { border-top: 2px solid var(--dh-navy); padding-top: 1.1rem; }
   .dh-step__num { font-family: var(--dh-serif); font-size: 2.5rem; line-height: 1; color: var(--dh-indigo); }
   .dh-step__name { margin: 0.5rem 0 0; font-family: var(--dh-serif); font-weight: 400; font-size: 1.75rem; color: var(--dh-navy); }
