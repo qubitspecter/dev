@@ -1,10 +1,14 @@
 ---
+import { Image } from 'astro:assets';
+import smb1001Badge from '../assets/smb1001-silver.png';
 const currentYear = new Date().getFullYear();
 const pathname = Astro.url.pathname;
 ---
 
 <footer class="py-4 bg-dark text-white border-top bs-secondary">
     <div class="container text-center">
+        <Image src={smb1001Badge} alt="Cybercert SMB1001 Silver Level 2 certification" width={96} class="mb-3" loading="lazy" />
+        <br>
         <small class="text-subtle-light">&copy; {currentYear} Decoheron. All rights reserved.
             <a class:list={['nav-link', { active: pathname === '/' }]} aria-current={pathname === '/' ? 'page' : undefined} href="/privacy">Privacy Policy</a>
             <br><!-- Built for pragmatic risk reduction. --></small>

@@ -9,29 +9,185 @@ const matrix = [
     { name: 'Execution Control', icon: 'terminal' },
     { name: 'Hardened Environment', icon: 'shield' },
 ];
+
+// Inline SVG icons, same stroke style as the rest of the site. Each entry is a list of path strings.
+const circle = (cx: number, cy: number, r: number) =>
+    `M${cx - r} ${cy}a${r} ${r} 0 1 0 ${r * 2} 0 ${r} ${r} 0 1 0 ${-r * 2} 0z`;
+const rrect = (x: number, y: number, w: number, h: number, r: number) =>
+    `M${x + r} ${y}h${w - 2 * r}a${r} ${r} 0 0 1 ${r} ${r}v${h - 2 * r}a${r} ${r} 0 0 1 ${-r} ${r}h${-(w - 2 * r)}a${r} ${r} 0 0 1 ${-r} ${-r}v${-(h - 2 * r)}a${r} ${r} 0 0 1 ${r} ${-r}z`;
+
+const icons: Record<string, string[]> = {
+    award: [circle(12, 9, 5), 'M9 13.4L7.5 21l4.5-2.4 4.5 2.4L15 13.4'],
+    shield: ['M12 3l7 2.6v5.4c0 4.4-2.9 8-7 10-4.1-2-7-5.6-7-10V5.6z'],
+    shieldCheck: ['M12 3l7 2.6v5.4c0 4.4-2.9 8-7 10-4.1-2-7-5.6-7-10V5.6z', 'M8.8 12l2.4 2.4 4.2-4.6'],
+    cloud: ['M7.5 18a4.5 4.5 0 0 1-.4-8.98A6 6 0 0 1 18.6 10.5 3.75 3.75 0 0 1 18 18z'],
+    users: [circle(9, 8, 3), 'M3 19v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1', 'M16 5.2a3 3 0 0 1 0 5.6', 'M21 19v-1a4.5 4.5 0 0 0-3-4.2'],
+    lock: [rrect(5, 11, 14, 9, 2), 'M8 11V8a4 4 0 0 1 8 0v3'],
+    checkCircle: [circle(12, 12, 9), 'M8 12.3l2.6 2.6L16 9.5'],
+    report: ['M6 3h8l4 4v14H6z', 'M14 3v4h4', 'M9 14l2 2 4-4'],
+    clipboard: [rrect(5, 4, 14, 17, 2), 'M9 4V3h6v1', 'M9 12h6M9 16h4'],
+    question: [circle(12, 12, 9), 'M9.7 9.6a2.4 2.4 0 1 1 3.4 2.2c-.7.4-1.1.9-1.1 1.8', 'M12 17h.01'],
+    check: ['M5 12.5l4.5 4.5L19 7.5'],
+    key: [circle(8.5, 15.5, 3.5), 'M11 13l8-8', 'M16 8l2.5 2.5', 'M14 10l2 2'],
+    admin: [circle(9.5, 7.5, 3.5), 'M3 20v-1.5A5.5 5.5 0 0 1 8.5 13H10', circle(17, 17, 2.2), 'M17 12.8v1.2M17 20v1.2M12.8 17H14M20 17h1.2M14 14l.9.9M19.1 19.1l.9.9M20 14l-.9.9M14.9 19.1l-.9.9'],
+    monitor: [rrect(3, 4, 18, 12, 2), 'M8 20h8M12 16v4'],
+    terminal: [rrect(3, 4, 18, 14, 2.5), 'M7 9l3 2.5L7 14', 'M12.5 14.5H15'],
+    database: ['M5 6c0-1.7 3.1-3 7-3s7 1.3 7 3-3.1 3-7 3-7-1.3-7-3z', 'M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6', 'M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3'],
+    scales: ['M12 4v16M7 20h10M5 8h14', 'M5 8l-3 6.5a3.2 3.2 0 0 0 6 0L5 8z', 'M19 8l-3 6.5a3.2 3.2 0 0 0 6 0L19 8z'],
+    calculator: [rrect(5, 3, 14, 18, 2), rrect(8, 6, 8, 4, 1), 'M8.5 14h.01M12 14h.01M15.5 14h.01M8.5 17.5h.01M12 17.5h.01M15.5 17.5h.01'],
+    chart: ['M4 20h16M7 20v-6M12 20V6M17 20v-9'],
+};
+const icon = (name: string) =>
+    `<svg viewBox="0 0 24 24" class="dh-ico" aria-hidden="true">${icons[name].map((d) => `<path d="${d}"/>`).join('')}</svg>`;
+
+const trust = [
+    { icon: 'award', label: 'SMB1001 Silver certified' },
+    { icon: 'shieldCheck', label: 'ASD Essential Eight Maturity Level Two compliant' },
+    { icon: 'cloud', label: 'Microsoft Cloud Solution Provider' },
+    { icon: 'users', label: 'Works with your existing MSP' },
+];
+
+const questions = [
+    'Can we show our controls are working today, not just configured?',
+    'Would we pass an audit this week?',
+    'What would we show our insurer after an incident?',
+    'What do we tell clients who ask how their information is protected?',
+];
+
+const pillars = [
+    { icon: 'lock', name: 'Enforced', text: 'Policy is applied, not recommended.' },
+    { icon: 'checkCircle', name: 'Tested', text: 'Each control is checked against its expected outcome.' },
+    { icon: 'report', name: 'Evidenced', text: 'Results are recorded in signed, timestamped reports.' },
+    { icon: 'clipboard', name: 'Audit-ready', text: 'Mapped to the ASD Essential Eight and SMB1001.' },
+];
+
+const controls = [
+    {
+        icon: 'key',
+        name: 'Passwordless Authentication',
+        line: 'No passwords left to steal.',
+        text: 'Staff sign in with passkeys tied to their device, so there is no password to phish, reuse or leak.',
+        outcome: 'Removes one of the most common causes of account compromise.',
+    },
+    {
+        icon: 'admin',
+        name: 'Zero Admin',
+        line: 'No permanent administrator access.',
+        text: 'Admin rights are granted for an approved task and removed automatically when the task is done.',
+        outcome: 'Limits the damage any single compromised account can do.',
+    },
+    {
+        icon: 'monitor',
+        name: 'Session Protection',
+        line: 'Non-compliant access is blocked, not flagged.',
+        text: "Every sign-in is checked against policy for device, location and risk. If it doesn't meet policy, access is denied rather than raising an alert for someone to review later. Browser sessions are hardened against token theft.",
+        outcome: 'Consistent enforcement, with no quiet exceptions.',
+    },
+    {
+        icon: 'terminal',
+        name: 'App Control',
+        line: 'Only approved software runs.',
+        text: 'Applications are explicitly allowed. Anything not on the list is blocked before it runs, including the unapproved programs ransomware commonly relies on.',
+        outcome: 'Closes off one of the most common ways ransomware takes hold.',
+    },
+    {
+        icon: 'database',
+        name: 'Immutable Backups',
+        line: "Backups attackers can't touch.",
+        text: "Backups are stored so they can't be altered or deleted during their retention period, and recovery is tested against agreed recovery objectives.",
+        outcome: 'A known, tested path back after an incident.',
+    },
+];
+
+// Five-segment ring: one segment per control, Veristate in the centre.
+const ringC = 120;
+const ringR = 88;
+const ringPt = (deg: number): [number, number] => [
+    ringC + ringR * Math.cos((deg * Math.PI) / 180),
+    ringC + ringR * Math.sin((deg * Math.PI) / 180),
+];
+const ringSegs = controls.map((_, i) => {
+    const a0 = -90 + i * 72 + 3;
+    const a1 = -90 + (i + 1) * 72 - 3;
+    const [x0, y0] = ringPt(a0);
+    const [x1, y1] = ringPt(a1);
+    const [tx, ty] = ringPt((a0 + a1) / 2);
+    return {
+        n: i + 1,
+        d: `M${x0.toFixed(2)} ${y0.toFixed(2)}A${ringR} ${ringR} 0 0 1 ${x1.toFixed(2)} ${y1.toFixed(2)}`,
+        tx: tx.toFixed(2),
+        ty: ty.toFixed(2),
+    };
+});
+
+const comparison = [
+    ['Periodic security reviews', 'Scheduled, repeatable control verification'],
+    ['Best-effort configuration', 'Deterministic controls'],
+    ['Subjective maturity opinions', 'Signed, timestamped evidence'],
+    ['New tools to buy and manage', 'The Microsoft security you already own'],
+    ['Open-ended consulting hours', 'Fixed-scope, fixed-price phases'],
+    ['"Trust us."', '"Here\'s the evidence."'],
+];
+
+const steps = [
+    { name: 'Assess', text: 'A fixed-fee review of your Microsoft environment against the ASD Essential Eight, with a costed roadmap.' },
+    { name: 'Remediate', text: 'A fixed-price program of work that takes your environment to an evidenced, audit-ready state.' },
+    { name: 'Maintain', text: 'An ongoing retainer that keeps controls working, with regular Veristate™ reporting.' },
+];
+
+const mspPoints = [
+    'Clear division of responsibilities, agreed up front',
+    'Security controls designed and verified by specialists',
+    'Evidence reporting your MSP can rely on too',
+    'Fewer incidents to chase once controls are enforced',
+];
+
+const industries = [
+    {
+        icon: 'scales',
+        name: 'Legal firms',
+        text: 'Protect client confidentiality and privilege, and show clients and insurers exactly how their information is secured.',
+    },
+    {
+        icon: 'calculator',
+        name: 'Accounting firms',
+        text: 'Secure client financial data and practice systems, with evidence to support your privacy and professional obligations.',
+    },
+    {
+        icon: 'chart',
+        name: 'Wealth management firms',
+        text: 'In 2026 the Federal Court imposed the first civil penalty on an AFS licensee for cyber security failures. Give your board and responsible managers evidence that reasonable steps have been taken.',
+    },
+];
 ---
 
 <BaseLayout title="Decoheron - Solutions-Focused Cyber Security & Director Liability Reduction">
+
+<!-- 1. Hero -->
 <section class="dh-hero" aria-labelledby="dh-hero-title">
   <div class="dh-hero__inner">
     <div>
+      <p class="dh-eyebrow">Cyber security for legal, accounting and wealth management firms</p>
       <h1 class="dh-hero__title" id="dh-hero-title">
         <span>Controls you can prove,</span>
         <span>not opinions you have to defend.</span>
       </h1>
       <p class="dh-hero__lede">
-        
-        Every control is either enforced or it isn't. No partial compliance, no vague security scores, no incomplete control chains.
+        Decoheron turns the Microsoft security your firm already owns into ASD-aligned controls that are enforced, tested and evidenced. Our controls are deterministic, meaning each one either works or it doesn't, and we give you signed evidence showing which.
       </p>
       <p class="dh-hero__lede">
-        We implement finished security in the Microsoft tenant you already own, then attest to it every day. Keep your MSP. Show any insurer, auditor or client exactly where you stand.
+        No subjective maturity opinions. No best-effort recommendations. Controls that work, and the evidence to show it.
       </p>
+
       <div class="dh-hero__actions">
-        <a class="dh-btn dh-btn--primary" href="/liabilities">See your exposure</a>
-        <a class="dh-btn dh-btn--secondary" href="/solution">See how the controls work</a>
+        <a class="dh-btn dh-btn--primary" href="#briefing">Book a Security Assessment</a>
+        <a class="dh-btn dh-btn--secondary" href="/solution">See How It Works</a>
       </div>
+      {/* PREPARER NOTE: confirm assessment duration before publishing. Intended line: "Fixed-fee assessment. [X] days. A costed roadmap you keep." The duration is left out of the live text until confirmed. */}
+      <p class="dh-hero__note">Fixed-fee assessment. A costed roadmap you keep.</p>
     </div>
 
+    <!-- Hero matrix panel, switched off. Restore the two-column .dh-hero__inner grid in the styles if this is brought back.
     <figure class="dh-panel" aria-label="Illustrative VeriState compliance matrix">
       <div class="dh-panel__head">
         <h2 class="dh-panel__title">VeriState compliance matrix</h2>
@@ -73,22 +229,216 @@ const matrix = [
         ))}
       </div>
     </figure>
+    -->
   </div>
 </section>
 
-<section class="dh-facts" aria-label="Why this matters">
-  <div class="dh-facts__inner">
-    <div class="dh-fact">
-      <p class="dh-fact__figure">72 hours</p>
-      <p class="dh-fact__text">The window to report a ransomware payment under the Cyber Security Act 2024, for businesses with turnover above $3 million.</p>
+<!-- 2. Trust bar -->
+{/* PREPARER NOTE: update "SMB1001 Silver" to "SMB1001 Gold" once the independent audit is complete. Add "ASD Cyber Security Partnership Program Network Partner" only once membership is confirmed. Add certification badge images if the certifying bodies permit their use. */}
+<section class="dh-section dh-section--tight dh-section--paper" aria-label="Credentials">
+  <ul class="dh-wrap dh-trust">
+    {trust.map((t) => (
+      <li class="dh-trust__item">
+        <span class="dh-trust__icon" set:html={icon(t.icon)} />
+        <span>{t.label}</span>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<!-- 3. The problem -->
+<section class="dh-section" aria-labelledby="dh-problem-title">
+  <div class="dh-wrap dh-split">
+    <div>
+      <h2 class="dh-h2" id="dh-problem-title">Most businesses have the tools. Few can prove they work.</h2>
+      <p class="dh-body">
+        Your firm has likely already invested in Microsoft 365 security. But when a client, insurer or auditor asks, can you answer these with confidence?
+      </p>
     </div>
-    <div class="dh-fact">
-      <p class="dh-fact__figure">Duty of care</p>
-      <p class="dh-fact__text">Sections 180 and 181 of the Corporations Act 2001 set the duty of care and diligence for directors and other officers.</p>
+    <div>
+      <ul class="dh-questions">
+        {questions.map((q) => (
+          <li>
+            <span class="dh-questions__icon" set:html={icon('question')} />
+            <span>{q}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="dh-body dh-body--lead">
+        Most security programs answer these with a report full of opinions. We answer them with evidence.
+      </p>
     </div>
-    <div class="dh-fact">
-      <p class="dh-fact__figure">8 of 8</p>
-      <p class="dh-fact__text">ASD Essential Eight strategies tested and evidenced. A control either works or it doesn't.</p>
+  </div>
+</section>
+
+<!-- 4. Why it matters now -->
+{/* PREPARER NOTE: if adding a claims-denial statistic, cite the primary source on the page. Keep legal and insurance statements framed as argument, not assertion, and have counsel review before go-live. */}
+<section class="dh-section dh-section--ink" aria-labelledby="dh-now-title">
+  <div class="dh-wrap dh-narrow">
+    <h2 class="dh-h2" id="dh-now-title">"We have it turned on" is no longer enough.</h2>
+    <p class="dh-body dh-body--large">
+      Clients, insurers and regulators increasingly expect businesses to show, not just state, that reasonable security steps have been taken. Insurers have disputed claims where a control such as multi-factor authentication was declared on the proposal form but was not actually enforced. The gap between what a firm believes is in place and what it can evidence is where the exposure sits.
+    </p>
+  </div>
+</section>
+
+<!-- 5. The Decoheron difference -->
+<section class="dh-section dh-section--paper" aria-labelledby="dh-diff-title">
+  <div class="dh-wrap">
+    <h2 class="dh-h2" id="dh-diff-title">Evidence, not opinions.</h2>
+    <p class="dh-body">Using the Microsoft security you already own, we implement controls that are:</p>
+    <ul class="dh-pillars">
+      {pillars.map((p) => (
+        <li class="dh-pillar">
+          <span class="dh-pillar__icon" set:html={icon(p.icon)} />
+          <h3 class="dh-pillar__name">{p.name}</h3>
+          <p>{p.text}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- 6. The Security Assurance Program -->
+{/* PREPARER NOTE: (1) Card names now match the four service lines and the proposal template. The previous "Deterministic Access Controls" (deny-by-default Conditional Access) has been folded into Session Protection; confirm with Rob. (2) Network segmentation removed from the backups card, as it isn't delivered from the client's existing Microsoft stack; add back only if it's in scope. (3) Confirm Veristate reporting cadence. Do not describe Veristate as "attestation" or "proof of operating effectiveness", as Decoheron implements the controls it reports on. */}
+<section class="dh-section" aria-labelledby="dh-program-title">
+  <div class="dh-wrap">
+    <div class="dh-narrow dh-centre">
+      <h2 class="dh-h2" id="dh-program-title">Five controls. One body of evidence.</h2>
+      <p class="dh-body">
+        Each control closes a specific, common path to a breach. Veristate™ reporting then shows you, and anyone who asks, that each one is working.
+      </p>
+    </div>
+
+    <figure class="dh-ring">
+      <svg viewBox="0 0 240 240" role="img" aria-label="Five numbered control segments forming a ring around Veristate reporting, which sits across all five controls">
+        {ringSegs.map((s) => (
+          <>
+            <path d={s.d} class={`dh-ring__seg dh-ring__seg--${s.n % 2}`} />
+            <text x={s.tx} y={s.ty} class="dh-ring__num">{s.n}</text>
+          </>
+        ))}
+        <text x="120" y="117" class="dh-ring__name">Veristate™</text>
+        <text x="120" y="136" class="dh-ring__sub">reporting</text>
+      </svg>
+      <figcaption>Veristate™ reporting sits across all five controls. It is not a sixth control.</figcaption>
+    </figure>
+
+    <div class="dh-cards">
+      {controls.map((c, i) => (
+        <article class="dh-card">
+          <div class="dh-card__head">
+            <span class="dh-card__num" aria-hidden="true">{i + 1}</span>
+            <span class="dh-card__icon" set:html={icon(c.icon)} />
+          </div>
+          <h3 class="dh-card__title">{c.name}</h3>
+          <p class="dh-card__line">{c.line}</p>
+          <p>{c.text}</p>
+          <p class="dh-card__outcome"><strong>Outcome:</strong> {c.outcome}</p>
+        </article>
+      ))}
+      <article class="dh-card dh-card--feature">
+        <div class="dh-card__head">
+          <span class="dh-card__icon" set:html={icon('report')} />
+        </div>
+        <h3 class="dh-card__title">Veristate™ Assurance Reporting</h3>
+        <p class="dh-card__line">Evidence, not opinions.</p>
+        {/* PREPARER NOTE: reporting cadence "monthly" is unconfirmed. See note (3) above. */}
+        <p>Signed, timestamped reports showing the state of each control at the time it was checked, delivered to you monthly.</p>
+        <p class="dh-card__outcome"><strong>Outcome:</strong> Evidence you can hand to auditors, insurers, clients and your board.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 7. What changes with Decoheron -->
+<section class="dh-section dh-section--paper" aria-labelledby="dh-compare-title">
+  <div class="dh-wrap dh-narrow">
+    <h2 class="dh-h2" id="dh-compare-title">What changes with Decoheron</h2>
+    <div class="dh-table-wrap">
+      <table class="dh-table">
+        <thead>
+          <tr>
+            <th scope="col">Typical security engagement</th>
+            <th scope="col">Decoheron</th>
+          </tr>
+        </thead>
+        <tbody>
+          {comparison.map(([typical, ours]) => (
+            <tr>
+              <td>{typical}</td>
+              <th scope="row">{ours}</th>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 8. How it works -->
+<section class="dh-section" aria-labelledby="dh-how-title">
+  <div class="dh-wrap">
+    <h2 class="dh-h2" id="dh-how-title">Assess. Remediate. Maintain.</h2>
+    <ol class="dh-steps">
+      {steps.map((s, i) => (
+        <li class="dh-step">
+          <span class="dh-step__num" aria-hidden="true">{i + 1}</span>
+          <h3 class="dh-step__name">{s.name}</h3>
+          <p>{s.text}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<!-- 9. Working with your MSP -->
+<section class="dh-section dh-section--navy" aria-labelledby="dh-msp-title">
+  <div class="dh-wrap dh-split">
+    <div>
+      <h2 class="dh-h2" id="dh-msp-title">We work alongside your MSP, not against them.</h2>
+      <p class="dh-body">
+        Many security providers compete with your managed service provider. We don't. Your MSP keeps running your environment day to day. We design, implement and verify the security controls, and give both of you clear evidence of what's working.
+      </p>
+    </div>
+    <ul class="dh-checks">
+      {mspPoints.map((p) => (
+        <li>
+          <span class="dh-checks__icon" set:html={icon('check')} />
+          <span>{p}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- 10. Industries -->
+{/* PREPARER NOTE: the wealth management statement refers to ASIC v FIIG Securities Limited [2026] FCA 92. Link to the judgment or ASIC media release, and have counsel review before go-live. */}
+<section class="dh-section dh-section--paper" aria-labelledby="dh-ind-title">
+  <div class="dh-wrap">
+    <h2 class="dh-h2" id="dh-ind-title">Built for professional services</h2>
+    <div class="dh-industries">
+      {industries.map((ind) => (
+        <article class="dh-industry">
+          <span class="dh-industry__icon" set:html={icon(ind.icon)} />
+          <h3>{ind.name}</h3>
+          <p>{ind.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- 11. Final call to action -->
+<section class="dh-section dh-section--ink dh-cta" aria-labelledby="dh-cta-title">
+  <div class="dh-wrap dh-narrow dh-centre">
+    <h2 class="dh-h2" id="dh-cta-title">Know where you stand. Then prove it.</h2>
+    <p class="dh-body dh-body--large">
+      Start with a fixed-fee assessment of your Microsoft security against the ASD Essential Eight. You'll get a clear picture of where you stand today, and a costed roadmap to an evidenced, audit-ready environment.
+    </p>
+    <div class="dh-hero__actions dh-hero__actions--centre">
+      <a class="dh-btn dh-btn--primary" href="#briefing">Book a Security Assessment</a>
+      <a class="dh-btn dh-btn--secondary" href="#briefing">Speak with a Specialist</a>
     </div>
   </div>
 </section>
@@ -97,18 +447,66 @@ const matrix = [
 </BaseLayout>
 
 <style>
-  .dh-hero, .dh-facts {
+  .dh-hero, .dh-section {
     --dh-navy: #0A1B6B;
     --dh-ink: #050D2E;
     --dh-indigo: #0310A4;
     --dh-paper: #F5F6FA;
     --dh-gold: #D8AE4E;
+    --dh-text: #2A3358;
     --dh-serif: "Newsreader", "Iowan Old Style", Georgia, serif;
     --dh-sans: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
     font-family: var(--dh-sans);
     -webkit-font-smoothing: antialiased;
   }
-  .dh-hero *, .dh-facts * { box-sizing: border-box; }
+  .dh-hero *, .dh-section * { box-sizing: border-box; }
+
+  /* Shared */
+  :global(.dh-ico) {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .dh-eyebrow {
+    margin: 0 0 1.25rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--dh-gold);
+  }
+  .dh-section { background: #fff; color: var(--dh-ink); padding: clamp(3rem, 6vw, 5.5rem) 1.5rem; }
+  .dh-section--tight { padding-top: 1.75rem; padding-bottom: 1.75rem; }
+  .dh-section--paper { background: var(--dh-paper); }
+  .dh-section--navy { background: var(--dh-navy); color: #fff; }
+  .dh-section--ink { background: var(--dh-ink); color: #fff; }
+  .dh-wrap { max-width: 1180px; margin: 0 auto; }
+  .dh-narrow { max-width: 50rem; }
+  .dh-wrap.dh-narrow { margin-left: auto; margin-right: auto; }
+  .dh-centre { text-align: center; }
+  .dh-split { display: grid; gap: 2.5rem; align-items: start; }
+  @media (min-width: 900px) { .dh-split { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4rem; } }
+
+  .dh-h2 {
+    margin: 0;
+    font-family: var(--dh-serif);
+    font-weight: 400;
+    font-size: clamp(1.875rem, 3.6vw, 2.75rem);
+    line-height: 1.1;
+    letter-spacing: -0.012em;
+    text-wrap: balance;
+    color: var(--dh-navy);
+  }
+  .dh-section--navy .dh-h2, .dh-section--ink .dh-h2 { color: #fff; }
+  .dh-body { margin: 1.25rem 0 0; font-size: 1.125rem; line-height: 1.6; color: var(--dh-text); }
+  .dh-section--navy .dh-body, .dh-section--ink .dh-body { color: rgba(255, 255, 255, 0.84); }
+  .dh-body--large { font-size: 1.1875rem; line-height: 1.65; }
+  .dh-body--lead { margin-top: 1.75rem; font-weight: 600; color: var(--dh-navy); }
+  .dh-centre .dh-body { margin-left: auto; margin-right: auto; }
 
   /* Hero */
   .dh-hero {
@@ -116,15 +514,13 @@ const matrix = [
     color: #fff;
     padding: clamp(3rem, 7vw, 6.5rem) 1.5rem;
   }
+  /* Single column while the matrix panel is off. Use grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr) at 960px+ to bring it back. */
   .dh-hero__inner {
     max-width: 1180px;
     margin: 0 auto;
     display: grid;
     gap: clamp(2.5rem, 5vw, 4.5rem);
     align-items: center;
-  }
-  @media (min-width: 960px) {
-    .dh-hero__inner { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); }
   }
 
   .dh-hero__title {
@@ -142,11 +538,12 @@ const matrix = [
 
   .dh-hero__lede {
     margin: 1.25rem 0 0;
-    max-width: 34rem;
+    max-width: 40rem;
     font-size: 1.125rem;
     line-height: 1.55;
     color: rgba(255, 255, 255, 0.84);
   }
+  .dh-hero__note { margin: 1rem 0 0; font-size: 0.9375rem; color: rgba(255, 255, 255, 0.7); }
 
   .dh-hero__actions {
     margin-top: 2.25rem;
@@ -154,6 +551,7 @@ const matrix = [
     flex-wrap: wrap;
     gap: 0.875rem;
   }
+  .dh-hero__actions--centre { justify-content: center; }
   .dh-btn {
     display: inline-block;
     padding: 0.9rem 1.5rem;
@@ -170,7 +568,7 @@ const matrix = [
   @media (max-width: 520px) { .dh-btn { width: 100%; text-align: center; } }
   .dh-btn:focus-visible { outline: 3px solid var(--dh-gold); outline-offset: 3px; }
 
-  /* VeriState panel (static) */
+  /* VeriState panel (static, currently switched off in the markup) */
   .dh-panel {
     margin: 0;
     background: #F6F7F9;
@@ -210,15 +608,7 @@ const matrix = [
     height: 2.6rem;
     border-radius: 50%;
     background: #fff;
-  }
-  .dh-ico {
-    width: 1.4rem;
-    height: 1.4rem;
-    fill: none;
-    stroke: #1E8449;
-    stroke-width: 1.9;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+    color: #1E8449;
   }
   .dh-tile__title { margin: 0; font-size: 0.9375rem; font-weight: 600; line-height: 1.25; text-align: center; color: var(--dh-ink); }
 
@@ -231,30 +621,150 @@ const matrix = [
     white-space: nowrap;
   }
 
-  /* Fact strip */
-  .dh-facts {
-    background: var(--dh-paper);
-    color: var(--dh-ink);
-    padding: clamp(2.5rem, 5vw, 4rem) 1.5rem;
-  }
-  .dh-facts__inner {
-    max-width: 1180px;
-    margin: 0 auto;
+  /* Trust bar */
+  .dh-trust {
+    list-style: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
     display: grid;
-    gap: 2.25rem;
+    gap: 1.25rem 2rem;
   }
-  @media (min-width: 800px) {
-    .dh-facts__inner { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
-  }
-  .dh-fact { border-top: 2px solid var(--dh-navy); padding-top: 1.1rem; }
-  .dh-fact__figure {
-    margin: 0;
-    font-family: var(--dh-serif);
-    font-weight: 400;
-    font-size: clamp(2.25rem, 4vw, 3.25rem);
-    line-height: 1.05;
-    letter-spacing: -0.01em;
+  @media (min-width: 640px) { .dh-trust { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 1000px) { .dh-trust { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  .dh-trust__item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.35;
     color: var(--dh-navy);
   }
-  .dh-fact__text { margin: 0.7rem 0 0; max-width: 30rem; font-size: 1rem; line-height: 1.55; color: #2A3358; }
+  .dh-trust__icon { flex: none; color: var(--dh-indigo); display: grid; }
+
+  /* Problem */
+  .dh-questions { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.875rem; }
+  .dh-questions li {
+    display: flex;
+    gap: 0.875rem;
+    align-items: flex-start;
+    padding: 1rem 1.125rem;
+    background: var(--dh-paper);
+    border-left: 3px solid var(--dh-navy);
+    font-size: 1.0625rem;
+    line-height: 1.5;
+    color: var(--dh-ink);
+  }
+  .dh-questions__icon { flex: none; color: var(--dh-indigo); display: grid; margin-top: 0.1rem; }
+
+  /* Difference pillars */
+  .dh-pillars {
+    list-style: none;
+    margin: 2.25rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 2rem 2.5rem;
+  }
+  @media (min-width: 640px) { .dh-pillars { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 1000px) { .dh-pillars { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  .dh-pillar { border-top: 2px solid var(--dh-navy); padding-top: 1.1rem; }
+  .dh-pillar__icon { display: grid; color: var(--dh-indigo); }
+  .dh-pillar__icon :global(.dh-ico) { width: 2rem; height: 2rem; }
+  .dh-pillar__name { margin: 0.75rem 0 0; font-family: var(--dh-serif); font-weight: 400; font-size: 1.625rem; color: var(--dh-navy); }
+  .dh-pillar p { margin: 0.5rem 0 0; font-size: 1rem; line-height: 1.55; color: var(--dh-text); }
+
+  /* Ring */
+  .dh-ring { margin: 2.5rem auto 0; max-width: 20rem; text-align: center; }
+  .dh-ring svg { display: block; width: 100%; height: auto; }
+  .dh-ring__seg { fill: none; stroke-width: 30; }
+  .dh-ring__seg--1 { stroke: var(--dh-navy); }
+  .dh-ring__seg--0 { stroke: var(--dh-indigo); }
+  .dh-ring__num { fill: #fff; font: 700 16px var(--dh-sans); text-anchor: middle; dominant-baseline: central; }
+  .dh-ring__name { fill: var(--dh-navy); font: 400 21px var(--dh-serif); text-anchor: middle; }
+  .dh-ring__sub { fill: var(--dh-text); font: 500 11px var(--dh-sans); letter-spacing: 0.08em; text-transform: uppercase; text-anchor: middle; }
+  .dh-ring figcaption { margin-top: 0.75rem; font-size: 0.9375rem; line-height: 1.5; color: var(--dh-text); }
+
+  /* Control cards */
+  .dh-cards { margin-top: 2.5rem; display: grid; gap: 1.25rem; }
+  @media (min-width: 700px) { .dh-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 1000px) { .dh-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .dh-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    background: #fff;
+    border: 1px solid #D5D9E8;
+    border-top: 3px solid var(--dh-navy);
+    border-radius: 6px;
+  }
+  .dh-card p { margin: 0.6rem 0 0; font-size: 1rem; line-height: 1.55; color: var(--dh-text); }
+  .dh-card__head { display: flex; align-items: center; justify-content: space-between; }
+  .dh-card__num {
+    display: grid;
+    place-items: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    background: var(--dh-navy);
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: 700;
+  }
+  .dh-card__icon { display: grid; color: var(--dh-indigo); margin-left: auto; }
+  .dh-card__title { margin: 1rem 0 0; font-family: var(--dh-serif); font-weight: 400; font-size: 1.5rem; line-height: 1.15; color: var(--dh-navy); }
+  .dh-card p.dh-card__line { margin-top: 0.5rem; font-weight: 700; color: var(--dh-ink); }
+  .dh-card p.dh-card__outcome { margin-top: auto; padding-top: 1rem; font-size: 0.9375rem; }
+  .dh-card p.dh-card__outcome strong { color: var(--dh-navy); }
+  .dh-card--feature { background: var(--dh-navy); border-color: var(--dh-navy); border-top-color: var(--dh-gold); }
+  .dh-card--feature .dh-card__icon, .dh-card--feature .dh-card__title { color: #fff; }
+  .dh-card--feature p, .dh-card--feature p.dh-card__line, .dh-card--feature .dh-card__outcome strong { color: rgba(255, 255, 255, 0.88); }
+  .dh-card--feature p.dh-card__line { color: var(--dh-gold); }
+  .dh-card--feature .dh-card__head { justify-content: flex-start; margin-left: 0; }
+  .dh-card--feature .dh-card__icon { margin-left: 0; }
+
+  /* Comparison */
+  .dh-table-wrap { margin-top: 2rem; overflow-x: auto; border: 1px solid #D5D9E8; border-radius: 6px; background: #fff; }
+  .dh-table { width: 100%; border-collapse: collapse; font-size: 1.0625rem; }
+  .dh-table th, .dh-table td { padding: 1rem 1.25rem; text-align: left; vertical-align: top; line-height: 1.4; }
+  .dh-table thead th { font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dh-text); background: var(--dh-paper); }
+  .dh-table thead th:last-child { color: #fff; background: var(--dh-navy); }
+  .dh-table tbody tr + tr > * { border-top: 1px solid #E3E6F1; }
+  .dh-table td { color: var(--dh-text); width: 50%; }
+  .dh-table tbody th { font-weight: 600; color: var(--dh-navy); background: #EEF0FA; width: 50%; }
+
+  /* Steps */
+  .dh-steps { list-style: none; margin: 2.25rem 0 0; padding: 0; display: grid; gap: 2rem 2.5rem; counter-reset: none; }
+  @media (min-width: 800px) { .dh-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .dh-step { border-top: 2px solid var(--dh-navy); padding-top: 1.1rem; }
+  .dh-step__num { font-family: var(--dh-serif); font-size: 2.5rem; line-height: 1; color: var(--dh-indigo); }
+  .dh-step__name { margin: 0.5rem 0 0; font-family: var(--dh-serif); font-weight: 400; font-size: 1.75rem; color: var(--dh-navy); }
+  .dh-step p { margin: 0.5rem 0 0; font-size: 1.0625rem; line-height: 1.55; color: var(--dh-text); }
+
+  /* MSP checks */
+  .dh-checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.875rem; }
+  .dh-checks li {
+    display: flex;
+    gap: 0.875rem;
+    align-items: flex-start;
+    padding: 1rem 1.125rem;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 4px;
+    font-size: 1.0625rem;
+    line-height: 1.5;
+  }
+  .dh-checks__icon { flex: none; display: grid; color: var(--dh-gold); }
+
+  /* Industries */
+  .dh-industries { margin-top: 2.25rem; display: grid; gap: 1.25rem; }
+  @media (min-width: 900px) { .dh-industries { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .dh-industry { padding: 1.5rem; background: #fff; border: 1px solid #D5D9E8; border-top: 3px solid var(--dh-navy); border-radius: 6px; }
+  .dh-industry__icon { display: grid; color: var(--dh-indigo); }
+  .dh-industry__icon :global(.dh-ico) { width: 2rem; height: 2rem; }
+  .dh-industry h3 { margin: 0.9rem 0 0; font-family: var(--dh-serif); font-weight: 400; font-size: 1.5rem; color: var(--dh-navy); }
+  .dh-industry p { margin: 0.6rem 0 0; font-size: 1rem; line-height: 1.55; color: var(--dh-text); }
+
+  /* Final CTA */
+  .dh-cta .dh-hero__actions { margin-top: 2rem; }
 </style>

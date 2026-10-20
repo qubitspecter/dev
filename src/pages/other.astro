@@ -1,0 +1,266 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BriefingForm from '../components/BriefingForm.astro';
+
+// Illustrative VeriState matrix for the hero. Not a real client record.
+const matrix = [
+    { name: 'Deterministic Access', icon: 'fingerprint' },
+    { name: 'Zero Admin', icon: 'admin' },
+    { name: 'Execution Control', icon: 'terminal' },
+    { name: 'Hardened Environment', icon: 'shield' },
+];
+---
+
+<BaseLayout title="Decoheron - Solutions-Focused Cyber Security & Director Liability Reduction">
+<section class="dh-hero" aria-labelledby="dh-hero-title">
+  <div class="dh-hero__inner">
+    <div>
+      <h1 class="dh-hero__title" id="dh-hero-title">
+        <span>Security you can prove.</span>
+        <span>No just promised.</span>
+      </h1>
+      <p class="dh-hero__lede">
+          Purpose-built for your Small and Medium-sized businesses in Legal, Accounting, and Wealth Management.
+      </p>
+      <p class="dh-hero__lede">
+          Decoheron transforms the Microsoft security capabilities you already own into ASD-aligned, continuously verified security controls that reduce risk, simplify compliance, and provide evidence your obligations are being met.
+      </p>
+      <p class="dh-hero__lede">
+        Unlike traditional security consulting, we don't deliver opinions, maturity scores, or best-effort recommendations.
+      </p>
+      <p class="dh-hero__lede">
+        We deliver measurable security outcomes backed by ongoing attestation
+      </p>
+      
+      <div class="dh-hero__actions">
+        <a class="dh-btn dh-btn--primary" href="/liabilities">See your exposure</a>
+        <a class="dh-btn dh-btn--secondary" href="/solution">See how the controls work</a>
+      </div>
+    </div>
+
+    <!-- <figure class="dh-panel" aria-label="Illustrative VeriState compliance matrix">
+      <div class="dh-panel__head">
+        <h2 class="dh-panel__title">VeriState compliance matrix</h2>
+        <span class="dh-panel__sample">Illustrative sample</span>
+      </div>
+      <div class="dh-tiles">
+        {matrix.map((cat) => (
+          <section class="dh-tile" aria-label={cat.name}>
+            <div class="dh-tile__banner">
+              <div class="dh-tile__badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="dh-ico">
+                  {cat.icon === 'fingerprint' && (<>
+                    <path d="M12 4a8 8 0 0 0-8 8v1.5" />
+                    <path d="M20 12.5V12a8 8 0 0 0-8-8" />
+                    <path d="M8 13.5V12a4 4 0 0 1 8 0v2.5a6 6 0 0 1-1.2 3.6" />
+                    <path d="M12 12v3a9 9 0 0 1-2 5.6" />
+                    <path d="M7.5 17.5A12 12 0 0 0 8 15" />
+                  </>)}
+                  {cat.icon === 'admin' && (<>
+                    <circle cx="9.5" cy="7.5" r="3.5" />
+                    <path d="M3 20v-1.5A5.5 5.5 0 0 1 8.5 13H10" />
+                    <circle cx="17" cy="17" r="2.2" />
+                    <path d="M17 12.8v1.2M17 20v1.2M12.8 17H14M20 17h1.2M14 14l.9.9M19.1 19.1l.9.9M20 14l-.9.9M14.9 19.1l-.9.9" />
+                  </>)}
+                  {cat.icon === 'terminal' && (<>
+                    <rect x="3" y="4" width="18" height="14" rx="2.5" />
+                    <path d="M7 9l3 2.5L7 14" />
+                    <path d="M12.5 14.5H15" />
+                  </>)}
+                  {cat.icon === 'shield' && (<>
+                    <path d="M12 3l7 2.6v5.4c0 4.4-2.9 8-7 10-4.1-2-7-5.6-7-10V5.6z" />
+                    <path d="M8.8 12l2.4 2.4 4.2-4.6" />
+                  </>)}
+                </svg>
+              </div>
+              <h3 class="dh-tile__title">{cat.name}<span class="dh-sr">: pass</span></h3>
+            </div>
+          </section>
+        ))}
+      </div>
+    </figure> -->
+  </div>
+</section>
+
+<section class="dh-facts" aria-label="Why this matters">
+  <div class="dh-facts__inner">
+    <div class="dh-fact">
+      <p class="dh-fact__figure">72 hours</p>
+      <p class="dh-fact__text">The window to report a ransomware payment under the Cyber Security Act 2024, for businesses with turnover above $3 million.</p>
+    </div>
+    <div class="dh-fact">
+      <p class="dh-fact__figure">Duty of care</p>
+      <p class="dh-fact__text">Sections 180 and 181 of the Corporations Act 2001 set the duty of care and diligence for directors and other officers.</p>
+    </div>
+    <div class="dh-fact">
+      <p class="dh-fact__figure">8 of 8</p>
+      <p class="dh-fact__text">ASD Essential Eight strategies tested and evidenced. A control either works or it doesn't.</p>
+    </div>
+  </div>
+</section>
+
+    <BriefingForm />
+</BaseLayout>
+
+<style>
+  .dh-hero, .dh-facts {
+    --dh-navy: #0A1B6B;
+    --dh-ink: #050D2E;
+    --dh-indigo: #0310A4;
+    --dh-paper: #F5F6FA;
+    --dh-gold: #D8AE4E;
+    --dh-serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+    --dh-sans: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-family: var(--dh-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  .dh-hero *, .dh-facts * { box-sizing: border-box; }
+
+  /* Hero */
+  .dh-hero {
+    background: var(--dh-navy);
+    color: #fff;
+    padding: clamp(3rem, 7vw, 6.5rem) 1.5rem;
+  }
+  .dh-hero__inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    gap: clamp(2.5rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+  @media (min-width: 960px) {
+    .dh-hero__inner { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); }
+  }
+
+  .dh-hero__title {
+    margin: 0;
+    font-family: var(--dh-serif);
+    font-weight: 400;
+    font-size: clamp(2.25rem, 4.6vw, 3.75rem);
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+  .dh-hero__title span { display: block; }
+  .dh-hero__title span + span { color: rgba(255, 255, 255, 0.6); margin-top: 0.15em; }
+  .dh-hero__title + .dh-hero__lede { margin-top: 1.75rem; }
+
+  .dh-hero__lede {
+    margin: 1.25rem 0 0;
+    max-width: 34rem;
+    font-size: 1.125rem;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.84);
+  }
+
+  .dh-hero__actions {
+    margin-top: 2.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.875rem;
+  }
+  .dh-btn {
+    display: inline-block;
+    padding: 0.9rem 1.5rem;
+    border-radius: 4px;
+    font: 600 1rem/1.2 var(--dh-sans);
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+  }
+  .dh-btn--primary { background: var(--dh-gold); color: var(--dh-ink); }
+  .dh-btn--primary:hover { background: #E4BD62; }
+  .dh-btn--secondary { color: #fff; border-color: rgba(255, 255, 255, 0.45); }
+  .dh-btn--secondary:hover { border-color: #fff; background: rgba(255, 255, 255, 0.06); }
+  @media (max-width: 520px) { .dh-btn { width: 100%; text-align: center; } }
+  .dh-btn:focus-visible { outline: 3px solid var(--dh-gold); outline-offset: 3px; }
+
+  /* VeriState panel (static) */
+  .dh-panel {
+    margin: 0;
+    background: #F6F7F9;
+    color: var(--dh-ink);
+    border-radius: 10px;
+    padding: 1rem clamp(0.6rem, 2vw, 1rem) 1rem;
+    box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.55);
+  }
+  .dh-panel__head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.25rem 1rem;
+    padding: 0 0.35rem 0.75rem;
+  }
+  .dh-panel__title { margin: 0; font-size: 1rem; font-weight: 700; color: var(--dh-ink); }
+  .dh-panel__sample { font-size: 0.8125rem; color: #4B5563; }
+
+  .dh-tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.65rem; }
+  .dh-tile { background: #fff; border-radius: 8px; padding: 0.55rem; box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08); }
+
+  .dh-tile__banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 1.6rem 0.75rem 1.4rem;
+    border: 1px solid #A9C0E6;
+    border-radius: 7px;
+    background: linear-gradient(90deg, #86A5D6, #C5D9F8);
+  }
+  .dh-tile__badge {
+    display: grid;
+    place-items: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 50%;
+    background: #fff;
+  }
+  .dh-ico {
+    width: 1.4rem;
+    height: 1.4rem;
+    fill: none;
+    stroke: #1E8449;
+    stroke-width: 1.9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .dh-tile__title { margin: 0; font-size: 0.9375rem; font-weight: 600; line-height: 1.25; text-align: center; color: var(--dh-ink); }
+
+  .dh-sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  /* Fact strip */
+  .dh-facts {
+    background: var(--dh-paper);
+    color: var(--dh-ink);
+    padding: clamp(2.5rem, 5vw, 4rem) 1.5rem;
+  }
+  .dh-facts__inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    gap: 2.25rem;
+  }
+  @media (min-width: 800px) {
+    .dh-facts__inner { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
+  }
+  .dh-fact { border-top: 2px solid var(--dh-navy); padding-top: 1.1rem; }
+  .dh-fact__figure {
+    margin: 0;
+    font-family: var(--dh-serif);
+    font-weight: 400;
+    font-size: clamp(2.25rem, 4vw, 3.25rem);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--dh-navy);
+  }
+  .dh-fact__text { margin: 0.7rem 0 0; max-width: 30rem; font-size: 1rem; line-height: 1.55; color: #2A3358; }
+</style>
