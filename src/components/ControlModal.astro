@@ -1,0 +1,81 @@
+
+---
+import type { Control } from '../data/controls';
+
+interface Props {
+  control: Control;
+}
+
+const { control } = Astro.props;
+const modalSlug = `modal-${control.id.replace(/\./g, '-')}`;
+const isPass = control.status === 'pass';
+---
+
+<div className="modal fade control-modal" id={modalSlug} tabindex="-1" aria-labelledby={`${modalSlug}-title`} aria-hidden="true">
+  <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+    <div className={`modal-content status-${control.status}`}>
+      <div className="modal-header">
+        <div>
+          <h2 className="modal-title fs-5 fw-bold mb-0" id={`${modalSlug}-title`}>{control.title}</h2>
+          <div className="small text-body-secondary">{control.id}</div>
+        </div>
+        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div className="modal-body">
+        {control.description.map((paragraph, idx) => (
+          <p className={idx < control.description.length - 1 ? "mb-3" : "mb-0"}>{paragraph}</p>
+        ))}
+
+        <hr className="my-4" />
+
+        <div className="vs-map">
+          {control.asdPrinciples && control.asdPrinciples.length > 0 && (
+            <>
+              <h3 className="vs-map-h">ASD Essentials principles</h3>
+              <ul className="vs-map-list">
+                {control.asdPrinciples.map((item) => (
+                  <li>
+                    <span className="badge text-bg-secondary me-2">{item.code}</span>
+                    {item.text} <span className="text-body-secondary small">({item.actions})</span>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+
+          <h3 className="vs-map-h">SMB1001:2026 controls</h3>
+          {control.smbControls && control.smbControls.length > 0 ? (
+            <ul className="vs-map-list">
+              {control.smbControls.map((item) => (
+                <li>
+                  <span className="badge me-2" style={`background:${item.color}`}>{item.tier}</span>
+                  {item.text} <span className="text-body-secondary small">({item.coverage})</span>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="text-body-secondary small mb-3">No direct SMB1001 control.</p>
+          )}
+
+          {control.attackTechniques && control.attackTechniques.length > 0 && (
+            <>
+              <h3 className="vs-map-h">ATT&CK techniques it helps mitigate</h3>
+              <div className="d-flex flex-wrap gap-2 mb-2">
+                {control.attackTechniques.map((tech) => (
+                  <span className="badge rounded-pill text-bg-light border">{tech}</span>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+
+      <div className="modal-footer">
+        <button type="button" className={`btn btn-${isPass ? 'primary' : 'danger'} rounded-pill px-4`} data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
