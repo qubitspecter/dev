@@ -171,8 +171,8 @@ const industries = [
       <p class="dh-eyebrow">Cyber security for small to medium business</p>
       
         <!-- Specialising in legal, accounting, and wealth management firms.-->
-      <h1 class="dh-hero__title" id="dh-hero-title">
-        <span>Security you can prove,</span>
+      <h1 class="ph-hero__title" id="dh-hero-title">
+        <span>Security you can prove,</span><br>
         <span>not opinions you can't prove.</span>
       </h1>
       <p class="dh-hero__lede">
@@ -187,7 +187,7 @@ const industries = [
         <a class="dh-btn dh-btn--secondary" href="/solution">See How It Works</a>
       </div>
       {/* PREPARER NOTE: confirm assessment duration before publishing. Intended line: "Fixed-fee assessment. [X] days. A costed roadmap you keep." The duration is left out of the live text until confirmed. */}
-      <p class="dh-hero__note">Fixed-fee assessment. A costed roadmap you keep.</p>
+      
     </div>
 
     <!-- Hero matrix panel, switched off. Restore the two-column .dh-hero__inner grid in the styles if this is brought back.
@@ -383,10 +383,10 @@ const industries = [
 <section class="dh-section" aria-labelledby="dh-how-title">
   <div class="dh-wrap">
     <h2 class="dh-h2" id="dh-how-title">How it works</h2>
-    <ol class="dh-steps" style={`--dh-step-count: ${steps.length}`}>
+<ol class="dh-steps" style={`--dh-step-count: ${steps.length}`}>
       {steps.map((s, i) => (
         <li class="dh-step">
-          <span class="dh-step__num" aria-hidden="true">{i + 1}</span>
+          <span class="dh-step__num" aria-hidden="true">Step {i + 1}</span>
           <h3 class="dh-step__name">{s.name}</h3>
           <p>{s.text}</p>
         </li>
@@ -394,6 +394,7 @@ const industries = [
     </ol>
   </div>
 </section>
+
 
 <!-- 9. Working with your MSP -->
 <section class="dh-section dh-section--navy" aria-labelledby="dh-msp-title">
@@ -740,30 +741,7 @@ const industries = [
   .dh-steps { list-style: none; margin: 2.25rem 0 0; padding: 0; display: grid; gap: 2rem 2.5rem; counter-reset: none; }
   @media (min-width: 640px) { .dh-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (min-width: 1000px) { .dh-steps { grid-template-columns: repeat(var(--dh-step-count, 3), minmax(0, 1fr)); } }
-  .dh-step { border-top: 2px solid var(--dh-navy); padding-top: 1.1rem; }
-  .dh-step__num { font-family: var(--dh-serif); font-size: 2.5rem; line-height: 1; color: var(--dh-indigo); }
-  .dh-step__name { margin: 0.5rem 0 0; font-family: var(--dh-serif); font-weight: 400; font-size: 1.75rem; color: var(--dh-navy); }
-  .dh-step p { margin: 0.5rem 0 0; font-size: 1.0625rem; line-height: 1.55; color: var(--dh-text); }
-
-  /* MSP checks */
-  .dh-checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.875rem; }
-  .dh-checks li {
-    display: flex;
-    gap: 0.875rem;
-    align-items: flex-start;
-    padding: 1rem 1.125rem;
-    background: rgba(255, 255, 255, 0.07);
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    border-radius: 4px;
-    font-size: 1.0625rem;
-    line-height: 1.5;
-  }
-  .dh-checks__icon { flex: none; display: grid; color: var(--dh-gold); }
-
-  /* Industries */
-  .dh-industries { margin-top: 2.25rem; display: grid; gap: 1.25rem; }
-  @media (min-width: 900px) { .dh-industries { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-  .dh-industry { padding: 1.5rem; background: #fff; border: 1px solid #D5D9E8; border-top: 3px solid var(--dh-navy); border-radius: 6px; }
+dding: 1.5rem; background: #fff; border: 1px solid #D5D9E8; border-top: 3px solid var(--dh-navy); border-radius: 6px; }
   .dh-industry__icon { display: grid; color: var(--dh-indigo); }
   .dh-industry__icon :global(.dh-ico) { width: 2rem; height: 2rem; }
   .dh-industry h3 { margin: 0.9rem 0 0; font-family: var(--dh-serif); font-weight: 400; font-size: 1.5rem; color: var(--dh-navy); }

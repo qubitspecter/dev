@@ -18,9 +18,7 @@ const pathname = Astro.url.pathname;
                 <li class="nav-item">
                     <a class:list={['nav-link', { active: pathname === '/' }]} aria-current={pathname === '/' ? 'page' : undefined} href="/">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class:list={['nav-link', { active: pathname.startsWith('/liabilities') }]} aria-current={pathname.startsWith('/liabilities') ? 'page' : undefined} href="/liabilities">Liabilities</a>
-                </li>
+ 
                <!-- <li class="nav-item">
                     <a class:list={['nav-link', { active: pathname.startsWith('/liabilities') }]} aria-current={pathname.startsWith('/liabilities') ? 'page' : undefined} href="/industries">Industries</a>
                 </li> -->
@@ -33,10 +31,10 @@ const pathname = Astro.url.pathname;
                 <li class="nav-item">
                     <a class:list={['nav-link', { active: pathname.startsWith('/about') }]} aria-current={pathname.startsWith('/about') ? 'page' : undefined} href="/about">About</a>
                 </li>
-                <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
-                    <a class="btn btn-primary px-4" href="#briefing">Book a Discussion</a>
-                </li>
-            </ul>
+ <!--                <li class="nav-item">
+                    <a class:list={['nav-link', { active: pathname.startsWith('/liabilities') }]} aria-current={pathname.startsWith('/liabilities') ? 'page' : undefined} href="/liabilities">Liabilities</a>
+                </li> -->
+           </ul>
         </div>
     </div>
 </nav>
@@ -55,6 +53,7 @@ const pathname = Astro.url.pathname;
 .navbar-cream .nav-link {
     color: var(--bs-body-color) !important;
     font-weight: 500;
+    font-size: 1.1rem;
 }
 
 .navbar-cream .nav-link:hover, .navbar-cream .nav-link.active {
