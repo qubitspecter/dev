@@ -2,68 +2,81 @@
 import CaseStudy from '../../../components/CaseStudy.astro';
 
 const study = {
+    metaDescription:
+        'How a wealth management practice recovered from ransomware and reached Essential Eight ML2 alignment in six weeks, with cyber insurance cover up and premium down.',
     sector: 'Wealth management',
-    title: 'Essential Eight Uplift',
+    title: 'After ransomware: Essential Eight ML2 alignment in six weeks',
     summary:
-        "A ransomware attack disrupted a wealth management practice's operations for several days. Six weeks after the first call, its Microsoft Secure Score had gone from 42% to 98%, its cyber insurance cover had increased at a lower rate, and its controls were attested every day.",
+        "A ransomware attack took a wealth management practice offline for several days. When we looked inside, five of its seven Global Admin accounts were being used every day for email and browsing. Six weeks later, none were, every work device was managed, controls were verified daily, and the firm's cyber insurance cover went up while its premium came down.",
     glance: [
         ['Client', 'Australian wealth management practice'],
         ['Scale', 'Under 25 staff and 30 devices, plus personal mobiles'],
-        ['Starting point', 'Microsoft 365, industry cloud apps, and general IT and malware monitoring from an outsourced provider. Microsoft Secure Score of 42%, with no security documentation.'],
-        ['Why', 'Recovery from a security incident. The client asked for Decoheron by name.'],
+        ['Starting point', 'Microsoft 365, industry cloud apps, and basic malware monitoring from an outsourced IT provider. No security documentation.'],
+        ['Why', 'Recovery from a ransomware attack. The client asked for Decoheron by name, on a referral.'],
         ['Timeline', 'Six weeks from first call to full implementation'],
         ['Result', [
-            'Secure Score from 42% to 98%',
-            'ASD Essential Eight (E8) Maturity Level 2 alignment',
-            'Configuration attested daily',
-            'Cyber insurance cover increased at a lower rate',
+            'ASD Essential Eight Maturity Level Two alignment',
+            'Zero standing Global Admin accounts in daily use',
+            'Every work device centrally managed',
+            'Controls verified daily by Veristate™',
+            'Cyber insurance cover increased, premium reduced',
+            'Microsoft Secure Score from 42% to 98%',
         ]],
     ],
+    sections: {
+        background: 'What happened',
+        findings: 'What we found',
+        method: 'What we did',
+        outcomes: 'What changed',
+    },
     background: [
-        "A ransomware attack disrupted the firm's operations for several days. The attackers deployed off-the-shelf ransomware. The firm's data was backed up, but its operating environment was not, which prolonged the outage.",
-        "Security at the time rested on basic malware monitoring from the firm's outsourced IT provider. A client who knew Decoheron's founder from earlier work suggested engaging Decoheron for an Essential Eight-aligned uplift. The ASD Essential Eight is the Australian Signals Directorate's set of eight baseline mitigation strategies for cyber security incidents.",
+        "Attackers deployed off-the-shelf ransomware. The firm's data was backed up, but its operating environment wasn't, so recovery took days rather than hours.",
+        "Security at the time rested on basic malware monitoring from the firm's outsourced IT provider. A client who knew Decoheron's founder from earlier work suggested the firm engage us for an Essential Eight uplift. The ASD Essential Eight is the Australian Signals Directorate's set of eight baseline strategies for preventing and limiting cyber security incidents.",
     ],
     findingsIntro:
-        'Triage found the conditions below. Forensics never established how the attackers got in, but each of these makes an attack easier.',
+        "Forensics never established exactly how the attackers got in. It didn't need to. Any one of these would have made their job easier:",
     findings: [
-        'Seven Global Admin accounts (the highest-privilege role in Microsoft 365, able to change any setting) were in use, five of them daily for browsing and email.',
+        'Seven Global Admin accounts (the highest-privilege role in Microsoft 365, able to change any setting), five of them used daily for browsing and email.',
         'Most staff had administrator rights on their own devices.',
         'Multi-factor authentication was often enabled, but not enforced.',
         'No devices were centrally managed, and personal devices could sign in freely.',
         'Backups covered data, but not the operating environment.',
-        "Microsoft Secure Score (Microsoft's own measure of how many of its recommended security settings are in place) was 42%, which indicates significant gaps.",
     ],
     method: {
-        title: 'Remediation',
         columns: ['Step', 'When', 'Details'],
         rows: [
-            ['Triage', 'Day 1', ['Snapshot and lock environment', 'Purge the superfluous and questionable', 'Hardware authentication on admins', 'Scan environment and review logs']],
-            ['Assessment', 'Week 1', ['Operational requirements', 'Understand user workflow', 'Map IT and discover shadow IT (software and services in use that the business has not approved or recorded)']],
-            ['Consolidation', 'Weeks 1-3', ['Enrol devices into management', 'Single sign-on for applicable systems', 'Remove obsolete software and access']],
-            ['Security Uplift', 'Weeks 2-5', ['Passwordless authentication', 'Conditional Access policies (rules that decide who can sign in, and from what device)', 'Restricted administrative privileges', 'Application control (only approved software can run)', 'User application hardening', 'Patching and full-environment backups']],
-            ['Documentation', 'Weeks 4-6', ['Recovery and continuity plans', 'Documentation of controls', 'Insurance questionnaire', 'Investor report on E8 alignment']],
-            ['Attestation', 'Week 6 onward', ['VeriState daily attestation', 'Microsoft Defender']],
+            ['Triage', 'Day 1', 'Snapshot and lock the environment. Remove unnecessary and suspicious accounts and access. Hardware authentication for admins. Scan the environment and review logs.'],
+            ['Assessment', 'Week 1', "Confirm operational requirements. Understand how staff actually work. Map IT and uncover shadow IT (software and services in use that the business hadn't approved or recorded)."],
+            ['Consolidation', 'Weeks 1 to 3', 'Enrol devices into management. Single sign-on for applicable systems. Remove obsolete software and access.'],
+            ['Security uplift', 'Weeks 2 to 5', 'Passwordless authentication. Conditional Access (rules that decide who can sign in, and from which device). Restricted admin privileges. Application control (only approved software can run). User application hardening. Patching and full-environment backups.'],
+            ['Documentation', 'Weeks 4 to 6', 'Recovery and continuity plans. Control documentation. Insurance questionnaire. Investor report on Essential Eight alignment.'],
+            ['Verification', 'Week 6 onward', 'Daily control verification with Veristate™, alongside Microsoft Defender.'],
         ],
     },
     stats: [
-        { from: '7', figure: '0', label: 'Global Admin accounts in use', note: 'Two sealed break-glass accounts (emergency accounts, used only if normal admin access fails) remain.' },
-        { from: 'None', figure: 'All', label: 'Work devices under central management', note: 'Personal computers blocked.' },
-        { from: '42%', figure: '98%', label: 'Microsoft Secure Score', note: 'Essential Eight Maturity Level 2 alignment, with configuration attested daily.' },
+        { from: '7', figure: '0', label: 'Global Admin accounts in daily use', note: 'Two sealed emergency accounts remain, used only if normal admin access fails.' },
+        { from: 'None', figure: 'All', label: 'Work devices under central management', note: 'Personal computers can no longer sign in.' },
+        { figure: 'Cover up, premium down', label: 'Cyber insurance at renewal', note: 'Following the uplift and completed insurance questionnaire.' },
     ],
     outcomes: [
         {
-            title: 'Operations',
-            text: 'With devices enrolled, application control in place and no one holding admin rights, day-to-day IT is smoother and problems caused by unexpected changes have stopped. Mobile access is limited to Teams and email, and passwordless sign-in means staff training can focus on payment fraud instead of credential phishing.',
+            title: 'For the partners',
+            text: 'Cyber insurance cover went up and the annual premium came down. IT running costs fell too, thanks to clear documentation and fewer alerts. With daily Veristate™ verification, the partners know their security position on any given day, rather than hoping.',
         },
         {
-            title: 'Clients',
-            text: 'Several have asked for security reports, and the firm now provides two. One sets out how the firm addresses each Essential Eight control. The other attests to the current state of the environment, so drift from the baseline can be detected. Either is available within 24 hours of a request.',
+            title: 'For clients',
+            text: "Several clients have since asked about the firm's security. The firm now answers with two reports, available within 24 hours: one showing how it addresses each Essential Eight strategy, and one verifying the current state of the environment, so any drift from the baseline shows up straight away.",
         },
         {
-            title: 'Business',
-            text: 'Cyber insurance cover increased while the annual premium fell. IT running costs have also fallen thanks to clear documentation and fewer alerts. Daily attestations by VeriState and a Microsoft Secure Score of 98% give the partners a current view of, and confidence in, their security position at any time.',
+            title: 'For staff',
+            text: 'With devices managed, application control in place and no one holding standing admin rights, day-to-day IT is smoother and problems from unexpected changes have stopped. Mobile access is limited to Teams and email. Because sign-in is passwordless, staff training now focuses on payment fraud instead of password phishing.',
         },
     ],
+    closing: {
+        title: "Don't wait for the incident.",
+        text: 'This firm found out what its controls were really doing after an attack. A fixed-fee assessment shows you before one.',
+    },
 };
 ---
+<!-- PREPARER NOTE: confirm the insurance outcome wording with the engagement records. The original copy said cover "increased at a lower rate" on the listing page but "cover increased while the annual premium fell" on this page. The second is used here; confirm it's accurate. -->
 <CaseStudy study={study} />

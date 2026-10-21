@@ -1,18 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BriefingForm from './BriefingForm.astro';
+import CallToAction from './CallToAction.astro';
 
 const { study } = Astro.props;
 ---
-<BaseLayout title={`Case Study: ${study.sector}, ${study.title} - Decoheron`}>
+<BaseLayout title={`${study.title} | Decoheron`} description={study.metaDescription}>
     <!-- Hero -->
     <section class="cs cs-hero">
         <div class="cs-wrap">
             <a href="/case-studies" class="cs-back">&larr; Case studies</a>
-            <h1 class="cs-hero__title">
-                <span>{study.sector}:</span>
-                <span>{study.title}</span>
-            </h1>
+            <p class="cs-hero__label">{study.sector}</p>
+            <h1 class="cs-hero__title">{study.title}</h1>
             <p class="cs-hero__lede">{study.summary}</p>
         </div>
     </section>
@@ -54,15 +53,17 @@ const { study } = Astro.props;
             </section>
 
             <section aria-labelledby="cs-background">
-                <h2 class="cs-h2" id="cs-background">1. Background</h2>
+                <h2 class="cs-h2" id="cs-background">1. {study.sections.background}</h2>
                 {study.background.map((p) => <p class="cs-p">{p}</p>)}
             </section>
 
             <section aria-labelledby="cs-findings">
-                <h2 class="cs-h2" id="cs-findings">2. Findings</h2>
-                <p class="cs-p">{study.findingsIntro}</p>
+                <h2 class="cs-h2" id="cs-findings">2. {study.sections.findings}</h2>
+                {study.findingsIntro && <p class="cs-p">{study.findingsIntro}</p>}
                 <ul class="cs-findings">
-                    {study.findings.map((f) => <li>{f}</li>)}
+                    {study.findings.map((f) => (
+                        <li>{typeof f === 'string' ? f : (<><strong>{f.lead}</strong> {f.text}</>)}</li>
+                    ))}
                 </ul>
             </section>
         </div>
@@ -71,7 +72,7 @@ const { study } = Astro.props;
     <!-- Method -->
     <section class="cs cs-band" aria-labelledby="cs-method">
         <div class="cs-wrap">
-            <h2 class="cs-h2" id="cs-method">3. {study.method.title}</h2>
+            <h2 class="cs-h2" id="cs-method">3. {study.sections.method}</h2>
             <div class="cs-table" role="table">
                 <div class="cs-table__head" role="row">
                     {study.method.columns.map((c) => <div role="columnheader">{c}</div>)}
@@ -97,7 +98,7 @@ const { study } = Astro.props;
     <!-- Outcomes -->
     <section class="cs cs-body" aria-labelledby="cs-result">
         <div class="cs-wrap">
-            <h2 class="cs-h2" id="cs-result">4. Result</h2>
+            <h2 class="cs-h2" id="cs-result">4. {study.sections.outcomes}</h2>
             <div class="cs-outcomes">
                 {study.outcomes.map((o) => (
                     <div class="cs-outcome">
@@ -112,7 +113,8 @@ const { study } = Astro.props;
         </div>
     </section>
 
-    <BriefingForm />
+    <CallToAction title={study.closing.title} text={study.closing.text} button="Book a Security Assessment" />
+    <BriefingForm hidden={true} />
 </BaseLayout>
 
 <style>
@@ -145,8 +147,14 @@ const { study } = Astro.props;
         text-wrap: balance;
         color: #fff;
     }
-    .cs-hero__title span { display: block; }
-    .cs-hero__title span + span { color: rgba(255, 255, 255, 0.6); margin-top: 0.15em; }
+    .cs-hero__label {
+        margin: 0 0 1.25rem;
+        font-size: 0.8125rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--dh-gold);
+    }
     .cs-hero__lede {
         margin: 1.5rem 0 0;
         max-width: 42rem;

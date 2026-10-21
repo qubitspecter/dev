@@ -1,13 +1,24 @@
 ---
+interface Props {
+    title?: string;
+    text?: string;
+    button?: string;
+}
+
+const {
+    title = "Transition to Legally Defensible Security",
+    text = "We replace subjective assessments with verifiable, deterministic controls that satisfy regulatory scrutiny and safeguard your board against fiduciary liability.",
+    button = "Book a Discussion",
+} = Astro.props;
 ---
 <!-- Resolution / Call to Action -->
 <section class="cta">
     <div class="cta__inner">
-        <h2 class="cta__title">Transition to Legally Defensible Security</h2>
+        <h2 class="cta__title">{title}</h2>
         <p class="cta__text">
-            We replace subjective assessments with verifiable, deterministic controls that satisfy regulatory scrutiny and safeguard your board against fiduciary liability.
+            {text}
         </p>
-        <a href="#briefing" class="cta__button">Book a Discussion</a>
+        <a href="#briefing" class="cta__button">{button}</a>
     </div>
 </section>
 

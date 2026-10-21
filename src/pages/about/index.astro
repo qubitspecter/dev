@@ -3,87 +3,170 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import BriefingForm from '../../components/BriefingForm.astro';
 import CallToAction from '../../components/CallToAction.astro';
 import { Image } from 'astro:assets';
+import { icon } from '../../data/controls';
 
 // Import your team/logo images from src/assets/
 import logoImage from '../../assets/meaning.png';
+
+const standards = [
+    'SMB1001 Silver certified, with all Gold controls in place and independent audit pending',
+    'At ASD Essential Eight Maturity Level Two across all eight strategies',
+    'Built on the same Microsoft security controls we implement for clients',
+];
+
+const principles = [
+    { icon: 'checkCircle', lead: 'A control either works or it doesn\'t.', text: 'We measure outcomes, not effort, activity or maturity opinions.' },
+    { icon: 'cloud', lead: 'We use what you already own.', text: 'We don\'t sell new tools. We make the Microsoft security you\'ve paid for do its job.' },
+    { icon: 'clipboard', lead: 'Fixed scope, fixed price.', text: 'You know what you\'re getting, and what it costs, before we start.' },
+    { icon: 'users', lead: 'Alongside your MSP.', text: 'We strengthen the environment your MSP runs, rather than competing for it.' },
+];
 ---
 
-<BaseLayout title="About - Decoheron">
+<BaseLayout
+    title="About Decoheron | Security You Can Prove"
+    description="Decoheron is a Melbourne cyber security firm founded by Thomas Ludbrook and Robert Shea. We make the Microsoft security you already own work properly, and prove it."
+>
 
     <div class="dh-page">
+        <!-- 1. Hero and Why We Exist -->
         <section class="pg-hero">
             <div class="pg-wrap">
-                <p class="pg-hero__label">Our Leadership & Heritage</p>
-                <h1 class="pg-hero__title">
-                    <span>Built by Operators,</span>
-                    <span>Grounded in Governance</span>
-                </h1>
-                <p class="pg-hero__lede">Founded by veteran cyber operators and risk advisors, we help executive leadership navigate governance standards, legal risk, and fiduciary duties.</p>
+                <p class="pg-hero__label">About Decoheron</p>
+                <h1 class="pg-hero__title">Security isn't a product you install.</h1>
+                <div class="pg-hero__lede">
+                    <p>Too many organisations do the minimum and expect the maximum from their security. They buy the right products, install them, receive a report, and assume they're protected.</p>
+                    <p>We've seen this from both sides of the table, as customers buying security and as managed service providers delivering it. The tools were rarely the problem. The problem was whether they were configured properly, whether anyone checked they were actually working, and whether the people responsible understood the threats those tools were meant to stop.</p>
+                    <p>Decoheron exists to close that gap. We take the security you've already paid for, make it work properly, and prove it.</p>
+                </div>
             </div>
         </section>
+
+        <!-- 2. The Founders -->
         <section class="pg-band pg-band--paper">
             <div class="pg-wrap">
-        <!-- Leadership / Team Bios (Side-by-Side) -->
-        <div class="mb-5">
-            <div class="mb-4">
-                <h2 class="h3 fw-bold text-primary">Executive Leadership</h2>
-            </div>
-            <div class="row g-4">
-                <!-- Bio 1 -->
-                <div class="col-md-6">
-                    <div class="card h-100 bg-light border border-2 border-secondary shadow-lg p-4 rounded-3">
-                        <div class="d-flex align-items-center gap-3 mb-3">
-                            <div>
-                                <h2 class="h4 fw-bold mb-1 text-primary">Thomas Ludbrook</h2>
-                                <p class="text-secondary mb-0 fw-medium">Founder & Commercial Director</p>
+                <div class="mb-5">
+                    <div class="mb-4">
+                        <h2 class="h3 fw-bold text-primary">The founders</h2>
+                    </div>
+                    <!-- PREPARER NOTE: add founder headshots when available. Until then, keep this two-column layout without image placeholders rather than grey silhouettes. -->
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="card h-100 p-4">
+                                <div class="mb-3">
+                                    <h3 class="h4 fw-bold mb-1 text-primary">Thomas Ludbrook</h3>
+                                    <p class="text-secondary mb-0 fw-medium">Founder &amp; Commercial Director</p>
+                                </div>
+                                <!-- PREPARER NOTE: confirm you're comfortable naming Haylix, Microsoft and Insentra publicly. -->
+                                <p class="mb-3 text-body">Thomas has spent 28 years in technology leadership across Australia and Asia Pacific. He started his career as a developer, spent seven years as CEO of cloud managed services provider Haylix, and has held senior roles at Microsoft APAC and Insentra. Running an MSP showed him how often organisations pay for Microsoft security capability they never fully use.</p>
+                                <p class="mb-0 text-body">At Decoheron, Thomas leads client relationships and makes sure every engagement is scoped, priced and delivered as a fixed outcome.</p>
                             </div>
                         </div>
-                        <p class="mb-3 text-body">Thomas is a technology executive with 28 years of experience leading cloud platforms, partner networks, and enterprise growth across ANZ and APAC. He views cybersecurity not as a cost centre but as a commercial advantage, and treats security-by-design as the foundation of long-term, well-governed growth. </p><p class="mb-0 text-body">Working directly with customers and partner networks to align technical projects with business goals, turning underused platform investments into clear growth and audit-ready governance for regulated clients.</p>
-                    </div>
-                </div>
 
-                <!-- Bio 2 -->
-                <div class="col-md-6">
-                    <div class="card h-100 bg-light border border-2 border-secondary shadow-lg p-4 rounded-3">
-                        <div class="d-flex align-items-center gap-3 mb-3">
-                            <div>
-                                <h2 class="h4 fw-bold mb-1 text-primary">Robert Shea</h2>
-                                <p class="text-secondary mb-0 fw-medium">Founder & Technical Partner</p>
+                        <div class="col-md-6">
+                            <div class="card h-100 p-4">
+                                <div class="mb-3">
+                                    <h3 class="h4 fw-bold mb-1 text-primary">Robert Shea</h3>
+                                    <p class="text-secondary mb-0 fw-medium">Founder &amp; Technical Partner</p>
+                                </div>
+                                <!-- PREPARER NOTE: Rob's bio keeps to the level of detail already public on the site. Confirm with Rob before adding anything more specific about his background. -->
+                                <p class="mb-3 text-body">Robert brings 30 years of security experience across battlefield systems, high-assurance computing and enterprise defence. In those environments, a control is either proven to work or treated as absent. He brings that same discipline to every Decoheron engagement.</p>
+                                <p class="mb-0 text-body">Robert designs the controls we implement and the automation we deploy them with. He has a long-standing fascination with information flow, domain theory and quantum physics.</p>
                             </div>
                         </div>
-                        <p class="mb-3 text-body">Robert brings 30 years of security expertise across battlefield systems, high-assurance computing, and enterprise defense for billion-dollar corporations. Driven by an enduring fascination with information flow, domain theory, and quantum physics, he approaches cyber risk not as operational noise, but as an exact, deterministic discipline.</p><p class="mb-0 text-body">Working alongside insurance underwriters to enforce precise technical controls, Robert converts traditional, ambiguous IT security into verifiable policy coverage and demonstrable legal protection for directors.</p>
                     </div>
                 </div>
-
-            </div>
-        </div>
             </div>
         </section>
+
+        <!-- 3. We Hold Ourselves to the Same Standard -->
         <section class="pg-band pg-band--white">
             <div class="pg-wrap">
-        <!-- About the Name & Logo Section (Single Column: Image Top, Text Below) -->
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="p-4 p-md-2 rounded-3">
-
-                    <!-- Hero Image / Brand Mark -->
-                    <div class="mb-4">
-                        <Image src={logoImage} alt="Decoheron Name and Brand Mark" class="img-fluid mx-auto d-block" style="max-height: 300px; object-fit: contain;" loading="eager" />
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <h2 class="h3 fw-bold text-primary mb-3">We hold ourselves to the same standard.</h2>
+                        <p class="text-body mb-3 fs-5">We don't ask clients to do anything we haven't done ourselves. Our own environment is:</p>
+                        <!-- PREPARER NOTE: update to "SMB1001 Gold certified" once the audit is complete, and add ASD Cyber Security Partnership Program membership once confirmed. -->
+                        <ul class="list-unstyled mb-0">
+                            {standards.map((s) => (
+                                <li class="d-flex align-items-start gap-3 mb-2">
+                                    <span class="square-bullet mt-1">●</span>
+                                    <span class="text-body fs-5">{s}</span>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
-
-                    <!-- Text Block -->
-                    <h2 class="h3 fw-bold text-primary mb-3">
-                        The Meaning Behind <span class="text-secondary">Decoheron</span>
-                    </h2>
-                    <p class="text-body mb-3 fs-5">In quantum physics, decoherence is the point at which a wave of vague probabilities collapses into a single, observable reality. Decoheron takes its name from that transition.</p>
-                    <p class="text-body mb-3 fs-5">Most boards exist in an ambiguous fog, hoping they are protected, but remaining personally liable when tested. Our logo visualises what happens when our deterministic controls meet your infrastructure: we collapse that "cyber probability" into a clear, binary reality.</p>
-                    <p class="text-body fs-5">We eliminate the guesswork, turning ambiguous risk into a defensible position.</p>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!-- 4. How We Work -->
+        <section class="pg-band pg-band--paper">
+            <div class="pg-wrap">
+                <h2 class="h3 fw-bold text-primary mb-4">How we work</h2>
+                <ul class="ab-principles">
+                    {principles.map((p) => (
+                        <li class="ab-principle">
+                            <span class="ab-principle__icon" set:html={icon(p.icon)} />
+                            <p class="ab-principle__text"><strong>{p.lead}</strong> {p.text}</p>
+                        </li>
+                    ))}
+                </ul>
             </div>
         </section>
-        <CallToAction />
+
+        <!-- 5. Why "Decoheron" (compact aside, not a full section) -->
+        <!-- PREPARER NOTE: keep the physics wording as is. Avoid describing decoherence as a "collapse", which is not strictly accurate. -->
+        <section class="pg-band pg-band--white ab-aside">
+            <div class="pg-wrap">
+                <div class="row justify-content-center align-items-center g-4">
+                    <div class="col-md-4 col-lg-3">
+                        <Image src={logoImage} alt="Decoheron Name and Brand Mark" class="img-fluid mx-auto d-block" style="max-height: 140px; object-fit: contain;" loading="eager" />
+                    </div>
+                    <div class="col-md-8 col-lg-7">
+                        <p class="fw-bold text-primary small mb-1">Why "Decoheron"?</p>
+                        <p class="text-body mb-0">In quantum physics, decoherence is the point where uncertain possibilities settle into a single, observable state. We take uncertain security and make it definite, and evidenced.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Call to Action -->
+        <!-- PREPARER NOTE: the contact form below this section is a shared component (BriefingForm). Its heading ("Request a Discussion") and the phrase "insurance mandates" should be updated site-wide to match: suggested heading "Book a Security Assessment", suggested intro "Tell us a little about your firm and we'll be in touch to arrange a time." -->
+        <CallToAction
+            title="Find out where you actually stand."
+            text="Start with a fixed-fee assessment of your Microsoft security. You'll see what's working, what isn't, and what it will take to prove it."
+            button="Book a Security Assessment"
+        />
     </div>
     <BriefingForm hidden={true} />
 </BaseLayout>
+
+<style>
+    .pg-hero__lede p { margin: 0 0 1rem; }
+    .pg-hero__lede p:last-child { margin-bottom: 0; }
+
+    .ab-aside { padding-top: clamp(1.5rem, 3vw, 2.5rem); padding-bottom: clamp(1.5rem, 3vw, 2.5rem); }
+
+    .ab-principles {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 2rem 2.5rem;
+    }
+    @media (min-width: 640px) { .ab-principles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (min-width: 1000px) { .ab-principles { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+    .ab-principle { border-top: 2px solid var(--dh-navy); padding-top: 1.1rem; }
+    .ab-principle__icon { display: grid; color: var(--dh-indigo); }
+    .ab-principle__icon :global(.dh-ico) {
+        width: 2rem;
+        height: 2rem;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+    .ab-principle__text { margin: 0.75rem 0 0; font-size: 1.0625rem; line-height: 1.55; }
+    .ab-principle__text strong { display: block; font-family: var(--dh-serif); font-weight: 500; font-size: 1.375rem; line-height: 1.2; color: var(--dh-navy); margin-bottom: 0.4rem; }
+</style>

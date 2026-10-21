@@ -7,35 +7,36 @@ const caseStudies = [
     {
         slug: 'wealth-management-essential-eight',
         sector: 'Wealth management',
-        title: 'Essential Eight Uplift',
-        headline: { figure: '42% to 98%', caption: 'Microsoft Secure Score in six weeks' },
-        teaser: 'After a ransomware attack, a practice of under 25 staff moved its Microsoft Secure Score from 42% to 98% in six weeks, and its cyber insurance cover increased at a lower rate.',
+        title: 'After ransomware: cover up, premium down',
+        headline: { figure: 'Six weeks', caption: 'From ransomware recovery to Essential Eight ML2 alignment' },
+        teaser: 'A practice of under 25 staff was hit by ransomware. Six weeks later, its standing Global Admin accounts were gone, every work device was managed, and its cyber insurance cover went up while the premium came down.',
     },
     {
         slug: 'law-practice-ready-for-what-comes-next',
         sector: 'Law practice',
-        title: 'Ready for What Comes Next',
-        headline: { figure: '1 set', caption: 'of controls across four frameworks, attested daily' },
-        teaser: "A Victorian law practice went beyond its regulator's minimum with one set of controls aligned to four frameworks, attested daily, and opened a satellite office without issue.",
+        title: 'Switched on, but not enforced',
+        headline: { figure: '4 frameworks', caption: 'Covered by one set of enforced controls' },
+        teaser: 'A Victorian law practice had MFA, application control and Conditional Access in place, but several were only in audit mode. Now one enforced control set covers four frameworks, with evidence available to clients within 24 hours.',
     },
     {
         slug: 'msp-zero-trust-client-administration',
         sector: 'Managed service provider',
-        title: 'Zero-Trust Client Administration',
-        headline: { figure: '100%', caption: 'of client tenancy access approved by the client' },
-        teaser: 'An MSP replaced standing admin rights with client-approved access from a known device, added nothing for its clients, and obtained cyber insurance for the first time.',
+        title: 'Every admin session, approved by the client',
+        headline: { figure: '100%', caption: 'Of admin sessions approved by the client' },
+        teaser: "After a peer MSP was pursued by a client's insurer, this MSP removed its standing admin rights across every client tenancy. It asked nothing extra of its clients, and obtained cyber insurance for the first time.",
     },
 ];
 ---
-<BaseLayout title="Case Studies - Decoheron">
+<!-- PREPARER NOTE: these are written as anonymised real engagements and use only the facts already on the site. Do not add or change any figures unless they come from the engagement records. If any engagement was delivered by Tom or Rob before Decoheron began trading, add "Delivered by Decoheron's founders" to that case study's At a Glance block. If any is illustrative rather than real, it must be labelled "Illustrative example" on both the listing card and the page. Confirm each client has agreed to anonymised publication. -->
+<BaseLayout
+    title="Case Studies | Decoheron"
+    description="How professional services firms went from security that was switched on to security they can prove, using the Microsoft tools they already owned."
+>
     <section class="cs-hero">
         <div class="cs-wrap">
-            <h1 class="cs-hero__title">
-                <span>Controls proved in practice.</span>
-                <span>Not promised.</span>
-            </h1>
+            <h1 class="cs-hero__title">Proven in practice, not promised.</h1>
             <p class="cs-hero__lede">
-                How Australian businesses went from exposed to evidenced, using the Microsoft security they already own.
+                Three engagements, with client details withheld. In each one, the firm already owned the tools. What changed was whether those tools were enforced, and whether the firm could prove it.
             </p>
         </div>
     </section>
@@ -54,7 +55,11 @@ const caseStudies = [
             ))}
         </div>
     </section>
-    <CallToAction />
+    <CallToAction
+        title="What would your environment show?"
+        text="Most firms we assess already own the controls they need. A fixed-fee assessment shows what's enforced, what isn't, and what it will take to prove it."
+        button="Book a Security Assessment"
+    />
     <BriefingForm hidden={true} />
 </BaseLayout>
 
@@ -77,8 +82,6 @@ const caseStudies = [
         text-wrap: balance;
         color: #fff;
     }
-    .cs-hero__title span { display: block; }
-    .cs-hero__title span + span { color: rgba(255, 255, 255, 0.6); margin-top: 0.15em; }
     .cs-hero__lede {
         margin: 1.5rem 0 0;
         max-width: 36rem;
