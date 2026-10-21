@@ -50,6 +50,12 @@
     color: rgba(255, 255, 255, 0.84);
 }
 
+.pg-hero__split { display: grid; gap: 2.5rem; align-items: center; }
+@media (min-width: 992px) {
+    .pg-hero__split { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 3rem; }
+    .pg-hero__split .pg-hero__title { font-size: clamp(2rem, 3.4vw, 3rem); }
+}
+
 .pg-band { padding: clamp(2.5rem, 5vw, 4.5rem) 1.5rem; }
 .pg-band--paper { background: var(--dh-paper); }
 .pg-band--white { background: #fff; }

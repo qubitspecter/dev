@@ -1,0 +1,81 @@
+---
+import { controls, icon } from '../data/controls';
+---
+<div class="dh-cards">
+  {controls.map((c, i) => (
+    <article class="dh-card">
+      <div class="dh-card__head">
+        <span class="dh-card__num" aria-hidden="true">{i + 1}</span>
+        <span class="dh-card__icon" set:html={icon(c.icon)} />
+      </div>
+      <h3 class="dh-card__title">{c.name}</h3>
+      <p class="dh-card__line">{c.line}</p>
+      <p>{c.text}</p>
+      <p class="dh-card__outcome"><strong>Outcome:</strong> {c.outcome}</p>
+    </article>
+  ))}
+  <article class="dh-card dh-card--feature">
+    <div class="dh-card__head">
+      <span class="dh-card__icon" set:html={icon('report')} />
+    </div>
+    <h3 class="dh-card__title">Veristate™ Assurance Reporting</h3>
+    <p class="dh-card__line">Evidence, not opinions.</p>
+    {/* PREPARER NOTE: reporting cadence "monthly" is unconfirmed. See note (3) above. */}
+    <p>Signed, timestamped reports showing the state of each control at the time it was checked, delivered to you monthly.</p>
+    <p class="dh-card__outcome"><strong>Outcome:</strong> Evidence you can hand to auditors, insurers, clients and your board.</p>
+  </article>
+</div>
+
+<style>
+  :global(.dh-ico) {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .dh-cards {
+    --dh-text: #2A3358;
+    margin-top: 2.5rem;
+    display: grid;
+    gap: 1.25rem;
+  }
+  @media (min-width: 700px) { .dh-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 1000px) { .dh-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .dh-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    background: #fff;
+    border: 1px solid #D5D9E8;
+    border-top: 3px solid var(--dh-navy);
+    border-radius: 6px;
+  }
+  .dh-card p { margin: 0.6rem 0 0; font-size: 1rem; line-height: 1.55; color: var(--dh-text); }
+  .dh-card__head { display: flex; align-items: center; justify-content: space-between; }
+  .dh-card__num {
+    display: grid;
+    place-items: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    background: var(--dh-navy);
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: 700;
+  }
+  .dh-card__icon { display: grid; color: var(--dh-indigo); margin-left: auto; }
+  .dh-card__title { margin: 1rem 0 0; font-family: var(--dh-serif); font-weight: 400; font-size: 1.5rem; line-height: 1.15; color: var(--dh-navy); }
+  .dh-card p.dh-card__line { margin-top: 0.5rem; font-weight: 700; color: var(--dh-ink); }
+  .dh-card p.dh-card__outcome { margin-top: auto; padding-top: 1rem; font-size: 0.9375rem; }
+  .dh-card p.dh-card__outcome strong { color: var(--dh-navy); }
+  .dh-card--feature { background: var(--dh-navy); border-color: var(--dh-navy); border-top-color: var(--dh-gold); }
+  .dh-card--feature .dh-card__icon, .dh-card--feature .dh-card__title { color: #fff; }
+  .dh-card--feature p, .dh-card--feature p.dh-card__line, .dh-card--feature .dh-card__outcome strong { color: rgba(255, 255, 255, 0.88); }
+  .dh-card--feature p.dh-card__line { color: var(--dh-gold); }
+  .dh-card--feature .dh-card__head { justify-content: flex-start; margin-left: 0; }
+  .dh-card--feature .dh-card__icon { margin-left: 0; }
+</style>

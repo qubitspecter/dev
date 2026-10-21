@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BriefingForm from '../../components/BriefingForm.astro';
+import CallToAction from '../../components/CallToAction.astro';
 
 const caseStudies = [
     {
@@ -53,8 +54,8 @@ const caseStudies = [
             ))}
         </div>
     </section>
-
-    <BriefingForm />
+ <CallToAction />
+    <BriefingForm hidden={true} />
 </BaseLayout>
 
 <style>
