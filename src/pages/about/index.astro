@@ -14,12 +14,7 @@ const standards = [
     'Built on the same Microsoft security controls we implement for clients',
 ];
 
-const principles = [
-    { icon: 'checkCircle', lead: 'A control either works or it doesn\'t.', text: 'We measure outcomes, not effort, activity or maturity opinions.' },
-    { icon: 'cloud', lead: 'We use what you already own.', text: 'We don\'t sell new tools. We make the Microsoft security you\'ve paid for do its job.' },
-    { icon: 'clipboard', lead: 'Fixed scope, fixed price.', text: 'You know what you\'re getting, and what it costs, before we start.' },
-    { icon: 'users', lead: 'Alongside your MSP.', text: 'We strengthen the environment your MSP runs, rather than competing for it.' },
-];
+
 ---
 
 <BaseLayout
@@ -78,41 +73,7 @@ const principles = [
             </div>
         </section>
 
-        <!-- 3. We Hold Ourselves to the Same Standard -->
-        <section class="pg-band pg-band--white">
-            <div class="pg-wrap">
-                <div class="row justify-content-center">
-                    <div class="col-lg-10">
-                        <h2 class="h3 fw-bold text-primary mb-3">We hold ourselves to the same standard.</h2>
-                        <p class="text-body mb-3 fs-5">We don't ask clients to do anything we haven't done ourselves. Our own environment is:</p>
-                        <!-- PREPARER NOTE: update to "SMB1001 Gold certified" once the audit is complete, and add ASD Cyber Security Partnership Program membership once confirmed. -->
-                        <ul class="list-unstyled mb-0">
-                            {standards.map((s) => (
-                                <li class="d-flex align-items-start gap-3 mb-2">
-                                    <span class="square-bullet mt-1">●</span>
-                                    <span class="text-body fs-5">{s}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. How We Work -->
-        <section class="pg-band pg-band--paper">
-            <div class="pg-wrap">
-                <h2 class="h3 fw-bold text-primary mb-4">How we work</h2>
-                <ul class="ab-principles">
-                    {principles.map((p) => (
-                        <li class="ab-principle">
-                            <span class="ab-principle__icon" set:html={icon(p.icon)} />
-                            <p class="ab-principle__text"><strong>{p.lead}</strong> {p.text}</p>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </section>
+ 
 
         <!-- 5. Why "Decoheron" (compact aside, not a full section) -->
         <!-- PREPARER NOTE: keep the physics wording as is. Avoid describing decoherence as a "collapse", which is not strictly accurate. -->
@@ -129,9 +90,6 @@ const principles = [
                 </div>
             </div>
         </section>
-
-        <!-- 6. Call to Action -->
-        <!-- PREPARER NOTE: the contact form below this section is a shared component (BriefingForm). Its heading ("Request a Discussion") and the phrase "insurance mandates" should be updated site-wide to match: suggested heading "Book a Security Assessment", suggested intro "Tell us a little about your firm and we'll be in touch to arrange a time." -->
         <CallToAction
             title="Find out where you actually stand."
             text="Start with a fixed-fee assessment of your Microsoft security. You'll see what's working, what isn't, and what it will take to prove it."

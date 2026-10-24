@@ -27,10 +27,10 @@ const questions = [
 ];
 
 const pillars = [
-    { icon: 'lock', name: 'Enforced', text: 'Policy is applied, not recommended.' },
-    { icon: 'checkCircle', name: 'Tested', text: 'Each control is checked against its expected outcome.' },
-    { icon: 'report', name: 'Evidenced', text: 'Results are recorded in signed, timestamped reports.' },
-    { icon: 'clipboard', name: 'Audit-ready', text: 'Mapped to the ASD Essential Eight, the new ASD Essentials and SMB1001.' },
+    { icon: 'checkCircle', lead: 'Lorem', text: 'Ipsum' },
+    { icon: 'cloud', lead: 'We use what you already own.', text: 'We don\'t sell new tools. We make the Microsoft security you\'ve paid for do its job.' },
+    { icon: 'clipboard', lead: 'Fixed scope, fixed price.', text: 'You know what you\'re getting, and what it costs, before we start.' },
+    { icon: 'users', lead: 'Alongside your MSP.', text: 'We strengthen the environment your MSP runs, rather than competing for it.' },
 ];
 
 // Five-segment ring: one segment per control, Veristate in the centre.
@@ -55,10 +55,10 @@ const ringSegs = controls.map((_, i) => {
 });
 
 const comparison = [
-    ['Periodic security reviews', 'Scheduled, repeatable control verification'],
-    ['Best-effort configuration', 'Deterministic controls'],
-    ['Subjective maturity opinions', 'Signed, timestamped evidence'],
-    ['New tools to buy and manage', 'The Microsoft security you already own'],
+    ['Security reviews', 'Continuous verification'],
+    ['Best-effort controls', 'Deterministic controls'],
+    ['Security opinions', 'Standards alignment'],
+    ['Added tool complexity', 'Microsoft optimisation'],
     ['Open-ended consulting hours', 'Fixed-scope, fixed-price phases'],
     ['"Trust us."', '"Here\'s the evidence."'],
 ];
@@ -102,133 +102,31 @@ const industries = [
 <section class="dh-hero" aria-labelledby="dh-hero-title">
   <div class="dh-hero__inner">
     <div>
-      <p class="dh-eyebrow">Cyber security for small to medium business</p>
+      <p class="dh-eyebrow">Cybersecurity for regulated SMBs</p>
       
         <!-- Specialising in legal, accounting, and wealth management firms.-->
       <h1 class="ph-hero__title">
-        <span>Security you can prove,</span><br>
-        <span>not opinions you can't prove.</span>
+        <span>Security as a finished product,</span><br>
+        <span>not a treadmill.</span>
       </h1>
       <p class="dh-hero__lede">
-        Decoheron turns the Microsoft security your business already owns into controls aligned to both the ASD Essential Eight and the new ASD Essentials, enforced, tested and evidenced. Our controls are deterministic, meaning each one either works or it doesn't, and we give you signed evidence showing which.
+         Decoheron implements complete, enforced security in the Microsoft environment you already own, aligned to ASD Essentials and SMB1001. Then we verify and attest to it daily, so you can show any client, insurer or auditor exactly where you stand, on demand. Built for regulated firms such as legal, accounting and wealth management. Keep your existing IT provider.
       </p>
-      <p class="dh-hero__lede">
-        No subjective maturity opinions. No best-effort recommendations. Controls that work, and the evidence to show it.
-      </p>
-
       <div class="dh-hero__actions">
         <a class="dh-btn dh-btn--primary" href="#briefing">Book a Call</a>
         <a class="dh-btn dh-btn--secondary" href="/solution">See How It Works</a>
       </div>
-      {/* PREPARER NOTE: confirm assessment duration before publishing. Intended line: "Fixed-fee assessment. [X] days. A costed roadmap you keep." The duration is left out of the live text until confirmed. */}
-      
-    </div>
-
-    <!-- Hero matrix panel, switched off. Restore the two-column .dh-hero__inner grid in the styles if this is brought back.
-    <figure class="dh-panel" aria-label="Illustrative VeriState compliance matrix">
-      <div class="dh-panel__head">
-        <h2 class="dh-panel__title">VeriState compliance matrix</h2>
-        <span class="dh-panel__sample">Illustrative sample</span>
-      </div>
-      <div class="dh-tiles">
-        {matrix.map((cat) => (
-          <section class="dh-tile" aria-label={cat.name}>
-            <div class="dh-tile__banner">
-              <div class="dh-tile__badge" aria-hidden="true">
-                <svg viewBox="0 0 24 24" class="dh-ico">
-                  {cat.icon === 'fingerprint' && (<>
-                    <path d="M12 4a8 8 0 0 0-8 8v1.5" />
-                    <path d="M20 12.5V12a8 8 0 0 0-8-8" />
-                    <path d="M8 13.5V12a4 4 0 0 1 8 0v2.5a6 6 0 0 1-1.2 3.6" />
-                    <path d="M12 12v3a9 9 0 0 1-2 5.6" />
-                    <path d="M7.5 17.5A12 12 0 0 0 8 15" />
-                  </>)}
-                  {cat.icon === 'admin' && (<>
-                    <circle cx="9.5" cy="7.5" r="3.5" />
-                    <path d="M3 20v-1.5A5.5 5.5 0 0 1 8.5 13H10" />
-                    <circle cx="17" cy="17" r="2.2" />
-                    <path d="M17 12.8v1.2M17 20v1.2M12.8 17H14M20 17h1.2M14 14l.9.9M19.1 19.1l.9.9M20 14l-.9.9M14.9 19.1l-.9.9" />
-                  </>)}
-                  {cat.icon === 'terminal' && (<>
-                    <rect x="3" y="4" width="18" height="14" rx="2.5" />
-                    <path d="M7 9l3 2.5L7 14" />
-                    <path d="M12.5 14.5H15" />
-                  </>)}
-                  {cat.icon === 'shield' && (<>
-                    <path d="M12 3l7 2.6v5.4c0 4.4-2.9 8-7 10-4.1-2-7-5.6-7-10V5.6z" />
-                    <path d="M8.8 12l2.4 2.4 4.2-4.6" />
-                  </>)}
-                </svg>
-              </div>
-              <h3 class="dh-tile__title">{cat.name}<span class="dh-sr">: pass</span></h3>
-            </div>
-          </section>
-        ))}
-      </div>
-    </figure>
-    -->
-  </div>
-</section>
-
-<!-- 2. Trust bar -->
-{/* PREPARER NOTE: update "SMB1001 Silver" to "SMB1001 Gold" once the independent audit is complete. Add "ASD Cyber Security Partnership Programme Network Partner" only once membership is confirmed. Add certification badge images if the certifying bodies permit their use. */}
-<section class="dh-section dh-section--tight dh-section--paper" aria-label="Credentials">
-  <ul class="dh-wrap dh-trust">
-    {trust.map((t) => (
-      <li class="dh-trust__item">
-        <span class="dh-trust__icon" set:html={icon(t.icon)} />
-        <span>{t.label}</span>
-      </li>
-    ))}
-  </ul>
-</section>
-
-<!-- 3. The problem -->
-<section class="dh-section" aria-labelledby="dh-problem-title">
-  <div class="dh-wrap dh-split">
-    <div>
-      <h2 class="dh-h2" id="dh-problem-title">Most businesses have the tools. Few can prove they work.</h2>
-      <p class="dh-body">
-        Your firm has likely already invested in Microsoft 365 security. But when a client, insurer or auditor asks, can you answer these with confidence?
-      </p>
-    </div>
-    <div>
-      <ul class="dh-questions">
-        {questions.map((q) => (
-          <li>
-            <span class="dh-questions__icon" set:html={icon('question')} />
-            <span>{q}</span>
-          </li>
-        ))}
-      </ul>
-      <p class="dh-body dh-body--lead">
-        Most security programs answer these with a report full of opinions. We answer them with evidence.
-      </p>
     </div>
   </div>
 </section>
 
-<!-- 4. Why it matters now -->
-{/* PREPARER NOTE: if adding a claims-denial statistic, cite the primary source on the page. Keep legal and insurance statements framed as argument, not assertion, and have counsel review before go-live. */}
-<section class="dh-section dh-section--ink" aria-labelledby="dh-now-title">
-  <div class="dh-wrap dh-narrow">
-    <h2 class="dh-h2" id="dh-now-title">"We have it turned on" is no longer enough.</h2>
-    <p class="dh-body dh-body--large">
-      Clients, insurers and regulators increasingly expect businesses to show, not just state, that reasonable security steps have been taken. Insurers have disputed claims where a control such as multi-factor authentication was declared on the proposal form but was not actually enforced. The gap between what a firm believes is in place and what it can evidence is where the exposure sits.
-    </p>
-  </div>
-</section>
-
-<!-- 5. The Decoheron difference -->
 <section class="dh-section dh-section--paper" aria-labelledby="dh-diff-title">
   <div class="dh-wrap">
-    <h2 class="dh-h2" id="dh-diff-title">Evidence, not opinions.</h2>
-    <p class="dh-body">Using the Microsoft security you already own, we implement controls that are:</p>
     <ul class="dh-pillars">
       {pillars.map((p) => (
         <li class="dh-pillar">
           <span class="dh-pillar__icon" set:html={icon(p.icon)} />
-          <h3 class="dh-pillar__name">{p.name}</h3>
+          <h3 class="dh-pillar__name">{p.lead}</h3>
           <p>{p.text}</p>
         </li>
       ))}
@@ -236,39 +134,11 @@ const industries = [
   </div>
 </section>
 
-<!-- 6. The Security Assurance Program -->
-{/* PREPARER NOTE: (1) Card names now match the four service lines and the proposal template. The previous "Deterministic Access Controls" (deny-by-default Conditional Access) has been folded into Session Protection; confirm with Rob. (2) Network segmentation removed from the backups card, as it isn't delivered from the client's existing Microsoft stack; add back only if it's in scope. (3) Confirm Veristate reporting cadence. Do not describe Veristate as "attestation" or "proof of operating effectiveness", as Decoheron implements the controls it reports on. */}
-<section class="dh-section" aria-labelledby="dh-program-title">
-  <div class="dh-wrap">
-    <div class="dh-narrow dh-centre">
-      <h2 class="dh-h2" id="dh-program-title">Five controls. One body of evidence.</h2>
-      <p class="dh-body">
-        Each control closes a specific, common path to a breach. VeriState™ reporting then shows you, and anyone who asks, that each one is working.
-      </p>
-    </div>
-
-    <figure class="dh-ring">
-      <svg viewBox="0 0 240 240" role="img" aria-label="Five numbered control segments forming a ring around VeriState reporting, which sits across all five controls">
-        {ringSegs.map((s) => (
-          <>
-            <path d={s.d} class={`dh-ring__seg dh-ring__seg--${s.n % 2}`} />
-            <text x={s.tx} y={s.ty} class="dh-ring__num">{s.n}</text>
-          </>
-        ))}
-        <text x="120" y="117" class="dh-ring__name">VeriState™</text>
-        <text x="120" y="136" class="dh-ring__sub">reporting</text>
-      </svg>
-      <figcaption>VeriState™ reporting sits across all five controls. It is not a sixth control.</figcaption>
-    </figure>
-
-    <ControlCards />
-  </div>
-</section>
 
 <!-- 7. What changes with Decoheron -->
 <section class="dh-section dh-section--paper" aria-labelledby="dh-compare-title">
   <div class="dh-wrap dh-narrow">
-    <h2 class="dh-h2" id="dh-compare-title">What changes with Decoheron</h2>
+    <h2 class="dh-h2" id="dh-compare-title">The Decoheron Difference</h2>
     <div class="dh-table-wrap">
       <table class="dh-table">
         <thead>
@@ -286,60 +156,6 @@ const industries = [
           ))}
         </tbody>
       </table>
-    </div>
-  </div>
-</section>
-
-<!-- 8. How it works -->
-<section class="dh-section" aria-labelledby="dh-how-title">
-  <div class="dh-wrap">
-    <h2 class="dh-h2" id="dh-how-title">How it works</h2>
-<ol class="dh-steps" style={`--dh-step-count: ${steps.length}`}>
-      {steps.map((s, i) => (
-        <li class="dh-step">
-          <span class="dh-step__num" aria-hidden="true">Step {i + 1}</span>
-          <h3 class="dh-step__name">{s.name}</h3>
-          <p>{s.text}</p>
-        </li>
-      ))}
-    </ol>
-  </div>
-</section>
-
-
-<!-- 9. Working with your MSP -->
-<section class="dh-section dh-section--navy" aria-labelledby="dh-msp-title">
-  <div class="dh-wrap dh-split">
-    <div>
-      <h2 class="dh-h2" id="dh-msp-title">We work with your MSP, not against them.</h2>
-      <p class="dh-body">
-        Many security providers compete with your managed service provider. We don't. Your MSP keeps running your environment day to day. We design, implement and verify the security controls, and give both of you clear evidence of what's working.
-      </p>
-    </div>
-    <ul class="dh-checks">
-      {mspPoints.map((p) => (
-        <li>
-          <span class="dh-checks__icon" set:html={icon('check')} />
-          <span>{p}</span>
-        </li>
-      ))}
-    </ul>
-  </div>
-</section>
-
-<!-- 10. Industries -->
-{/* PREPARER NOTE: the wealth management statement refers to ASIC v FIIG Securities Limited [2026] FCA 92. Link to the judgment or ASIC media release, and have counsel review before go-live. */}
-<section class="dh-section dh-section--paper" aria-labelledby="dh-ind-title">
-  <div class="dh-wrap">
-    <h2 class="dh-h2" id="dh-ind-title">Built for professional services</h2>
-    <div class="dh-industries">
-      {industries.map((ind) => (
-        <article class="dh-industry">
-          <span class="dh-industry__icon" set:html={icon(ind.icon)} />
-          <h3>{ind.name}</h3>
-          <p>{ind.text}</p>
-        </article>
-      ))}
     </div>
   </div>
 </section>

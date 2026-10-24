@@ -1,0 +1,79 @@
+---
+import CaseStudy from '../../../components/CaseStudy.astro';
+
+const study = {
+  metaDescription: 'How a small financial advice practice found malware after clients received strange emails, and secured its environment in about a month. Luck is not a control.',
+  sector: 'Financial advice',
+  title: 'Luck is not a control: finding the malware behind strange emails',
+  summary: "Clients of a small financial advice practice began receiving strange emails about their accounts, and the firm's IT provider could not find the cause. When we looked, anyone could impersonate the firm by email, and remote access malware was already inside with ransomware being prepared. The attackers appear to have been held back by little more than a backup drive kept in a locked drawer. A month later the malware was gone, sign-in was phishing-resistant, and the firm had cyber insurance and a written security policy.",
+  glance: [
+    ['Client', 'Australian financial advice practice'],
+    ['Scale', '11 staff on Microsoft 365, Windows and Mac'],
+    ['Starting point', "Security arranged through the firm's IT provider: a penetration test, third-party antivirus, multi-factor authentication on the remote support tool, advice to monitor sign-ins, and a DMARC record in monitor-only mode."],
+    ['Why', 'Clients reported strange emails and the IT provider could not find the cause. The provider passed the problem to Decoheron.'],
+    ['Timeline', 'About a month from first call to full implementation'],
+    ['Result', [
+      'Malware found and removed within a day',
+      'DMARC at full enforcement (p=reject)',
+      'Phishing-resistant sign-in for admins and staff',
+      'Application control on every device',
+      'Cyber insurance obtained',
+      'A written security policy built into daily operations',
+    ]],
+  ],
+  sections: {
+    background: 'What happened',
+    findings: 'What we found',
+    method: 'What we did',
+    outcomes: 'What changed',
+  },
+  background: [
+    "The firm paid its IT provider to improve its security. The provider delivered what many IT providers offer: a penetration test, some security product licences and a DMARC record. The firm reasonably believed it was covered. The provider was an IT provider, not a security provider, and the two are easy to confuse.",
+    "Then clients started receiving strange emails about changes to their accounts, asking for more information. The IT provider could not find the cause and passed the problem to Decoheron.",
+  ],
+  findingsIntro: 'We started from the outside, using only information anyone can look up, and then looked inside. There was never just one problem:',
+  findings: [
+    "The firm's DMARC policy was set to none (the setting that tells receiving mail systems to monitor and take no action), so anyone could send email pretending to be the firm and have it delivered. The firm's SPF record and mail providers were also visible in public DNS. The firm had not realised this was public, and its first reaction was to ask whether we had hacked it.",
+    'A spoofed email had been used to gain access to a real mailbox, which was then used to email clients about account changes and ask for additional information.',
+    'Remote access malware was already installed, along with signs of preparation for ransomware.',
+    'The antivirus had been disabled. When Microsoft Defender was switched back on, it detected the malware immediately.',
+    'Information may have been taken before we became involved.',
+    "The attackers appeared to know about the firm's offline backup. Backups went to a removable drive that was connected only while a backup ran, then disconnected and locked in a drawer. That habit may be the reason ransomware had not yet been deployed.",
+  ],
+  method: {
+    columns: ['Step', 'When', 'Details'],
+    rows: [
+      ['Triage', 'Day 1', "Switch Defender back on. Identify the malware and the attackers' access. Clean the environment and return it to a known good state."],
+      ['Administrators', 'Day 2', 'Remove unneeded admin accounts. Set up sealed emergency accounts, used only if normal admin access fails.'],
+      ['Email authentication', 'About 3 weeks', 'Tighten DMARC in stages, from quarantine at 20% to reject at 100%, so spoofed email is refused outright.'],
+      ['Sign-in', 'About 2 weeks', 'Hardware security keys for admins. Passkeys (sign-in that cannot be phished) for everyone else, using Windows Hello, Mac Secure Enclave or Microsoft Authenticator.'],
+      ['Applications', 'About 1 week', 'Application control (only approved software can run), using AppLocker on Windows and Santa on Mac.'],
+      ['Policy and insurance', 'About 1 week', 'Write the security policy and obtain cyber insurance. These steps overlapped, so the whole programme took about a month.'],
+    ],
+  },
+  stats: [
+    { from: 'p=none;', figure: 'p=reject;', breakBefore: true, label: 'DMARC policy', note: 'Mail systems that check DMARC now reject spoofed email claiming to come from the firm.' },
+    { from: 'Disabled', figure: 'Detected', label: 'Antivirus', note: 'The attackers had disabled it. Once Defender was back on, it found the malware immediately.' },
+    { from: 'Passwords', figure: 'Passkeys', label: 'How staff sign in', note: 'Admins also use hardware security keys.' },
+  ],
+  outcomes: [
+    {
+      title: 'For the firm',
+      text: 'The incident carried no ongoing cost, but that owed a lot to luck. A penetration test, antivirus, multi-factor authentication on one tool and a DMARC record had all been in place, and the environment was still compromised. The firm got through on a backup habit. It now has cyber insurance and a security programme that does not depend on luck.',
+    },
+    {
+      title: 'For clients',
+      text: "The firm told its clients about the uplift and the insurance, and was able to explain what had changed. Email that fakes the firm's address is now refused by mail systems that check DMARC, so clients are far less likely to receive another message like the ones that started this.",
+    },
+    {
+      title: 'For staff',
+      text: 'Staff sign in with passkeys built into their devices, and only approved software runs. Few people hold admin rights, and the security policy is now part of how the firm operates day to day.',
+    },
+  ],
+  closing: {
+    title: "Don't leave it to luck.",
+    text: "This firm found out what its security was really doing when clients noticed something wrong. A fixed-fee assessment shows you before they do.",
+  },
+};
+---
+<CaseStudy study={study} />

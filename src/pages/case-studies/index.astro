@@ -4,39 +4,47 @@ import BriefingForm from '../../components/BriefingForm.astro';
 import CallToAction from '../../components/CallToAction.astro';
 
 const caseStudies = [
-    {
-        slug: 'wealth-management-essential-eight',
-        sector: 'Wealth management',
-        title: 'After ransomware: cover up, premium down',
-        headline: { figure: 'Six weeks', caption: 'From ransomware recovery to Essential Eight ML2 alignment' },
-        teaser: 'A practice of under 25 staff was hit by ransomware. Six weeks later, its standing Global Admin accounts were gone, every work device was managed, and its cyber insurance cover went up while the premium came down.',
-    },
-    {
-        slug: 'law-practice-ready-for-what-comes-next',
-        sector: 'Law practice',
-        title: 'Switched on, but not enforced',
-        headline: { figure: '4 frameworks', caption: 'Covered by one set of enforced controls' },
-        teaser: 'A Victorian law practice had MFA, application control and Conditional Access in place, but several were only in audit mode. Now one enforced control set covers four frameworks, with evidence available to clients within 24 hours.',
-    },
-    {
-        slug: 'msp-zero-trust-client-administration',
-        sector: 'Managed service provider',
-        title: 'Every admin session, approved by the client',
-        headline: { figure: '100%', caption: 'Of admin sessions approved by the client' },
-        teaser: "After a peer MSP was pursued by a client's insurer, this MSP removed its standing admin rights across every client tenancy. It asked nothing extra of its clients, and obtained cyber insurance for the first time.",
-    },
+{
+slug: 'financial-advice-luck-is-not-a-control',
+sector: 'Financial advice',
+title: 'Luck is not a control',
+headline: { figure: 'p=none;', caption: 'The mail server setting that let anyone impersonate the firm' },
+teaser: "Clients of a small financial advice practice began receiving strange emails, and its IT provider couldn't find the cause. We found malware already inside and ransomware being prepared. A month later it was gone, DMARC was enforced and the firm had cyber insurance.",
+},    
+{
+slug: 'wealth-management-essential-eight',
+sector: 'Wealth management',
+title: 'After ransomware: cover up, premium down',
+headline: { figure: 'Six weeks', caption: 'From ransomware recovery to Essential Eight ML2 alignment' },
+teaser: 'A practice of under 25 staff was hit by ransomware. Six weeks later, its standing Global Admin accounts were gone, every work device was managed, and its cyber insurance cover went up while the premium came down.',
+},
+{
+slug: 'law-practice-ready-for-what-comes-next',
+sector: 'Law practice',
+title: 'Switched on, but not enforced',
+headline: { figure: '4 frameworks', caption: 'Covered by one set of enforced controls' },
+teaser: 'A Victorian law practice had MFA, application control and Conditional Access in place, but several were only in audit mode. Now one enforced control set covers four frameworks, with evidence available to clients within 24 hours.',
+},
+{
+slug: 'msp-zero-trust-client-administration',
+sector: 'Managed service provider',
+title: 'Every admin session, approved by the client',
+headline: { figure: '100%', caption: 'Of admin sessions approved by the client' },
+teaser: "After a peer MSP was pursued by a client's insurer, this MSP removed its standing admin rights across every client tenancy. It asked nothing extra of its clients, and obtained cyber insurance for the first time.",
+},
 ];
 ---
-<!-- PREPARER NOTE: these are written as anonymised real engagements and use only the facts already on the site. Do not add or change any figures unless they come from the engagement records. If any engagement was delivered by Tom or Rob before Decoheron began trading, add "Delivered by Decoheron's founders" to that case study's At a Glance block. If any is illustrative rather than real, it must be labelled "Illustrative example" on both the listing card and the page. Confirm each client has agreed to anonymised publication. -->
+
 <BaseLayout
     title="Case Studies | Decoheron"
     description="How professional services firms went from security that was switched on to security they can prove, using the Microsoft tools they already owned."
->
+    >
     <section class="cs-hero">
         <div class="cs-wrap">
+            <p class="dh-eyebrow">Case Studies</p>
             <h1 class="ph-hero__title" id="dh-hero-title">Proven in practice, not promised.</h1>
             <p class="cs-hero__lede">
-                Three engagements, with client details withheld. In each one, the firm already owned the tools. What changed was whether those tools were enforced, and whether the firm could prove it.
+                Four engagements, with client details withheld. In each one, the firm already owned the tools. What changed was whether those tools were enforced, and whether the firm could prove it.
             </p>
         </div>
     </section>
@@ -44,14 +52,14 @@ const caseStudies = [
     <section class="cs-band" aria-label="Case studies">
         <div class="cs-wrap cs-cards">
             {caseStudies.map((study) => (
-                <a class="cs-card" href={`/case-studies/${study.slug}`}>
-                    <p class="cs-card__sector">{study.sector}</p>
-                    <p class="cs-card__figure">{study.headline.figure}</p>
-                    <p class="cs-card__caption">{study.headline.caption}</p>
-                    <h2 class="cs-card__title">{study.title}</h2>
-                    <p class="cs-card__teaser">{study.teaser}</p>
-                    <span class="cs-card__link">Read the case study <span aria-hidden="true">&rarr;</span></span>
-                </a>
+            <a class="cs-card" href={`/case-studies/${study.slug}`}>
+                <p class="cs-card__sector">{study.sector}</p>
+                <p class="cs-card__figure">{study.headline.figure}</p>
+                <p class="cs-card__caption">{study.headline.caption}</p>
+                <h2 class="cs-card__title">{study.title}</h2>
+                <p class="cs-card__teaser">{study.teaser}</p>
+                <span class="cs-card__link">Read the case study <span aria-hidden="true">&rarr;</span></span>
+            </a>
             ))}
         </div>
     </section>
@@ -59,13 +67,27 @@ const caseStudies = [
         title="What would your environment show?"
         text="Most firms we assess already own the controls they need. A fixed-fee assessment shows what's enforced, what isn't, and what it will take to prove it."
         button="Book a Security Assessment"
-    />
+        />
     <BriefingForm hidden={true} />
 </BaseLayout>
 
 <style>
-    .cs-hero, .cs-band { font-family: var(--dh-sans); -webkit-font-smoothing: antialiased; }
-    .cs-wrap { max-width: 1180px; margin: 0 auto; }
+    .dh-eyebrow {
+    margin: 0 0 1.25rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--dh-gold);
+  }
+    .cs-hero, .cs-band {
+        font-family: var(--dh-sans);
+        -webkit-font-smoothing: antialiased;
+    }
+    .cs-wrap {
+        max-width: 1180px;
+        margin: 0 auto;
+    }
 
     .cs-hero {
         background: var(--dh-navy);
@@ -90,10 +112,20 @@ const caseStudies = [
         color: rgba(255, 255, 255, 0.84);
     }
 
-    .cs-band { background: var(--dh-paper); color: var(--dh-ink); padding: clamp(2.5rem, 5vw, 4rem) 1.5rem; }
-    .cs-cards { display: grid; gap: 2.25rem; }
+    .cs-band {
+        background: var(--dh-paper);
+        color: var(--dh-ink);
+        padding: clamp(2.5rem, 5vw, 4rem) 1.5rem;
+    }
+    .cs-cards {
+        display: grid;
+        gap: 2.25rem;
+    }
     @media (min-width: 800px) {
-        .cs-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
+        .cs-cards {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2.5rem;
+        }
     }
 
     .cs-card {
@@ -107,8 +139,14 @@ const caseStudies = [
         box-shadow: 0 1px 2px rgba(5, 13, 46, 0.06);
         transition: box-shadow 0.15s ease, border-color 0.15s ease;
     }
-    .cs-card:hover { border-color: var(--dh-gold); box-shadow: 0 14px 28px -18px rgba(5, 13, 46, 0.4); }
-    .cs-card:focus-visible { outline: 3px solid var(--dh-indigo); outline-offset: 3px; }
+    .cs-card:hover {
+        border-color: var(--dh-gold);
+        box-shadow: 0 14px 28px -18px rgba(5, 13, 46, 0.4);
+    }
+    .cs-card:focus-visible {
+        outline: 3px solid var(--dh-indigo);
+        outline-offset: 3px;
+    }
 
     .cs-card__sector {
         margin: 0;
@@ -126,7 +164,12 @@ const caseStudies = [
         letter-spacing: -0.01em;
         color: var(--dh-navy);
     }
-    .cs-card__caption { margin: 0.5rem 0 0; font-size: 0.9375rem; line-height: 1.4; color: #2A3358; }
+    .cs-card__caption {
+        margin: 0.5rem 0 0;
+        font-size: 0.9375rem;
+        line-height: 1.4;
+        color: #2A3358;
+    }
     .cs-card__title {
         margin: 1.5rem 0 0;
         font-family: var(--dh-serif);
@@ -135,7 +178,20 @@ const caseStudies = [
         line-height: 1.2;
         color: var(--dh-ink);
     }
-    .cs-card__teaser { margin: 0.6rem 0 0; font-size: 1rem; line-height: 1.55; color: #2A3358; }
-    .cs-card__link { margin-top: auto; padding-top: 1.25rem; font-weight: 700; color: var(--dh-navy); }
-    .cs-card:hover .cs-card__link { text-decoration: underline; text-underline-offset: 3px; }
+    .cs-card__teaser {
+        margin: 0.6rem 0 0;
+        font-size: 1rem;
+        line-height: 1.55;
+        color: #2A3358;
+    }
+    .cs-card__link {
+        margin-top: auto;
+        padding-top: 1.25rem;
+        font-weight: 700;
+        color: var(--dh-navy);
+    }
+    .cs-card:hover .cs-card__link {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
 </style>

@@ -22,7 +22,7 @@ const { study } = Astro.props;
             {study.stats.map((s) => (
                 <div class="cs-stat">
                     <p class="cs-stat__figure">
-                        {s.from && (<><span class="cs-stat__from">{s.from}</span> <span aria-label="to">&rarr;</span> </>)}{s.figure}
+                        {s.from && (<><span class="cs-stat__from">{s.from}</span> <span aria-label="to">&rarr;</span> </>)}{s.breakBefore && <br />}{s.figure}
                     </p>
                     <p class="cs-stat__label">{s.label}</p>
                     {s.note && <p class="cs-stat__note">{s.note}</p>}
@@ -120,7 +120,7 @@ const { study } = Astro.props;
 <style>
     .cs { font-family: var(--dh-sans); -webkit-font-smoothing: antialiased; }
     .cs-wrap { max-width: 1180px; margin: 0 auto; }
-    .cs-narrow { max-width: 860px; margin-left: auto; margin-right: auto; display: grid; gap: clamp(2rem, 4vw, 3rem); }
+    .cs-narrow { display: grid; gap: clamp(2rem, 4vw, 3rem); }
 
     /* Hero, same treatment as the home page */
     .cs-hero {
