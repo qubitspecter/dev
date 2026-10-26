@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BriefingForm from './BriefingForm.astro';
-import CallToAction from './CallToAction.astro';
 
 const { study } = Astro.props;
 ---
@@ -112,8 +111,6 @@ const { study } = Astro.props;
             </p>
         </div>
     </section>
-
-    <CallToAction title={study.closing.title} text={study.closing.text} button="Book a Security Assessment" />
     <BriefingForm hidden={true} />
 </BaseLayout>
 
