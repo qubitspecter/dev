@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BriefingForm from '../../components/BriefingForm.astro';
-import CallToAction from '../../components/CallToAction.astro';
 
 const caseStudies = [
 {
@@ -39,7 +38,7 @@ teaser: "After a peer MSP was pursued by a client's insurer, this MSP removed it
     title="Case Studies | Decoheron"
     description="How professional services firms went from security that was switched on to security they can prove, using the Microsoft tools they already owned."
     >
-    <section class="cs-hero">
+    <section class="pg-hero pg-hero--casestudies">
         <div class="cs-wrap">
             <p class="dh-eyebrow">Case Studies</p>
             <h1 class="ph-hero__title" id="dh-hero-title">Proven in practice, not promised.</h1>
@@ -63,11 +62,6 @@ teaser: "After a peer MSP was pursued by a client's insurer, this MSP removed it
             ))}
         </div>
     </section>
-    <CallToAction
-        title="What would your environment show?"
-        text="Most firms we assess already own the controls they need. A fixed-fee assessment shows what's enforced, what isn't, and what it will take to prove it."
-        button="Book a Security Assessment"
-        />
     <BriefingForm hidden={true} />
 </BaseLayout>
 

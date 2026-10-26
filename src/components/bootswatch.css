@@ -53,7 +53,7 @@
   --bs-slate-light: #e2e8f0;
 
   /* Typography */
-  --bs-body-font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --bs-body-font-family: "Helvetica Neue", Arial, sans-serif;
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.6;
@@ -61,7 +61,6 @@
   --bs-body-bg: #ffffff;
 
   /* Headings Typography */
-  --bs-headings-font-family: 'Cinzel', Georgia, serif;
   --bs-headings-font-weight: 600;
   --bs-headings-color: #0f172a;
 

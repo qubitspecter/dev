@@ -2,39 +2,16 @@
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BriefingForm from '../../components/BriefingForm.astro';
-import CallToAction from '../../components/CallToAction.astro';
 import ControlModal from '../../components/ControlModal.astro';
 import { controls } from '../../data/veristate';
-
-
-// Five-segment ring: one segment per control, Veristate in the centre.
-const ringC = 120;
-const ringR = 88;
-const ringPt = (deg: number): [number, number] => [
-    ringC + ringR * Math.cos((deg * Math.PI) / 180),
-    ringC + ringR * Math.sin((deg * Math.PI) / 180),
-];
-const ringSegs = controls.map((_, i) => {
-    const a0 = -90 + i * 72 + 3;
-    const a1 = -90 + (i + 1) * 72 - 3;
-    const [x0, y0] = ringPt(a0);
-    const [x1, y1] = ringPt(a1);
-    const [tx, ty] = ringPt((a0 + a1) / 2);
-    return {
-        n: i + 1,
-        d: `M${x0.toFixed(2)} ${y0.toFixed(2)}A${ringR} ${ringR} 0 0 1 ${x1.toFixed(2)} ${y1.toFixed(2)}`,
-        tx: tx.toFixed(2),
-        ty: ty.toFixed(2),
-    };
-});
 ---
 <BaseLayout title="Solutions - Deterministic Security & Verifiable Compliance - Decoheron">
     <div class="">
-        <section class="pg-hero">
+        <section class="pg-hero pg-hero--solution">
             <div class="pg-wrap pg-hero__split">
                 <div>
+                    <p class="dh-eyebrow">Cybersecurity Solution</p>
                     <h1 class="ph-hero__title">
-                        <span>Cybersecurity</span><br>
                         <span>Intuitive & Verifiable</span>
                     </h1>
                     <p>Each control is built around a simple idea you can picture: only you can sign in as you, only approved apps can run, nobody holds the keys all the time, and your backups sit where a thief can’t reach them.</p>
@@ -44,26 +21,6 @@ const ringSegs = controls.map((_, i) => {
             </div>
         </section>
         <section style="padding:2em;">
-            <div class="row">
-                <div class="col">
-Stuff about VeriState attestation of correctness verification.
-                </div>
-                <div class="col">
-                    <figure class="dh-ring">
-                        <svg viewBox="0 0 240 240" role="img" aria-label="Five numbered control segments forming a ring around VeriState reporting, which sits across all five controls">
-                        {ringSegs.map((s) => (
-                        <>
-                        <path d={s.d} class={`dh-ring__seg dh-ring__seg--${s.n % 2}`} />
-                        <text x={s.tx} y={s.ty} class="dh-ring__num">{s.n}</text>
-                        </>
-                        ))}
-                        <text x="120" y="117" class="dh-ring__name">VeriState™</text>
-                        <text x="120" y="136" class="dh-ring__sub">reporting</text>
-                        </svg>
-                        <figcaption>rewtertr</figcaption>
-                    </figure>
-                </div>
-            </div>
             <div class="row row-cols-1 row-cols-md-2 g-4">
                 <div class="col">
                     <div class="card h-100 border-0 shadow-sm matrix-card bg-body">
@@ -78,29 +35,46 @@ Stuff about VeriState attestation of correctness verification.
                             </div>
 
                             <ul class="list-group list-group-flush bullet-list-group flex-grow-1">
-                                <li class="list-group-item" id="VS.DA.01">
+                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.DA.01">
                                     <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <span><a class="control-link" href="#modal-VS-DA-01" data-bs-toggle="modal" role="button"><strong>Phishing-Resistance</strong></a></span>
+                                    <a href="#modal-VS-DA-01" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
+                                        <strong>Phishing-Resistance</strong>
+                                    </a>
                                 </li>
-                                <li class="list-group-item" id="VS.DA.02">
+
+                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.DA.02">
                                     <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <span><a class="control-link" href="#modal-VS-DA-02" data-bs-toggle="modal" role="button"><strong>Compliant Devices</strong></a></span>
+                                    <a href="#modal-VS-DA-02" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
+                                        <strong>Compliant Devices</strong>
+                                    </a>
                                 </li>
-                                <li class="list-group-item" id="VS.DA.03">
+
+                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.DA.03">
                                     <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <span><a class="control-link" href="#modal-VS-DA-03" data-bs-toggle="modal" role="button"><strong>Self-Service Risk Recovery</strong></a></span>
+                                    <a href="#modal-VS-DA-03" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
+                                        <strong>Self-Service Risk Recovery</strong>
+                                    </a>
                                 </li>
-                                <li class="list-group-item" id="VS.DA.04">
+
+                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.DA.04">
                                     <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <span><a class="control-link" href="#modal-VS-DA-04" data-bs-toggle="modal" role="button"><strong>Bypass Prevention</strong></a></span>
+                                    <a href="#modal-VS-DA-04" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
+                                        <strong>Bypass Prevention</strong>
+                                    </a>
                                 </li>
-                                <li class="list-group-item" id="VS.DA.05">
+
+                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.DA.05">
                                     <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <span><a class="control-link" href="#modal-VS-DA-05" data-bs-toggle="modal" role="button"><strong>Session Protection</strong></a></span>
+                                    <a href="#modal-VS-DA-05" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
+                                        <strong>Session Protection</strong>
+                                    </a>
                                 </li>
-                                <li class="list-group-item" id="VS.DA.06">
+
+                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.DA.06">
                                     <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <span><a class="control-link" href="#modal-VS-DA-06" data-bs-toggle="modal" role="button"><strong>Secure Enrolment</strong></a></span>
+                                    <a href="#modal-VS-DA-06" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
+                                        <strong>Secure Enrolment</strong>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -119,29 +93,46 @@ Stuff about VeriState attestation of correctness verification.
                                 </div>
                             </div>
                             <ul class="list-group list-group-flush bullet-list-group flex-grow-1">
-                                <li class="list-group-item" id="VS.ZA.01">
+                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.ZA.01">
                                     <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <span><a class="control-link" href="#modal-VS-ZA-01" data-bs-toggle="modal" role="button"><strong>Delegated Tasks</strong></a></span>
+                                    <a href="#modal-VS-ZA-01" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
+                                        <strong>Delegated Tasks</strong>
+                                    </a>
                                 </li>
-                                <li class="list-group-item" id="VS.ZA.02">
+
+                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.ZA.02">
                                     <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <span><a class="control-link" href="#modal-VS-ZA-02" data-bs-toggle="modal" role="button"><strong>Just-in-Time Privilege</strong></a></span>
+                                    <a href="#modal-VS-ZA-02" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
+                                        <strong>Just-in-Time Privilege</strong>
+                                    </a>
                                 </li>
-                                <li class="list-group-item" id="VS.ZA.03">
+
+                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.ZA.03">
                                     <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <span><a class="control-link" href="#modal-VS-ZA-03" data-bs-toggle="modal" role="button"><strong>Approval Flow</strong></a></span>
+                                    <a href="#modal-VS-ZA-03" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
+                                        <strong>Approval Flow</strong>
+                                    </a>
                                 </li>
-                                <li class="list-group-item" id="VS.ZA.04">
+
+                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.ZA.04">
                                     <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <span><a class="control-link" href="#modal-VS-ZA-04" data-bs-toggle="modal" role="button"><strong>Admin Safeguards</strong></a></span>
+                                    <a href="#modal-VS-ZA-04" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
+                                        <strong>Admin Safeguards</strong>
+                                    </a>
                                 </li>
-                                <li class="list-group-item" id="VS.ZA.05">
+
+                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.ZA.05">
                                     <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <span><a class="control-link" href="#modal-VS-ZA-05" data-bs-toggle="modal" role="button"><strong>Local Admin Rights</strong></a></span>
+                                    <a href="#modal-VS-ZA-05" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
+                                        <strong>Local Admin Rights</strong>
+                                    </a>
                                 </li>
-                                <li class="list-group-item" id="VS.ZA.06">
+
+                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.ZA.06">
                                     <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <span><a class="control-link" href="#modal-VS-ZA-06" data-bs-toggle="modal" role="button"><strong>Emergency Access</strong></a></span>
+                                    <a href="#modal-VS-ZA-06" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
+                                        <strong>Emergency Access</strong>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -160,29 +151,46 @@ Stuff about VeriState attestation of correctness verification.
                                 </div>
                             </div>
                             <ul class="list-group list-group-flush bullet-list-group flex-grow-1">
-                                <li class="list-group-item" id="VS.EC.01">
+                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.EC.01">
                                     <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <span><a class="control-link" href="#modal-VS-EC-01" data-bs-toggle="modal" role="button"><strong>Application Whitelist</strong></a></span>
+                                    <a href="#modal-VS-EC-01" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
+                                        <strong>Application Whitelist</strong>
+                                    </a>
                                 </li>
-                                <li class="list-group-item" id="VS.EC.02">
+
+                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.EC.02">
                                     <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <span><a class="control-link" href="#modal-VS-EC-02" data-bs-toggle="modal" role="button"><strong>Web Browser Security</strong></a></span>
+                                    <a href="#modal-VS-EC-02" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
+                                        <strong>Web Browser Security</strong>
+                                    </a>
                                 </li>
-                                <li class="list-group-item" id="VS.EC.03">
+
+                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.EC.03">
                                     <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <span><a class="control-link" href="#modal-VS-EC-03" data-bs-toggle="modal" role="button"><strong>Cloud Application Approvals</strong></a></span>
+                                    <a href="#modal-VS-EC-03" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
+                                        <strong>Cloud Application Approvals</strong>
+                                    </a>
                                 </li>
-                                <li class="list-group-item" id="VS.EC.04">
+
+                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.EC.04">
                                     <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <span><a class="control-link" href="#modal-VS-EC-04" data-bs-toggle="modal" role="button"><strong>Office Protections</strong></a></span>
+                                    <a href="#modal-VS-EC-04" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
+                                        <strong>Office Protections</strong>
+                                    </a>
                                 </li>
-                                <li class="list-group-item" id="VS.EC.05">
+
+                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.EC.05">
                                     <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <span><a class="control-link" href="#modal-VS-EC-05" data-bs-toggle="modal" role="button"><strong>Advanced Attack Defense</strong></a></span>
+                                    <a href="#modal-VS-EC-05" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
+                                        <strong>Advanced Attack Defense</strong>
+                                    </a>
                                 </li>
-                                <li class="list-group-item" id="VS.EC.06">
+
+                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.EC.06">
                                     <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <span><a class="control-link" href="#modal-VS-EC-06" data-bs-toggle="modal" role="button"><strong>Auto-Remediation</strong></a></span>
+                                    <a href="#modal-VS-EC-06" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
+                                        <strong>Auto-Remediation</strong>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -201,29 +209,46 @@ Stuff about VeriState attestation of correctness verification.
                                 </div>
                             </div>
                             <ul class="list-group list-group-flush bullet-list-group flex-grow-1">
-                                <li class="list-group-item" id="VS.HE.01">
+                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.HE.01">
                                     <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <span><a class="control-link" href="#modal-VS-HE-01" data-bs-toggle="modal" role="button"><strong>Backups</strong></a></span>
+                                    <a href="#modal-VS-HE-01" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
+                                        <strong>Backups</strong>
+                                    </a>
                                 </li>
-                                <li class="list-group-item" id="VS.HE.02">
+
+                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.HE.02">
                                     <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <span><a class="control-link" href="#modal-VS-HE-02" data-bs-toggle="modal" role="button"><strong>Email Security</strong></a></span>
+                                    <a href="#modal-VS-HE-02" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
+                                        <strong>Email Security</strong>
+                                    </a>
                                 </li>
-                                <li class="list-group-item" id="VS.HE.03">
+
+                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.HE.03">
                                     <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <span><a class="control-link" href="#modal-VS-HE-03" data-bs-toggle="modal" role="button"><strong>Encryption</strong></a></span>
+                                    <a href="#modal-VS-HE-03" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
+                                        <strong>Encryption</strong>
+                                    </a>
                                 </li>
-                                <li class="list-group-item" id="VS.HE.04">
+
+                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.HE.04">
                                     <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <span><a class="control-link" href="#modal-VS-HE-04" data-bs-toggle="modal" role="button"><strong>Patch Management</strong></a></span>
+                                    <a href="#modal-VS-HE-04" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
+                                        <strong>Patch Management</strong>
+                                    </a>
                                 </li>
-                                <li class="list-group-item" id="VS.HE.05">
+
+                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.HE.05">
                                     <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <span><a class="control-link" href="#modal-VS-HE-05" data-bs-toggle="modal" role="button"><strong>Tamper Protection</strong></a></span>
+                                    <a href="#modal-VS-HE-05" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
+                                        <strong>Tamper Protection</strong>
+                                    </a>
                                 </li>
-                                <li class="list-group-item" id="VS.HE.06">
+
+                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.HE.06">
                                     <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <span><a class="control-link" href="#modal-VS-HE-06" data-bs-toggle="modal" role="button"><strong>File Sharing</strong></a></span>
+                                    <a href="#modal-VS-HE-06" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
+                                        <strong>File Sharing</strong>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -231,20 +256,17 @@ Stuff about VeriState attestation of correctness verification.
                 </div>
             </div>
         </section>
-        <CallToAction />
     </div>
     <BriefingForm hidden={true} />
     {controls.map((c) => <ControlModal id={c.id} />)}
 </BaseLayout>
 <style>
-/* Ring */
-  .dh-ring { margin: 2.5rem auto 0; max-width: 20rem; text-align: center; }
-  .dh-ring svg { display: block; width: 100%; height: auto; }
-  .dh-ring__seg { fill: none; stroke-width: 30; }
-  .dh-ring__seg--1 { stroke: var(--dh-navy); }
-  .dh-ring__seg--0 { stroke: var(--dh-indigo); }
-  .dh-ring__num { fill: #fff; font: 700 16px var(--dh-sans); text-anchor: middle; dominant-baseline: central; }
-  .dh-ring__name { fill: var(--dh-navy); font: 400 21px var(--dh-serif); text-anchor: middle; }
-  .dh-ring__sub { fill: var(--dh-text); font: 500 11px var(--dh-sans); letter-spacing: 0.08em; text-transform: uppercase; text-anchor: middle; }
-  .dh-ring figcaption { margin-top: 0.75rem; font-size: 0.9375rem; line-height: 1.5; color: var(--dh-text); }
+ .dh-eyebrow {
+    margin: 0 0 1.25rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--dh-gold);
+  }
 </style>
