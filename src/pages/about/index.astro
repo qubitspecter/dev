@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BriefingForm from '../../components/BriefingForm.astro';
-import CallToAction from '../../components/CallToAction.astro';
 import { Image } from 'astro:assets';
 import { icon } from '../../data/controls';
 
@@ -24,14 +23,19 @@ const standards = [
 
     <div class="dh-page">
         <!-- 1. Hero and Why We Exist -->
-        <section class="pg-hero">
+        <section class="pg-hero pg-hero--about">
             <div class="pg-wrap">
-                <p class="pg-hero__label">About Decoheron</p>
-                <h1 class="ph-hero__title">Security isn't a product you install.</h1>
+                <p class="pg-hero__label">Why Decoheron</p>
+                <h1 class="ph-hero__title">
+                    <span>Decoheron was founded</span><br>
+                    <span>on a different belief...</span>
+                </h1>
                 <div class="pg-hero__lede">
-                    <p>Too many organisations do the minimum and expect the maximum from their security. They buy the right products, install them, receive a report, and assume they're protected.</p>
-                    <p>We've seen this from both sides of the table, as customers buying security and as managed service providers delivering it. The tools were rarely the problem. The problem was whether they were configured properly, whether anyone checked they were actually working, and whether the people responsible understood the threats those tools were meant to stop.</p>
-                    <p>Decoheron exists to close that gap. We take the security you've already paid for, make it work properly, and prove it.</p>
+                    <p>...security should be a finished outcome, not an endless process.</p>
+
+                    <p>Cyber threats are evolving faster than most professional services firms can keep up with. While many security providers sell more tools and ongoing services, we focus on delivering measurable security outcomes.</p>
+                    <p>Decoheron helps accounting firms, law firms and wealth managers reduce risk using the Microsoft security controls they already own. We implement, validate and continuously attest security controls aligned to Australian standards, providing certainty instead of assumptions.</p>
+<p>We don't replace your MSP. We strengthen your environment so they can operate more effectively, while you gain a secure, compliant, and resilient business with evidence to prove it.</p>
                 </div>
             </div>
         </section>
@@ -73,10 +77,6 @@ const standards = [
             </div>
         </section>
 
- 
-
-        <!-- 5. Why "Decoheron" (compact aside, not a full section) -->
-        <!-- PREPARER NOTE: keep the physics wording as is. Avoid describing decoherence as a "collapse", which is not strictly accurate. -->
         <section class="pg-band pg-band--white ab-aside">
             <div class="pg-wrap">
                 <div class="row justify-content-center align-items-center g-4">
@@ -90,11 +90,6 @@ const standards = [
                 </div>
             </div>
         </section>
-        <CallToAction
-            title="Find out where you actually stand."
-            text="Start with a fixed-fee assessment of your Microsoft security. You'll see what's working, what isn't, and what it will take to prove it."
-            button="Book a Call"
-        />
     </div>
     <BriefingForm hidden={true} />
 </BaseLayout>

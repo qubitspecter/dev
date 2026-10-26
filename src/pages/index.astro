@@ -12,47 +12,12 @@ const matrix = [
     { name: 'Hardened Environment', icon: 'shield' },
 ];
 
-const trust = [
-    { icon: 'award', label: 'SMB1001 Silver certified' },
-    { icon: 'shieldCheck', label: 'Our own environment at ASD Essential Eight ML2' },
-    { icon: 'cloud', label: 'Microsoft Cloud Solution Provider' },
-    { icon: 'users', label: 'Works with your existing MSP' },
-];
-
-const questions = [
-    'Can we show our controls are working today, not just configured?',
-    'Would we pass an audit this week?',
-    'What would we show our insurer after an incident?',
-    'What do we tell clients who ask how their information is protected?',
-];
-
 const pillars = [
-    { icon: 'checkCircle', lead: 'Lorem', text: 'Ipsum' },
-    { icon: 'cloud', lead: 'We use what you already own.', text: 'We don\'t sell new tools. We make the Microsoft security you\'ve paid for do its job.' },
-    { icon: 'clipboard', lead: 'Fixed scope, fixed price.', text: 'You know what you\'re getting, and what it costs, before we start.' },
-    { icon: 'users', lead: 'Alongside your MSP.', text: 'We strengthen the environment your MSP runs, rather than competing for it.' },
+    { icon: 'checkCircle', lead: 'ASD Essentials & SMB1001 Aligned Security Controls', },
+    { icon: 'cloud', lead: 'Optimise your Current Microsoft Environment', text: 'We don\'t sell new tools. We make the Microsoft security you\'ve paid for do its job.' },
+    { icon: 'clipboard', lead: 'Designed for Regulated Professional Services', text: 'You know what you\'re getting, and what it costs, before we start.' },
+    { icon: 'users', lead: 'Works Alongside your Existing MSP', text: 'We strengthen the environment your MSP runs, rather than competing for it.' },
 ];
-
-// Five-segment ring: one segment per control, Veristate in the centre.
-const ringC = 120;
-const ringR = 88;
-const ringPt = (deg: number): [number, number] => [
-    ringC + ringR * Math.cos((deg * Math.PI) / 180),
-    ringC + ringR * Math.sin((deg * Math.PI) / 180),
-];
-const ringSegs = controls.map((_, i) => {
-    const a0 = -90 + i * 72 + 3;
-    const a1 = -90 + (i + 1) * 72 - 3;
-    const [x0, y0] = ringPt(a0);
-    const [x1, y1] = ringPt(a1);
-    const [tx, ty] = ringPt((a0 + a1) / 2);
-    return {
-        n: i + 1,
-        d: `M${x0.toFixed(2)} ${y0.toFixed(2)}A${ringR} ${ringR} 0 0 1 ${x1.toFixed(2)} ${y1.toFixed(2)}`,
-        tx: tx.toFixed(2),
-        ty: ty.toFixed(2),
-    };
-});
 
 const comparison = [
     ['Security reviews', 'Continuous verification'],
@@ -62,44 +27,12 @@ const comparison = [
     ['Open-ended consulting hours', 'Fixed-scope, fixed-price phases'],
     ['"Trust us."', '"Here\'s the evidence."'],
 ];
-
-const steps = [
-    { name: 'Assess', text: 'A review of your Microsoft environment against the ASD Essential &, ASD Essentials, SMB1001, with a roadmap to compliance.' },
-    { name: 'Remediate', text: 'A programme of work that takes your environment to an evidenced, audit-ready state.' },
-     { name: 'Consolidate', text: 'A programme of work to maximise the value of your security investments.' },   
-    { name: 'Maintain', text: 'An ongoing retainer that keeps controls working, with regular Veristate™ reporting.' },
-];
-
-const mspPoints = [
-    'Clear division of responsibilities, agreed up front',
-    'Security controls designed and verified by specialists',
-    'Evidence reporting your MSP can rely on too',
-    'Fewer incidents to chase once controls are enforced',
-];
-
-const industries = [
-    {
-        icon: 'scales',
-        name: 'Legal firms',
-        text: 'Protect client confidentiality and privilege, and show clients and insurers exactly how their information is secured.',
-    },
-    {
-        icon: 'calculator',
-        name: 'Accounting firms',
-        text: 'Secure client financial data and practice systems, with evidence to support your privacy and professional obligations.',
-    },
-    {
-        icon: 'chart',
-        name: 'Wealth management firms',
-        text: 'In 2026 the Federal Court imposed the first civil penalty on an AFS licensee for cyber security failures. Give your board and responsible managers evidence that reasonable steps have been taken.',
-    },
-];
 ---
 
 <BaseLayout title="Decoheron - Outcome Focused Cyber Security">
 
 <!-- 1. Hero -->
-<section class="dh-hero" aria-labelledby="dh-hero-title">
+<section class="pg-hero pg-hero--home" aria-labelledby="dh-hero-title">
   <div class="dh-hero__inner">
     <div>
       <p class="dh-eyebrow">Cybersecurity for regulated SMBs</p>
@@ -127,7 +60,6 @@ const industries = [
         <li class="dh-pillar">
           <span class="dh-pillar__icon" set:html={icon(p.icon)} />
           <h3 class="dh-pillar__name">{p.lead}</h3>
-          <p>{p.text}</p>
         </li>
       ))}
     </ul>
@@ -156,19 +88,6 @@ const industries = [
           ))}
         </tbody>
       </table>
-    </div>
-  </div>
-</section>
-
-<!-- 11. Final call to action -->
-<section class="dh-section dh-section--ink dh-cta" aria-labelledby="dh-cta-title">
-  <div class="dh-wrap dh-narrow dh-centre">
-    <h2 class="dh-h2" id="dh-cta-title">Know where you stand. Then prove it.</h2>
-    <p class="dh-body dh-body--large">
-      Start with an assessment of your Microsoft security against the ASD aligned E8 and new ASD Essentials. You'll get a clear picture of where you stand today, and a costed roadmap to an evidenced, audit-ready environment.
-    </p>
-    <div class="dh-hero__actions dh-hero__actions--centre">
-      <a class="dh-btn dh-btn--primary" href="#briefing">Book a Call</a>
     </div>
   </div>
 </section>
@@ -405,16 +324,6 @@ const industries = [
   .dh-pillar__name { margin: 0.75rem 0 0; font-family: var(--dh-serif); font-weight: 400; font-size: 1.625rem; color: var(--dh-navy); }
   .dh-pillar p { margin: 0.5rem 0 0; font-size: 1rem; line-height: 1.55; color: var(--dh-text); }
 
-  /* Ring */
-  .dh-ring { margin: 2.5rem auto 0; max-width: 20rem; text-align: center; }
-  .dh-ring svg { display: block; width: 100%; height: auto; }
-  .dh-ring__seg { fill: none; stroke-width: 30; }
-  .dh-ring__seg--1 { stroke: var(--dh-navy); }
-  .dh-ring__seg--0 { stroke: var(--dh-indigo); }
-  .dh-ring__num { fill: #fff; font: 700 16px var(--dh-sans); text-anchor: middle; dominant-baseline: central; }
-  .dh-ring__name { fill: var(--dh-navy); font: 400 21px var(--dh-serif); text-anchor: middle; }
-  .dh-ring__sub { fill: var(--dh-text); font: 500 11px var(--dh-sans); letter-spacing: 0.08em; text-transform: uppercase; text-anchor: middle; }
-  .dh-ring figcaption { margin-top: 0.75rem; font-size: 0.9375rem; line-height: 1.5; color: var(--dh-text); }
 
   /* Comparison */
   .dh-table-wrap { margin-top: 2rem; overflow-x: auto; border: 1px solid #D5D9E8; border-radius: 6px; background: #fff; }

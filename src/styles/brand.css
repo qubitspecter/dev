@@ -16,10 +16,19 @@
 .pg-wrap { max-width: 1180px; margin: 0 auto; }
 
 .pg-hero {
-    background: var(--dh-navy);
+    background: var(--dh-navy) center / cover no-repeat;
     color: #fff;
     padding: clamp(3rem, 7vw, 5.5rem) 1.5rem;
 }
+
+/* only the image changes */
+.pg-hero--home    { background-image: url("../assets/1bg.jpg"); }
+.pg-hero--solution { background-image: url("../assets/2bg.jpg"); }
+.pg-hero--casestudies  { background-image: url("../assets/3bg.jpg"); }
+.pg-hero--why  { background-image: url("../assets/5bg.jpg"); }
+.pg-hero--about  { background-image: url("../assets/4bg.jpg"); }
+
+
 .pg-hero__label {
     margin: 0 0 1.25rem;
     font-size: 0.8125rem;
