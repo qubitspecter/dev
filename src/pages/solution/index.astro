@@ -5,269 +5,83 @@ import BriefingForm from '../../components/BriefingForm.astro';
 import ControlModal from '../../components/ControlModal.astro';
 import { controls } from '../../data/veristate';
 
+const veristate = [
+{icon: 'fingerprint', title: 'Deterministic Access',controls:[
+        {id:'VS-DA-01',name:'Phishing Resistance'},
+        {id:'VS-DA-02',name:'Compliant Devices'},
+        {id:'VS-DA-03',name:'Self-Service Risk Recovery'},
+        {id:'VS-DA-04',name:'Bypass Prevention'},
+        {id:'VS-DA-05',name:'Session Protection'},
+        {id:'VS-DA-06',name:'Secure Enrolment'},
+        ]},
+{icon: 'person-gear', title: 'Zero Admin',controls:[
+        {id:'VS-ZA-01',name:'Delegated Tasks'},
+        {id:'VS-ZA-02',name:'Just-in-Time Privilege'},
+        {id:'VS-ZA-03',name:'Approval Flow'},
+        {id:'VS-ZA-04',name:'Admin Safeguards'},
+        {id:'VS-ZA-05',name:'Local Admin Rights'},
+        {id:'VS-ZA-06',name:'Emergency Access'},
+        ]},
+{icon: 'terminal-x', title: 'Execution Control',controls:[
+        {id:'VS-EC-01',name:'Application Whitelist'},
+        {id:'VS-EC-02',name:'Web Browser Security'},
+        {id:'VS-EC-03',name:'Cloud Application Approvals'},
+        {id:'VS-EC-04',name:'Office Protections'},
+        {id:'VS-EC-05',name:'Advanced Attack Defense'},
+        {id:'VS-EC-06',name:'Auto-Remediation'},
+        ]},
+{icon: 'shield-lock-fill', title: 'Hardened Environment',controls:[
+        {id:'VS-HE-01',name:'Isolated Backups'},
+        {id:'VS-HE-02',name:'Email Security'},
+        {id:'VS-HE-03',name:'Encryption'},
+        {id:'VS-HE-04',name:'Patch Management'},
+        {id:'VS-HE-05',name:'Tamper Protection'},
+        {id:'VS-HE-06',name:'File Sharing'},
+        ]}
+];
+
+
 ---
 <BaseLayout title="Solutions - Deterministic Security & Verifiable Compliance - Decoheron">
     <div class="">
-        <section class="pg-hero pg-hero--solution">
-            <div class="pg-wrap pg-hero__split">
+        <section class="dh-hero dh-hero--compact dh-hero--solution">
+            <div class="dh-wrap dh-split dh-split--hero">
                 <div>
                     <p class="dh-eyebrow">Cybersecurity Solution</p>
                     <h1 class="ph-hero__title">
                         <span>Intuitive & Verifiable</span>
                     </h1>
-                    <p class="pg-hero__lede">Each control is built around simple principles: only you can sign in as you, only approved apps can run, nobody holds the keys all the time, and your backups sit where a thief can’t reach them.</p>
-                    <p class="pg-hero__lede">Strong protection is rarely a single toggle or switch. Effective controls are a chain of safeguards working in sequence, mapped line-by-line to proven standards like the ASD Essentials, SMB1001, and MITRE ATT&CK. We connect those pieces so you don't have to.</p>
-                    <p class="pg-hero__lede">The result is real protection that you can understand at a glance. Straightforward concepts that pass or fail, leaving zero guesswork about where you stand.</p>
+                    <p class="dh-hero__lede">Each control is built around simple principles: only you can sign in as you, only approved apps can run, nobody holds the keys all the time, and your backups sit where a thief can’t reach them.</p>
+                    <p class="dh-hero__lede">Strong protection is rarely a single toggle or switch. Effective controls are a chain of safeguards working in sequence, mapped line-by-line to proven standards like the ASD Essentials, SMB1001, and MITRE ATT&CK. We connect those pieces so you don't have to.</p>
+                    <p class="dh-hero__lede">The result is real protection that you can understand at a glance. Straightforward concepts that pass or fail, leaving zero guesswork about where you stand.</p>
                 </div>
             </div>
         </section>
-        <section style="padding:2em; max-width:1180px; margin:0 auto;">
-            <div class="row row-cols-1 row-cols-md-2 g-4">
-                <div class="col">
-                    <div class="card h-100 border-0 shadow-sm matrix-card bg-body">
-                        <div class="card-body p-4 d-flex flex-column">
-                            <div class="hero-graphic-box status-pass mb-3">
-                                <div class="hero-icon-wrapper text-success">
-                                    <i class="bi bi-fingerprint"></i>
-                                </div>
-                                <div>
-                                    <h3 class="fw-bold fs-4 mb-3">Deterministic Access</h3>
-                                </div>
-                            </div>
-
-                            <ul class="list-group list-group-flush bullet-list-group flex-grow-1">
-                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.DA.01">
-                                    <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <a href="#modal-VS-DA-01" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
-                                        <strong>Phishing-Resistance</strong>
-                                    </a>
-                                </li>
-
-                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.DA.02">
-                                    <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <a href="#modal-VS-DA-02" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
-                                        <strong>Compliant Devices</strong>
-                                    </a>
-                                </li>
-
-                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.DA.03">
-                                    <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <a href="#modal-VS-DA-03" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
-                                        <strong>Self-Service Risk Recovery</strong>
-                                    </a>
-                                </li>
-
-                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.DA.04">
-                                    <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <a href="#modal-VS-DA-04" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
-                                        <strong>Bypass Prevention</strong>
-                                    </a>
-                                </li>
-
-                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.DA.05">
-                                    <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <a href="#modal-VS-DA-05" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
-                                        <strong>Session Protection</strong>
-                                    </a>
-                                </li>
-
-                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.DA.06">
-                                    <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <a href="#modal-VS-DA-06" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
-                                        <strong>Secure Enrolment</strong>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+        
+        <section class="dh-section dh-section--compact dh-section--paper" aria-label="Case studies">
+            <div class="dh-wrap dh-grid dh-grid--2">
+                {veristate.map((s) => (
+                <div class="dh-cardlink">
+                    <div class="vs-graphic vs-pass mb-3">
+                        <div class="vs-graphic__icon text-success"><i class={'bi bi-'+s.icon}></i></div>
+                        <div><h3 class="fw-bold fs-4 mb-3">{s.title}</h3></div>
                     </div>
+                    <ul class="list-group list-group-flush vs-checklist flex-grow-1">
+                        {s.controls.map((c) =>(
+                        <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2">
+                        <i class="bi bi-check-circle-fill text-success vs-checklist__icon"></i>
+                        <a href={`#modal-${c.id}`} class="vs-control stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
+                        <strong>{c.name}</strong>
+                        </a>
+                        </li>
+                        ))}
+                    </ul>
                 </div>
-                <!-- Zero Admin -->
-                <div class="col">
-                    <div class="card h-100 border-0 shadow-sm matrix-card bg-body">
-                        <div class="card-body p-4 d-flex flex-column">
-                            <div class="hero-graphic-box status-pass mb-3">
-                                <div class="hero-icon-wrapper text-success">
-                                    <i class="bi bi-person-gear"></i>
-                                </div>
-                                <div>
-                                    <h3 class="fw-bold fs-4 mb-3">Zero Admin</h3>
-                                </div>
-                            </div>
-                            <ul class="list-group list-group-flush bullet-list-group flex-grow-1">
-                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.ZA.01">
-                                    <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <a href="#modal-VS-ZA-01" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
-                                        <strong>Delegated Tasks</strong>
-                                    </a>
-                                </li>
-
-                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.ZA.02">
-                                    <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <a href="#modal-VS-ZA-02" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
-                                        <strong>Just-in-Time Privilege</strong>
-                                    </a>
-                                </li>
-
-                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.ZA.03">
-                                    <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <a href="#modal-VS-ZA-03" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
-                                        <strong>Approval Flow</strong>
-                                    </a>
-                                </li>
-
-                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.ZA.04">
-                                    <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <a href="#modal-VS-ZA-04" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
-                                        <strong>Admin Safeguards</strong>
-                                    </a>
-                                </li>
-
-                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.ZA.05">
-                                    <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <a href="#modal-VS-ZA-05" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
-                                        <strong>Local Admin Rights</strong>
-                                    </a>
-                                </li>
-
-                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.ZA.06">
-                                    <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <a href="#modal-VS-ZA-06" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
-                                        <strong>Emergency Access</strong>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- Execution Control -->
-                <div class="col">
-                    <div class="card h-100 border-0 shadow-sm matrix-card bg-body">
-                        <div class="card-body p-4 d-flex flex-column">
-                            <div class="hero-graphic-box status-pass mb-3">
-                                <div class="hero-icon-wrapper text-success">
-                                    <i class="bi bi-terminal-x"></i>
-                                </div>
-                                <div>
-                                    <h3 class="fw-bold fs-4 mb-3">Execution Control</h3>
-                                </div>
-                            </div>
-                            <ul class="list-group list-group-flush bullet-list-group flex-grow-1">
-                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.EC.01">
-                                    <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <a href="#modal-VS-EC-01" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
-                                        <strong>Application Whitelist</strong>
-                                    </a>
-                                </li>
-
-                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.EC.02">
-                                    <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <a href="#modal-VS-EC-02" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
-                                        <strong>Web Browser Security</strong>
-                                    </a>
-                                </li>
-
-                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.EC.03">
-                                    <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <a href="#modal-VS-EC-03" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
-                                        <strong>Cloud Application Approvals</strong>
-                                    </a>
-                                </li>
-
-                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.EC.04">
-                                    <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <a href="#modal-VS-EC-04" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
-                                        <strong>Office Protections</strong>
-                                    </a>
-                                </li>
-
-                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.EC.05">
-                                    <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <a href="#modal-VS-EC-05" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
-                                        <strong>Advanced Attack Defense</strong>
-                                    </a>
-                                </li>
-
-                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.EC.06">
-                                    <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <a href="#modal-VS-EC-06" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
-                                        <strong>Auto-Remediation</strong>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- Hardened Environment -->
-                <div class="col">
-                    <div class="card h-100 border-0 shadow-sm matrix-card bg-body">
-                        <div class="card-body p-4 d-flex flex-column">
-                            <div class="hero-graphic-box status-pass mb-3">
-                                <div class="hero-icon-wrapper text-success">
-                                    <i class="bi bi-shield-lock-fill"></i>
-                                </div>
-                                <div>
-                                    <h3 class="fw-bold fs-4 mb-3">Hardened Environment</h3>
-                                </div>
-                            </div>
-                            <ul class="list-group list-group-flush bullet-list-group flex-grow-1">
-                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.HE.01">
-                                    <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <a href="#modal-VS-HE-01" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
-                                        <strong>Backups</strong>
-                                    </a>
-                                </li>
-
-                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.HE.02">
-                                    <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <a href="#modal-VS-HE-02" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
-                                        <strong>Email Security</strong>
-                                    </a>
-                                </li>
-
-                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.HE.03">
-                                    <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <a href="#modal-VS-HE-03" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
-                                        <strong>Encryption</strong>
-                                    </a>
-                                </li>
-
-                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.HE.04">
-                                    <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <a href="#modal-VS-HE-04" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
-                                        <strong>Patch Management</strong>
-                                    </a>
-                                </li>
-
-                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.HE.05">
-                                    <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <a href="#modal-VS-HE-05" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
-                                        <strong>Tamper Protection</strong>
-                                    </a>
-                                </li>
-
-                                <li class="list-group-item list-group-item-action position-relative d-flex align-items-center gap-2" id="VS.HE.06">
-                                    <i class="bi bi-check-circle-fill text-success bullet-icon"></i>
-                                    <a href="#modal-VS-HE-06" class="control-link stretched-link text-decoration-none text-reset" data-bs-toggle="modal" role="button">
-                                        <strong>File Sharing</strong>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                ))}
             </div>
         </section>
     </div>
     <BriefingForm hidden={true} />
     {controls.map((c) => <ControlModal id={c.id} />)}
 </BaseLayout>
-<style>
- .dh-eyebrow {
-    margin: 0 0 1.25rem;
-    font-size: 0.8125rem;
-    font-weight: 600;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    color: var(--dh-gold);
-  }
-</style>
+

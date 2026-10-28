@@ -7,7 +7,7 @@ const pathname = Astro.url.pathname;
 <nav class="navbar navbar-expand-lg navbar-cream sticky-top py-3">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center gap-2 fw-bold fs-4" href="/">
-            <Image src={logoImage} alt="Decoheron Logo" class="img-fluid hero-logo" loading="eager" />
+            <Image src={logoImage} alt="Decoheron Logo" class="img-fluid dh-logo" loading="eager" />
             <span>Decoheron</span>
         </a>
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,56 +35,11 @@ const pathname = Astro.url.pathname;
                     <a class:list={['nav-link', { active: pathname.startsWith('/about') }]} aria-current={pathname.startsWith('/about') ? 'page' : undefined} href="/about">About</a>
                 </li>
  <!--                -->
-                <li class="nav-item nav-cta-item">
-                    <a class="nav-cta" href="#briefing">Book a Call</a>
+                <li class="nav-item navbar-cta">
+                    <a class="dh-btn dh-btn--nav" href="#briefing">Book a Call</a>
                 </li>
            </ul>
         </div>
     </div>
 </nav>
 
-<style>
-.navbar-cream {
-    background-color: #FFFFFF !important;
-    border-bottom: 1px solid #E2E5EC !important;
-}
-
-.navbar-cream .navbar-brand {
-    color: var(--bs-secondary) !important;
-}
-
-.navbar-cream .nav-link {
-    color: var(--bs-body-color) !important;
-    font-weight: 500;
-    font-size: 1.1rem;
-}
-
-.navbar-cream .nav-link {
-    text-decoration: underline 3px transparent;
-    text-underline-offset: 0.4em;
-    transition: text-decoration-color 0.15s ease;
-}
-
-.navbar-cream .nav-link:hover, .navbar-cream .nav-link.active {
-    text-decoration-color: var(--dh-gold);
-}
-
-.nav-cta {
-    display: inline-block;
-    padding: 0.55rem 1.1rem;
-    border-radius: 4px;
-    background: var(--dh-indigo);
-    color: #fff;
-    font: 600 1rem/1.2 var(--dh-sans);
-    text-decoration: none;
-    white-space: nowrap;
-    transition: background-color 0.15s ease;
-}
-.nav-cta:hover { background: var(--dh-navy); color: #fff; }
-.nav-cta:focus-visible { outline: 3px solid var(--dh-gold); outline-offset: 3px; }
-
-.nav-cta-item { margin-top: 0.5rem; }
-@media (min-width: 992px) {
-    .nav-cta-item { margin-top: 0; margin-left: 1rem; }
-}
-</style>

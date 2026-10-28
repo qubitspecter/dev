@@ -4,13 +4,6 @@ import BriefingForm from '../components/BriefingForm.astro';
 import ControlCards from '../components/ControlCards.astro';
 import { icon, controls } from '../data/controls';
 
-// Illustrative VeriState matrix for the hero. Not a real client record.
-const matrix = [
-    { name: 'Deterministic Access', icon: 'fingerprint' },
-    { name: 'Zero Admin', icon: 'admin' },
-    { name: 'Execution Control', icon: 'terminal' },
-    { name: 'Hardened Environment', icon: 'shield' },
-];
 
 const pillars = [
     { icon: 'checkCircle', lead: 'ASD Essentials & SMB1001 aligned security controls', },
@@ -32,8 +25,8 @@ const comparison = [
 <BaseLayout title="Decoheron - Outcome Focused Cyber Security">
 
 <!-- 1. Hero -->
-<section class="pg-hero pg-hero--home" aria-labelledby="dh-hero-title">
-  <div class="dh-hero__inner">
+<section class="dh-hero dh-hero--compact dh-hero--home" aria-labelledby="dh-hero-title">
+  <div class="dh-wrap dh-split dh-split--hero">
     <div>
       <p class="dh-eyebrow">Cybersecurity for regulated SMB and Mid-Market business</p>
       
@@ -45,7 +38,7 @@ const comparison = [
       <p class="dh-hero__lede">
          Decoheron implements complete, enforced security in the Microsoft environment you already own. We assess for alignment with ASD Essentials and SMB1001. We then verify and attest to it daily, so you can show your board, your clients, your insurer or an auditor exactly where you stand, on demand. Built for regulated ogranisations such as legal, accounting and wealth management. We work alongside your existing IT provider to empower them.
       </p>
-      <div class="dh-hero__actions">
+      <div class="dh-actions">
         <a class="dh-btn dh-btn--primary" href="#briefing">Book a Call</a>
         <a class="dh-btn dh-btn--secondary" href="/solution">See How It Works</a>
       </div>
@@ -55,11 +48,11 @@ const comparison = [
 
 <section class="dh-section dh-section--paper" aria-labelledby="dh-diff-title">
   <div class="dh-wrap">
-    <ul class="dh-pillars">
+    <ul class="dh-grid dh-grid--4 dh-grid--spaced">
       {pillars.map((p) => (
-        <li class="dh-pillar">
-          <span class="dh-pillar__icon" set:html={icon(p.icon)} />
-          <h3 class="dh-pillar__name">{p.lead}</h3>
+        <li class="dh-point">
+          <span class="dh-point__icon" set:html={icon(p.icon)} />
+          <h3 class="dh-h3">{p.lead}</h3>
         </li>
       ))}
     </ul>
@@ -96,255 +89,3 @@ const comparison = [
       <BriefingForm hidden={true} />
 </BaseLayout>
 
-<style>
-  .dh-hero, .dh-section {
-    --dh-navy: #0A1B6B;
-    --dh-ink: #050D2E;
-    --dh-indigo: #0310A4;
-    --dh-paper: #F5F6FA;
-    --dh-gold: #D8AE4E;
-    --dh-text: #2A3358;
-    --dh-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    --dh-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-family: var(--dh-sans);
-    -webkit-font-smoothing: antialiased;
-  }
-  .dh-hero *, .dh-section * { box-sizing: border-box; }
-
-  /* Shared */
-  :global(.dh-ico) {
-    width: 1.5rem;
-    height: 1.5rem;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-  .dh-eyebrow {
-    margin: 0 0 1.25rem;
-    font-size: 0.8125rem;
-    font-weight: 600;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    color: var(--dh-gold);
-  }
-  .dh-section { background: #fff; color: var(--dh-ink); padding: clamp(3rem, 6vw, 5.5rem) 1.5rem; }
-  .dh-section--tight { padding-top: 1.75rem; padding-bottom: 1.75rem; }
-  .dh-section--paper { background: var(--dh-paper); }
-  .dh-section--navy { background: var(--dh-navy); color: #fff; }
-  .dh-section--ink { background: var(--dh-ink); color: #fff; }
-  .dh-wrap { max-width: 1180px; margin: 0 auto; }
-  .dh-narrow { max-width: 50rem; }
-  .dh-wrap.dh-narrow { margin-left: auto; margin-right: auto; }
-  .dh-centre { text-align: center; }
-  .dh-split { display: grid; gap: 2.5rem; align-items: start; }
-  @media (min-width: 900px) { .dh-split { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4rem; } }
-
-  .dh-h2 {
-    margin: 0;
-    font-family: var(--dh-serif);
-    font-weight: 400;
-    font-size: clamp(1.875rem, 3.6vw, 2.75rem);
-    line-height: 1.1;
-    letter-spacing: -0.012em;
-    text-wrap: balance;
-    color: var(--dh-navy);
-  }
-  .dh-section--navy .dh-h2, .dh-section--ink .dh-h2 { color: #fff; }
-  .dh-body { margin: 1.25rem 0 0; font-size: 1.125rem; line-height: 1.6; color: var(--dh-text); }
-  .dh-section--navy .dh-body, .dh-section--ink .dh-body { color: rgba(255, 255, 255, 0.84); }
-  .dh-body--large { font-size: 1.1875rem; line-height: 1.65; }
-  .dh-body--lead { margin-top: 1.75rem; font-weight: 600; color: var(--dh-navy); }
-  .dh-centre .dh-body { margin-left: auto; margin-right: auto; }
-
-  /* Hero */
-  .dh-hero {
-    background: var(--dh-navy);
-    color: #fff;
-    padding: clamp(3rem, 7vw, 6.5rem) 1.5rem;
-  }
-  /* Single column while the matrix panel is off. Use grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr) at 960px+ to bring it back. */
-  .dh-hero__inner {
-    max-width: 1180px;
-    margin: 0 auto;
-    display: grid;
-    gap: clamp(2.5rem, 5vw, 4.5rem);
-    align-items: center;
-  }
-
-  .dh-hero__title {
-    margin: 0;
-    font-family: var(--dh-serif);
-    font-weight: 400;
-    font-size: clamp(2.25rem, 4.6vw, 3.75rem);
-    line-height: 1.05;
-    letter-spacing: -0.015em;
-    text-wrap: balance;
-  }
-  .dh-hero__title span { display: block; }
-  .dh-hero__title span + span { color: rgba(255, 255, 255, 0.6); margin-top: 0.15em; }
-  .dh-hero__title + .dh-hero__lede { margin-top: 1.75rem; }
-
-  .dh-hero__lede {
-    margin: 1.25rem 0 0;
-    max-width: 40rem;
-    font-size: 1.125rem;
-    line-height: 1.55;
-    color: rgba(255, 255, 255, 0.84);
-  }
-  .dh-hero__note { margin: 1rem 0 0; font-size: 0.9375rem; color: rgba(255, 255, 255, 0.7); }
-
-  .dh-hero__actions {
-    margin-top: 2.25rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.875rem;
-  }
-  .dh-hero__actions--centre { justify-content: center; }
-  .dh-btn {
-    display: inline-block;
-    padding: 0.9rem 1.5rem;
-    border-radius: 4px;
-    font: 600 1rem/1.2 var(--dh-sans);
-    text-decoration: none;
-    border: 1px solid transparent;
-    transition: background-color 0.15s ease, border-color 0.15s ease;
-  }
-  .dh-btn--primary { background: var(--dh-gold); color: var(--dh-ink); }
-  .dh-btn--primary:hover { background: #E4BD62; }
-  .dh-btn--secondary { color: #fff; border-color: rgba(255, 255, 255, 0.45); }
-  .dh-btn--secondary:hover { border-color: #fff; background: rgba(255, 255, 255, 0.06); }
-  @media (max-width: 520px) { .dh-btn { width: 100%; text-align: center; } }
-  .dh-btn:focus-visible { outline: 3px solid var(--dh-gold); outline-offset: 3px; }
-
-  /* VeriState panel (static, currently switched off in the markup) */
-  .dh-panel {
-    margin: 0;
-    background: #F6F7F9;
-    color: var(--dh-ink);
-    border-radius: 10px;
-    padding: 1rem clamp(0.6rem, 2vw, 1rem) 1rem;
-    box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.55);
-  }
-  .dh-panel__head {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 0.25rem 1rem;
-    padding: 0 0.35rem 0.75rem;
-  }
-  .dh-panel__title { margin: 0; font-size: 1rem; font-weight: 700; color: var(--dh-ink); }
-  .dh-panel__sample { font-size: 0.8125rem; color: #4B5563; }
-
-  .dh-tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.65rem; }
-  .dh-tile { background: #fff; border-radius: 8px; padding: 0.55rem; box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08); }
-
-  .dh-tile__banner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 1.6rem 0.75rem 1.4rem;
-    border: 1px solid #A9C0E6;
-    border-radius: 7px;
-    background: linear-gradient(90deg, #86A5D6, #C5D9F8);
-  }
-  .dh-tile__badge {
-    display: grid;
-    place-items: center;
-    width: 2.6rem;
-    height: 2.6rem;
-    border-radius: 50%;
-    background: #fff;
-    color: #1E8449;
-  }
-  .dh-tile__title { margin: 0; font-size: 0.9375rem; font-weight: 600; line-height: 1.25; text-align: center; color: var(--dh-ink); }
-
-  .dh-sr {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-  }
-
-  /* Trust bar */
-  .dh-trust {
-    list-style: none;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding: 0;
-    display: grid;
-    gap: 1.25rem 2rem;
-  }
-  @media (min-width: 640px) { .dh-trust { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (min-width: 1000px) { .dh-trust { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-  .dh-trust__item {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 0.9375rem;
-    font-weight: 600;
-    line-height: 1.35;
-    color: var(--dh-navy);
-  }
-  .dh-trust__icon { flex: none; color: var(--dh-indigo); display: grid; }
-
-  /* Problem */
-  .dh-questions { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.875rem; }
-  .dh-questions li {
-    display: flex;
-    gap: 0.875rem;
-    align-items: flex-start;
-    padding: 1rem 1.125rem;
-    background: var(--dh-paper);
-    border-left: 3px solid var(--dh-navy);
-    font-size: 1.0625rem;
-    line-height: 1.5;
-    color: var(--dh-ink);
-  }
-  .dh-questions__icon { flex: none; color: var(--dh-indigo); display: grid; margin-top: 0.1rem; }
-
-  /* Difference pillars */
-  .dh-pillars {
-    list-style: none;
-    margin: 2.25rem 0 0;
-    padding: 0;
-    display: grid;
-    gap: 2rem 2.5rem;
-  }
-  @media (min-width: 640px) { .dh-pillars { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (min-width: 1000px) { .dh-pillars { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-  .dh-pillar { border-top: 2px solid var(--dh-navy); padding-top: 1.1rem; }
-  .dh-pillar__icon { display: grid; color: var(--dh-indigo); }
-  .dh-pillar__icon :global(.dh-ico) { width: 2rem; height: 2rem; }
-  .dh-pillar__name { margin: 0.75rem 0 0; font-family: var(--dh-serif); font-weight: 400; font-size: 1.625rem; color: var(--dh-navy); }
-  .dh-pillar p { margin: 0.5rem 0 0; font-size: 1rem; line-height: 1.55; color: var(--dh-text); }
-
-
-  /* Comparison */
-  .dh-table-wrap { margin-top: 2rem; overflow-x: auto; border: 1px solid #D5D9E8; border-radius: 6px; background: #fff; }
-  .dh-table { width: 100%; border-collapse: collapse; font-size: 1.0625rem; }
-  .dh-table th, .dh-table td { padding: 1rem 1.25rem; text-align: left; vertical-align: top; line-height: 1.4; }
-  .dh-table thead th { font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dh-text); background: var(--dh-paper); }
-  .dh-table thead th:last-child { color: #fff; background: var(--dh-navy); }
-  .dh-table tbody tr + tr > * { border-top: 1px solid #E3E6F1; }
-  .dh-table td { color: var(--dh-text); width: 50%; }
-  .dh-table tbody th { font-weight: 600; color: var(--dh-navy); background: #EEF0FA; width: 50%; }
-
-  /* Steps */
-  .dh-steps { list-style: none; margin: 2.25rem 0 0; padding: 0; display: grid; gap: 2rem 2.5rem; counter-reset: none; }
-  @media (min-width: 640px) { .dh-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (min-width: 1000px) { .dh-steps { grid-template-columns: repeat(var(--dh-step-count, 3), minmax(0, 1fr)); } }
-dding: 1.5rem; background: #fff; border: 1px solid #D5D9E8; border-top: 3px solid var(--dh-navy); border-radius: 6px; }
-  .dh-industry__icon { display: grid; color: var(--dh-indigo); }
-  .dh-industry__icon :global(.dh-ico) { width: 2rem; height: 2rem; }
-  .dh-industry h3 { margin: 0.9rem 0 0; font-family: var(--dh-serif); font-weight: 400; font-size: 1.5rem; color: var(--dh-navy); }
-  .dh-industry p { margin: 0.6rem 0 0; font-size: 1rem; line-height: 1.55; color: var(--dh-text); }
-
-  /* Final CTA */
-  .dh-cta .dh-hero__actions { margin-top: 2rem; }
-</style>

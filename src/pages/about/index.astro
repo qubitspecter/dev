@@ -23,13 +23,13 @@ const standards = [
 
     <div class="dh-page">
         <!-- 1. Hero and Why We Exist -->
-        <section class="pg-hero pg-hero--about">
-            <div class="pg-wrap">
-                <p class="pg-hero__label">Why Decoheron</p>
+        <section class="dh-hero dh-hero--compact dh-hero--about">
+            <div class="dh-wrap">
+                <p class="dh-eyebrow">Why Decoheron</p>
                 <h1 class="ph-hero__title">
                     <span>Why another security company?</span><br>
                 </h1>
-                <div class="pg-hero__lede">
+                <div class="dh-hero__lede">
                     <p>Small regulated businesses are already hopelessly behind the threat landscape, and the gap is about to widen. Law firms, accountants and wealth managers hold some of the most sensitive information in their clients’ lives, with a fraction of the defences. I’ll spare you the stats and the charts, but AI is rapidly changing the manner, accessibility and speed of cyberattacks. Many of these firms will simply not survive it.</p>
                     <p>I came to this from the defence sector, where you learn that you don’t win by watching an attacker more closely. You win by building systems where the attack can’t work. Then I looked at small business and saw the opposite: security sold as monitoring and alerts, an ongoing guess about whether someone is already inside. Most firms I look at can’t even get their email authentication right. That isn’t negligence. They were sold the wrong thing.</p>
                     <p>That is why we started Decoheron. The name is the idea. In quantum physics, decoherence is where something uncertain settles into one definite state, and that is what we want for security: not “probably fine”, but enforced or not, and provable either way. Tom and I built this to do exactly that. I handle the security, he makes sure it lands smoothly in a business that can’t afford disruption, and then we get out of the way.</p>
@@ -38,13 +38,12 @@ const standards = [
         </section>
 
         <!-- 2. The Founders -->
-        <section class="pg-band pg-band--paper">
-            <div class="pg-wrap">
+        <section class="dh-section dh-section--compact dh-section--paper">
+            <div class="dh-wrap">
                 <div class="mb-5">
                     <div class="mb-4">
                         <h2 class="h3 fw-bold text-primary">The founders</h2>
                     </div>
-                    <!-- PREPARER NOTE: add founder headshots when available. Until then, keep this two-column layout without image placeholders rather than grey silhouettes. -->
                     <div class="row g-4">
                         <div class="col-md-6">
                             <div class="card h-100 p-4">
@@ -74,8 +73,8 @@ const standards = [
             </div>
         </section>
 
-        <section class="pg-band pg-band--white ab-aside">
-            <div class="pg-wrap">
+        <section class="dh-section dh-section--compact dh-section--white dh-section--tight">
+            <div class="dh-wrap">
                 <div class="row justify-content-center align-items-center g-4">
                     <div class="col-md-4 col-lg-3">
                         <Image src={logoImage} alt="Decoheron Name and Brand Mark" class="img-fluid mx-auto d-block" style="max-height: 140px; object-fit: contain;" loading="eager" />
@@ -91,32 +90,4 @@ const standards = [
     <BriefingForm hidden={true} />
 </BaseLayout>
 
-<style>
-    .pg-hero__lede p { margin: 0 0 1rem; }
-    .pg-hero__lede p:last-child { margin-bottom: 0; }
 
-    .ab-aside { padding-top: clamp(1.5rem, 3vw, 2.5rem); padding-bottom: clamp(1.5rem, 3vw, 2.5rem); }
-
-    .ab-principles {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: grid;
-        gap: 2rem 2.5rem;
-    }
-    @media (min-width: 640px) { .ab-principles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (min-width: 1000px) { .ab-principles { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-    .ab-principle { border-top: 2px solid var(--dh-navy); padding-top: 1.1rem; }
-    .ab-principle__icon { display: grid; color: var(--dh-indigo); }
-    .ab-principle__icon :global(.dh-ico) {
-        width: 2rem;
-        height: 2rem;
-        fill: none;
-        stroke: currentColor;
-        stroke-width: 1.8;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-    }
-    .ab-principle__text { margin: 0.75rem 0 0; font-size: 1.0625rem; line-height: 1.55; }
-    .ab-principle__text strong { display: block; font-family: var(--dh-serif); font-weight: 500; font-size: 1.375rem; line-height: 1.2; color: var(--dh-navy); margin-bottom: 0.4rem; }
-</style>
