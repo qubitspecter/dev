@@ -50,8 +50,7 @@ export const controls: Control[] = [
     id: 'VS.DA.01',
     title: 'Phishing-Resistance',
     description: [
-      'Every user, with no exceptions, signs in with a phishing-resistant credential. Passkeys are defined, assigned and enforced, so credential theft, password phishing and MFA fatigue become things of the past.',
-      "Users who haven't registered a passkey yet don't cause a failure, because enforcement means they can't sign in until they do.",
+      'Every user, with no exceptions, signs in with a phishing-resistant credential. Passkeys are defined, assigned and enforced, so credential theft, password phishing and MFA fatigue become things of the past.'
     ],
     asd: [{ id: 'PRO-13', actions: 2 }],
     smb: [
