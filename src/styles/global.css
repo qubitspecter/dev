@@ -435,8 +435,8 @@ header { border-bottom: 2px solid var(--bs-secondary) !important; }
 .dh-hero--home { background-image: url("../assets/1bg.jpg"); }
 .dh-hero--solution { background-image: url("../assets/2bg.jpg"); }
 .dh-hero--casestudies { background-image: url("../assets/3bg.jpg"); }
-.dh-hero--about { background-image: url("../assets/4bg.jpg"); }
-.dh-hero--why { background-image: url("../assets/5bg.jpg"); }
+.dh-hero--about { background-image: url("../assets/5bg.jpg"); }
+.dh-hero--why { background-image: url("../assets/4bg.jpg"); }
 
 .dh-hero__back {
   display: inline-block;
