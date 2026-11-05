@@ -9,7 +9,10 @@ const pathname = Astro.url.pathname;
             <a href="#briefing" class="dh-btn dh-btn--primary">Book a Call</a>
         </div>
         <small class="text-subtle-light">&copy; {currentYear} Decoheron. All rights reserved.
-            <a class:list={['nav-link', { active: pathname === '/' }]} aria-current={pathname === '/' ? 'page' : undefined} href="/privacy">Privacy Policy</a>
+            <span class="d-flex justify-content-center gap-3">
+                <a class="nav-link" href="https://www.linkedin.com/company/decoheron/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a class:list={['nav-link', { active: pathname === '/' }]} aria-current={pathname === '/' ? 'page' : undefined} href="/privacy">Privacy Policy</a>
+            </span>
         </small>
     </div>
 </footer>

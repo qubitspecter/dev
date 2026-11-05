@@ -17,8 +17,8 @@
     "astro": "^7.4.1",
     "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.13.2",
-    "rehype-katex": "^7.0.1",
-    "remark-math": "^6.0.0"
+    "rehype-katex": "^1.2.0",
+    "remark-math": "^3.0.1"
   },
   "allowScripts": {
     "esbuild@0.28.2": true
