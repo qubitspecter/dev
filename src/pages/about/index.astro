@@ -6,6 +6,7 @@ import { icon } from '../../data/controls';
 
 // Import your team/logo images from src/assets/
 import logoImage from '../../assets/meaning.png';
+import thomasPhoto from '../../assets/team/thomas-ludbrook.jpg';
 
 const standards = [
     'SMB1001 Silver certified, with all Gold controls in place and independent audit pending',
@@ -49,9 +50,12 @@ const standards = [
                     <div class="row g-4">
                         <div class="col-md-6">
                             <div class="card h-100 p-4">
-                                <div class="mb-3">
-                                    <h3 class="h4 fw-bold mb-1 text-primary">Thomas Ludbrook</h3>
-                                    <p class="text-secondary mb-0 fw-medium">Founder &amp; Commercial Director</p>
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <Image src={thomasPhoto} alt="Thomas Ludbrook" width={96} height={96} densities={[1, 2]} class="rounded-circle flex-shrink-0" />
+                                    <div>
+                                        <h3 class="h4 fw-bold mb-1 text-primary">Thomas Ludbrook</h3>
+                                        <p class="text-secondary mb-0 fw-medium">Founder &amp; Commercial Director</p>
+                                    </div>
                                 </div>
                                 <!-- PREPARER NOTE: confirm you're comfortable naming Haylix, Microsoft and Insentra publicly. -->
                                 <p class="mb-3 text-body">Thomas has spent 28 years in technology leadership across Australia and Asia Pacific. He started his career as a developer, spent seven years as CEO of cloud managed services provider Haylix, and has held senior roles at Microsoft APAC and Insentra. Running an MSP showed him how often organisations pay for Microsoft security capability they never fully use.</p>
@@ -61,9 +65,13 @@ const standards = [
 
                         <div class="col-md-6">
                             <div class="card h-100 p-4">
-                                <div class="mb-3">
-                                    <h3 class="h4 fw-bold mb-1 text-primary">Robert Shea</h3>
-                                    <p class="text-secondary mb-0 fw-medium">Founder &amp; Technical Partner</p>
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <!-- Placeholder: replace with an <Image> like Thomas's once Robert's photo is in src/assets/team/ -->
+                                    <div class="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-primary text-white fw-bold fs-4" style="width: 96px; height: 96px;" aria-hidden="true">RS</div>
+                                    <div>
+                                        <h3 class="h4 fw-bold mb-1 text-primary">Robert Shea</h3>
+                                        <p class="text-secondary mb-0 fw-medium">Founder &amp; Technical Partner</p>
+                                    </div>
                                 </div>
                                 <!-- PREPARER NOTE: Rob's bio keeps to the level of detail already public on the site. Confirm with Rob before adding anything more specific about his background. -->
                                 <p class="mb-3 text-body">Robert brings 30 years of security experience across battlefield systems, high-assurance computing and enterprise defence. In those environments, a control is either proven to work or treated as absent. He brings that same discipline to every Decoheron engagement.</p>
